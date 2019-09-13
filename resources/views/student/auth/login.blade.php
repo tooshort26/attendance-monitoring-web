@@ -14,12 +14,17 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Student!</h1>
                                     </div>
                                     <form class="user"  method="POST" action="{{  route('student.auth.loginStudent') }}">
                                         {{ csrf_field() }}
+
+                                         <div class="form-group">
+                                            @include('templates.error')
+                                        </div>
+
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" name="email" id="emailAddress" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                            <input type="number" class="form-control form-control-user" name="id_number" id="idNumber" aria-describedby="idNumberHelper" placeholder="Enter ID Number..." value="{{old('id_number')}}">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" name="password" id="userPassword" placeholder="Password">

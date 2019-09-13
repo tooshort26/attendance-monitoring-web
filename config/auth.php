@@ -60,14 +60,14 @@ return [
            'driver' => 'token',
            'provider' => 'students',
        ],
-       'super_admin' => [
-           'driver' => 'session',
-           'provider' => 'super_admins',
-       ],
-       'super_admin-api' => [
-           'driver' => 'token',
-           'provider' => 'super_admins',
-       ]
+       // 'super_admin' => [
+       //     'driver' => 'session',
+       //     'provider' => 'super_admins',
+       // ],
+       // 'super_admin-api' => [
+       //     'driver' => 'token',
+       //     'provider' => 'super_admins',
+       // ]
     ],
 
     /*
@@ -100,10 +100,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Student::class,
         ],
-        'super_admins' => [
-            'driver' => 'eloquent',
-            'model' => App\SuperAdmin::class,
-        ],
+        // 'super_admins' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\SuperAdmin::class,
+        // ],
    
     ],
 
@@ -139,11 +139,11 @@ return [
             'table' => 'password_resets',
             'expire' => 15,
         ],
-        'super_admins' => [
-            'provider' => 'super_admins',
-            'table' => 'password_resets',
-            'expire' => 15,
-        ],
+        // 'super_admins' => [
+        //     'provider' => 'super_admins',
+        //     'table' => 'password_resets',
+        //     'expire' => 15,
+        // ],
     ],
 
 ];

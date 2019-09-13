@@ -8,7 +8,7 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::group(['prefix' => 'school'] , function () {
+Route::group(['prefix' => 'admin'] , function () {
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
   	Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
   	Route::get('login', 'Auth\AdminLoginController@login')->name('admin.auth.login');
@@ -24,12 +24,12 @@ Route::group(['prefix' => 'student'] , function () {
   	Route::post('logout', 'Auth\StudentLoginController@logout')->name('student.auth.logout');
 });
 
-Route::group(['prefix' => 'superadmin'] , function () {
+/*Route::group(['prefix' => 'superadmin'] , function () {
 	Route::get('/', 'SuperAdminController@index')->name('super_admin.dashboard');
   	Route::get('dashboard', 'SuperAdminController@index')->name('super_admin.dashboard');
   	Route::get('login', 'Auth\SuperAdminLoginController@login')->name('super_admin.auth.login');
   	Route::post('login', 'Auth\SuperAdminLoginController@loginSuperAdmin')->name('super_admin.auth.loginSuperAdmin');
   	Route::post('logout', 'Auth\SuperAdminLoginController@logout')->name('super_admin.auth.logout');
 });
-
+*/
 
