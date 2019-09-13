@@ -10,6 +10,7 @@ class AdminController extends Controller
     {
         $this->middleware('auth:admin',['only' => 'index','edit']);
     }
+
     /**
      * Display a listing of the resource.
      *

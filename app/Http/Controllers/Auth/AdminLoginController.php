@@ -40,9 +40,8 @@ class AdminLoginController extends Controller
 
         // if successful, then redirect to their intended location
         return redirect()->intended(route('admin.dashboard'));
-
       }
-      
+
       return back()->withInput($request->only('id_number', 'remember'))
                     ->withErrors(['message' => 'Please check your username or password.']);
     }
