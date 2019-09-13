@@ -46,6 +46,7 @@ class AdminLoginController extends Controller
       return back()->withInput($request->only('id_number', 'remember'))
                     ->withErrors(['message' => 'Please check your username or password.']);
     }
+    
     public function logout()
     {
         Auth::guard('admin')->logout();
