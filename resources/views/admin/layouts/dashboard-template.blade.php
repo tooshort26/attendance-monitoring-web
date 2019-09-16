@@ -26,20 +26,33 @@
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item">List of Students</a>
-          <a class="collapse-item">Add new student</a>
+          <a class="collapse-item" href="{{ route('student.index') }}">List of Students</a>
+          <a class="collapse-item" href="{{ route('student.create') }}">Add new student</a>
         </div>
       </div>
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInstructor" aria-expanded="true" aria-controls="collapseInstructor">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Instructors</span>
+      </a>
+      <div id="collapseInstructor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="{{ route('instructor.create') }}">Add Instructor</a>
+          <a class="collapse-item" href="{{ route('instructor.index') }}">View Instructors</a>
+        </div>
+      </div>
+    </li>
+
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-wrench"></i>
         <span>Utilities</span>
       </a>
-    
-    <hr class="sidebar-divider">
-
+      
+      <hr class="sidebar-divider">
       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Custom Utilities:</h6>
@@ -172,7 +185,7 @@
                   </h6>
                   <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
-                      <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                      <img class="rounded-circle" />
                       <div class="status-indicator bg-success"></div>
                     </div>
                     <div class="font-weight-bold">
@@ -182,7 +195,7 @@
                   </a>
                   <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
-                      <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                      <img class="rounded-circle" />
                       <div class="status-indicator"></div>
                     </div>
                     <div>
@@ -192,7 +205,7 @@
                   </a>
                   <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
-                      <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                      <img class="rounded-circle" />
                       <div class="status-indicator bg-warning"></div>
                     </div>
                     <div>
@@ -202,7 +215,7 @@
                   </a>
                   <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
-                      <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                      <img class="rounded-circle" />
                       <div class="status-indicator bg-success"></div>
                     </div>
                     <div>
@@ -218,7 +231,7 @@
               <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small text-capitalize">{{ Auth::user()->name }} </span>
-                  <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                  <img class="img-profile rounded-circle" />
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -248,6 +261,7 @@
           <div class="container-fluid">
             <!-- Page Heading -->
             <h5 class="h5 mb-4 text-gray-800">@yield('title')</h5>
+            <hr>
             @yield('content')
           </div>
           <!-- /.container-fluid -->
@@ -265,12 +279,7 @@
       </div>
       <!-- End of Content Wrapper -->
     </div>
-    <!-- End of Page Wrapper -->
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
-    <!-- Logout Modal-->
+       <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -293,5 +302,5 @@
         </div>
       </div>
     </div>
-  </div>
-@include('templates.footer')
+ 
+    @include('templates.footer')

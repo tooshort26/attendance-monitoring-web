@@ -3,10 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Course;
+use App\Student;
+use App\Subject;
+use DB;
+use App\Http\Requests\AddStudentRequest;
+use App\Http\Requests\EditStudentRequest;
 use App\Http\Controllers\Controller;
+use App\Repositories\StudentRepository;
+use Freshbitsweb\Laratables\Laratables;
 
 class StudentController extends Controller
 {
+    protected $studenRepo;
+
+    public function __construct(StudentRepository $studentRepo)
+    {
+        $this->middleware('auth:admin');
+        $this->studentRepo = $studentRepo;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +29,12 @@ class StudentController extends Controller
      */
     public function index()
     {
-        // Set up a data tables here..
+        return view('admin.student.index');
+    }
+
+    public function students()
+    {
+        return Laratables::recordsOf(Student::class);
     }
 
     /**
@@ -24,7 +44,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $courses = Course::get(['id', 'name']);
+        return view('admin.student.create', compact('courses'));
     }
 
     /**
@@ -32,10 +53,12 @@ class StudentController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * AddStudentRequest
      */
-    public function store(Request $request)
+    public function store(AddStudentRequest $request)
     {
-        //
+        $student = $this->studentRepo->store($request->except('password_confirmation'));
+        return back()->with('success', 'Successfully add the student.')->with('student_id', $student->id);
     }
 
     /**
@@ -55,9 +78,11 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //
+        $courses = Course::all();
+        $hasSubjects = $student->subjects->count();
+        return view('admin.student.edit', compact('student', 'courses', 'hasSubjects'));
     }
 
     /**
@@ -67,9 +92,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditStudentRequest $request, int $id)
     {
-        //
+        $this->studentRepo->update($request->all());
+        return back()->with('success', 'Successfully student information.');
     }
 
     /**

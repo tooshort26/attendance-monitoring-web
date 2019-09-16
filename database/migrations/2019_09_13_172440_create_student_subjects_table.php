@@ -16,7 +16,7 @@ class CreateStudentSubjectsTable extends Migration
         Schema::create('student_subjects', function (Blueprint $table) {
             $table->integer('student_id');
             $table->integer('subject_id');
-            $table->string('remarks');
+            $table->string('remarks')->nullable();
             $table->timestamps();
             $table->primary(['student_id', 'subject_id']);
         });

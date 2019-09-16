@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SuperAdminController extends Controller
+class InstructorController extends Controller
 {
-   public function __construct()
+    public function __construct()
     {
-        $this->middleware('auth:super_admin',['only' => 'index','edit']);
+        $this->middleware('auth:instructor',['only' => 'index','edit']);
     }
     /**
      * Display a listing of the resource.
@@ -17,6 +17,6 @@ class SuperAdminController extends Controller
      */
     public function index()
     {
-        return view('super_admin.dashboard');
+        return view('instructor.dashboard');
     }
 }

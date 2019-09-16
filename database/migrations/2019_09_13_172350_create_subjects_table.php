@@ -17,7 +17,8 @@ class CreateSubjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('description');
-            $table->enum('semester', [1, 2]);
+            $table->integer('level');
+            $table->enum('semester', [1, 2, 3]);
             $table->timestamps();
         });
     }
