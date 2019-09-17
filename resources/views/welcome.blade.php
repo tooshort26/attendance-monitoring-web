@@ -60,9 +60,9 @@
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li><a href="{{ route('student.auth.login') }}">Student</a></li>
-									<li><a href="{{ route('admin.auth.login') }}">Instructor</a></li>
-									<li><a href="{{ route('instructor.auth.login') }}">Administrator</a></li>
+										<li><a href="{{ route('student.auth.login') }}">Student</a></li>
+										<li><a href="{{ route('instructor.auth.login') }}">Instructor</a></li>
+										<li><a href="{{ route('admin.auth.login') }}">Administrator</a></li>
 								</ul>
 								<div class="hamburger menu_mm">
 									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
@@ -101,8 +101,8 @@
 		<nav class="menu_nav">
 			<ul class="menu_mm">
 				<li><a href="{{ route('student.auth.login') }}">Student</a></li>
-				<li><a href="{{ route('admin.auth.login') }}">Instructor</a></li>
-				<li><a href="{{ route('instructor.auth.login') }}">Administrator</a></li>
+				<li><a href="{{ route('instructor.auth.login') }}">Instructor</a></li>
+				<li><a href="{{ route('admin.auth.login') }}">Administrator</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -117,7 +117,7 @@
 				
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{ asset('storage/images/home_slider_1.jpg') }})"></div>
+					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619185/ascb-csogi/home_slider_1.jpg') }})"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
@@ -132,7 +132,7 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{ asset('storage/images/home_slider_1.jpg') }})"></div>
+					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619185/ascb-csogi/home_slider_1.jpg') }})"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
@@ -147,7 +147,7 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{ asset('storage/images/home_slider_1.jpg') }})"></div>
+					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619185/ascb-csogi/home_slider_1.jpg') }})"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
@@ -186,7 +186,7 @@
 				<!-- Features Item -->
 				<div class="col-lg-4 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="{{ asset('storage/images/icon_3.png') }}" alt=""></div>
+						<div class="feature_icon"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619177/ascb-csogi/icon_3.png') }}" alt=""></div>
 						<h3 class="feature_title">Login</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
@@ -195,7 +195,7 @@
 				<!-- Features Item -->
 				<div class="col-lg-4 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="{{ asset('storage/images/icon_2.png') }}" alt=""></div>
+						<div class="feature_icon"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619175/ascb-csogi/icon_2.png') }}" alt=""></div>
 						<h3 class="feature_title">View</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
@@ -204,7 +204,7 @@
 						<!-- Features Item -->
 				<div class="col-lg-4 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="{{ asset('storage/images/icon_1.png') }}" alt=""></div>
+						<div class="feature_icon"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619173/ascb-csogi/icon_1.png') }}" alt=""></div>
 						<h3 class="feature_title">Print</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
@@ -216,7 +216,7 @@
 
 	<!-- Team -->
 	<div class="team">
-		<div class="team_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('/storage/images/team_background.jpg')}}" data-speed="0.8"></div>
+		<div class="team_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619180/ascb-csogi/team_background.jpg')}}" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -233,7 +233,7 @@
 				<!-- Team Item -->
 				<div class="col-lg-3 col-md-6 team_col">
 					<div class="team_item">
-						<div class="team_image"><img src="{{ asset('storage/images/team_1.jpg') }}" alt=""></div>
+						<div class="team_image"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619228/ascb-csogi/team_1.jpg') }}" alt=""></div>
 						<div class="team_body">
 							<div class="team_title"><a href="#">Lailyn Pastrana Mandabon</a></div>
 							<div class="team_subtitle">Marketing & Management</div>
@@ -251,7 +251,7 @@
 				<!-- Team Item -->
 				<div class="col-lg-3 col-md-6 team_col">
 					<div class="team_item">
-						<div class="team_image"><img src="{{ asset('storage/images/team_2.jpg') }}" alt=""></div>
+						<div class="team_image"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619187/ascb-csogi/team_2.jpg') }}" alt=""></div>
 						<div class="team_body">
 							<div class="team_title"><a href="#">Ban Christopher</a></div>
 							<div class="team_subtitle">Designer & Website</div>
@@ -269,7 +269,7 @@
 				<!-- Team Item -->
 				<div class="col-lg-3 col-md-6 team_col">
 					<div class="team_item">
-						<div class="team_image"><img src="{{ asset('storage/images/team_3.jpg') }}" alt=""></div>
+						<div class="team_image"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619188/ascb-csogi/team_3.jpg') }}" alt=""></div>
 						<div class="team_body">
 							<div class="team_title"><a href="#">Ivy Jean Reque Avila</a></div>
 							<div class="team_subtitle">Quantum mechanics</div>
@@ -287,7 +287,7 @@
 				<!-- Team Item -->
 				<div class="col-lg-3 col-md-6 team_col">
 					<div class="team_item">
-						<div class="team_image"><img src="{{ asset('storage/images/team_3.jpg') }}" alt=""></div>
+						<div class="team_image"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619188/ascb-csogi/team_3.jpg') }}" alt=""></div>
 						<div class="team_body">
 							<div class="team_title"><a href="#">Margun Garay</a></div>
 							<div class="team_subtitle">Quantum mechanics</div>
@@ -308,7 +308,7 @@
 	<!-- Footer -->
 
 	<footer class="footer">
-		<div class="footer_background" style="background-image:url({{ asset('storage/images/footer_background.png') }})"></div>
+		<div class="footer_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619212/ascb-csogi/footer_background.png') }})"></div>
 		<div class="container">
 			<div class="row footer_row">
 				<div class="col">
