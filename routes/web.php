@@ -10,6 +10,9 @@ Auth::routes();
 Route::group(['prefix' => 'admin'] , function () {
 	  Route::get('/', 'AdminController@index')->name('admin.dashboard');
   	Route::get('dashboard', 'AdminController@index')->name('admin.dashboard');
+    Route::get('edit', 'AdminController@edit')->name('admin.edit');
+    Route::put('edit/{admin}', 'AdminController@update')->name('admin.update');
+
   	Route::get('login', 'Auth\AdminLoginController@login')->name('admin.auth.login');
   	Route::post('login', 'Auth\AdminLoginController@loginAdmin')->name('admin.auth.loginAdmin');
   	Route::post('logout', 'Auth\AdminLoginController@logout')->name('admin.auth.logout');

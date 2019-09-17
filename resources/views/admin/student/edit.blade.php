@@ -70,6 +70,7 @@
 						<input name="birthdate" type="date" class="form-control" id="studentBirthdate" value="{{$student->birthdate}}">
 					</div>
 				</div>
+
 				<div class="col-lg-6">
 					<div class="form-group">
 						<label>&nbsp;</label>
@@ -77,6 +78,20 @@
 						    <input type="file" class="custom-file-input" id="customFile" name="profile">
 						    <label class="custom-file-label" for="customFile">Student Image</label>
 						  </div>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label for="studentNewPassword">New password <small class="font-weight-bold text-primary">(optional)</small></label>
+						<input name="password" type="password" class="form-control" id="studentNewPassword">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label for="studentRetypePassword">Re-type new password</label>
+						<input name="password_confirmation" type="password" class="form-control" id="studentRetypePassword">
 					</div>
 				</div>
 

@@ -11,9 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Course', 4)->create();
-    	factory('App\Admin')->create();
-    	factory('App\Student')->create();
-        factory('App\Instructor', 10)->create();
+        $this->call([
+            AdminSeeder::class,
+            InstructorSeeder::class,
+            StudentSeeder::class,
+            DepartmentSeeder::class,
+            CourseSeeder::class,
+        ]);
     }
 }

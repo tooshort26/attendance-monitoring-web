@@ -12,4 +12,9 @@ class Course extends Model
     {
     	return $this->hasOne('App\Student');
     }
+
+    public function department()
+    {
+    	return $this->belongsTo('App\Department');
+    }
 }

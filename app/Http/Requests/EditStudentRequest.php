@@ -28,7 +28,7 @@ class EditStudentRequest extends FormRequest
         $courses = Course::pluck('id')->toArray();
         $gender = ['male', 'female'];
 
-        return [
+        $rules = [
             'name'      => 'required',
             'gender'    => ['required', Rule::in($gender)],
             'course_id' => ['required', Rule::in($courses)],
@@ -37,6 +37,12 @@ class EditStudentRequest extends FormRequest
             'birthdate' => 'required|date',
             'profile'   => 'nullable',
         ];
+
+        if (!is_null(request('password'))) {
+            $rules['password'] = 'required|confirmed';
+        }
+
+        return $rules;
     }
 
     public function attributes()
