@@ -38,7 +38,7 @@ class EditStudentRequest extends FormRequest
             'profile'   => 'nullable',
         ];
 
-        if (!is_null(request('password'))) {
+        if (!is_null(request()->password)) {
             $rules['password'] = 'required|confirmed';
         }
 

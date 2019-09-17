@@ -46,6 +46,11 @@ class InstructorRepository implements InstructorRepositoryContract
             $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => 150, "height"=> 150]);
             $items['profile'] = $image_url;
         }
+
+        if ( is_null(request('password')) ) {
+            unset($items['password']);
+        }
+        
 		return $this->find($items['id'])->update($items);
 	}
 }
