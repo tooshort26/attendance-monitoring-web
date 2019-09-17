@@ -41,10 +41,10 @@
                                         Login
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <a href="/admin/login" class="btn btn-google btn-user btn-block">
                                             <i class="fa fa-lock"></i> Administrator Login
                                         </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                        <a href="/student/login" class="btn btn-facebook btn-user btn-block">
                                             <i class="fa fa-lock"></i> Student Login
                                         </a>
                                     </form>
