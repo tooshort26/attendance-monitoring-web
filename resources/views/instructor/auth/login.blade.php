@@ -1,5 +1,5 @@
-@extends('admin.layouts.app')
-@section('title', 'Admin Login')
+@extends('instructor.layouts.app')
+@section('title', 'Instructor Login')
 @section('content')
 <body class="bg-gradient-primary">
     <div class="container">
@@ -42,10 +42,10 @@
                                         </button>
                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
+                                            <i class="fa fa-lock"></i> Administrator Login
                                         </a>
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                            <i class="fa fa-lock"></i> Student Login
                                         </a>
                                     </form>
                                     <hr>

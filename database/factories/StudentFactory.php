@@ -13,7 +13,7 @@ $factory->define(Student::class, function (Faker $faker) {
 		'level'          => 1,
 		'gender'         => 'male',
 		'birthdate'      =>  '2019-09-13 17:06:0',
-		'password'       => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+		'password'       => '1234', // password
 		'remember_token' => Str::random(10),
 		'course_id'      => 1,
     ];

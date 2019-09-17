@@ -5,6 +5,7 @@ use App\Instructor;
 use Illuminate\Database\Eloquent\Collection;
 use App\Contracts\InstructorRepositoryContract;
 use App\Repositories\StudentImageUpload;
+use JD\Cloudder\Facades\Cloudder;
 
 class InstructorRepository implements InstructorRepositoryContract
 {
@@ -39,10 +40,11 @@ class InstructorRepository implements InstructorRepositoryContract
 
 	public function update(array $items = []) : bool
 	{
-		if ($this->uploader->hasFile('profile')) {
-            $name = $items['profile']->getClientOriginalName();
-            $this->uploader->upload($items['profile']);    
-            $items['profile'] = $name;
+		if (request()->hasFile('profile')) {
+            $image_name = request()->file('profile')->getRealPath();
+            Cloudder::upload($image_name, null);
+            $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => 150, "height"=> 150]);
+            $items['profile'] = $image_url;
         }
 		return $this->find($items['id'])->update($items);
 	}

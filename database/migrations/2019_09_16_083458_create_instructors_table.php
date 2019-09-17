@@ -19,7 +19,7 @@ class CreateInstructorsTable extends Migration
             $table->string('name');
             $table->string('password');
             $table->enum('gender', ['male', 'female']);
-            $table->string('profile')->default('no_image.png');
+            $table->string('profile')->default('http://res.cloudinary.com/dpcxcsdiw/image/upload/c_fit,h_150,w_150/qtw0flebtkxhcekaclwq.png');
             $table->date('birthdate');
             $table->enum('active', ['yes', 'no'])->default('yes');
             $table->rememberToken();
