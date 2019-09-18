@@ -52,11 +52,27 @@
       </a>
       <div id="collapseSubject" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="{{ route('instructor.create') }}">Add Subjects</a>
-          <a class="collapse-item" href="{{ route('instructor.index') }}">View Subjects</a>
+          <a class="collapse-item" href="{{ route('subject.create') }}">Add Subjects</a>
+          <a class="collapse-item" href="{{ route('subject.index') }}">View Subjects</a>
         </div>
       </div>
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDepartments" aria-expanded="true" aria-controls="collapseDepartments">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Departments</span>
+      </a>
+      <div id="collapseDepartments" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="{{ route('department.create') }}">Add Departments</a>
+          <a class="collapse-item" href="{{ route('department.index') }}">View Departments</a>
+          <a class="collapse-item" href="{{ route('course.create') }}">Add Course</a>
+          <a class="collapse-item" href="{{ route('course.index') }}">View Courses</a>
+        </div>
+      </div>
+    </li>
+   
     <hr class="sidebar-divider">
 
     <!-- Nav Item - Utilities Collapse Menu -->

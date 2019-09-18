@@ -21,4 +21,16 @@ class Subject extends Model
                     ->withPivot('block')
                     ->withTimestamps();
     }
+
+    /**
+     * Returns the action column html for datatables.
+     *
+     * @param \App\Student
+     * @return string
+     */
+    public static function laratablesCustomAction($subject)
+    {
+        return view('admin.subjects.includes.index_action', 
+            compact('subject'))->render();
+    }
 }

@@ -61,7 +61,7 @@ class SubjectController extends Controller
                     $instructor = Instructor::with('subjects')->find(Auth::user()->id);
                 
                     $subject = Subject::with('students')->find($request->subject_id);
-                    
+
 
                     // Insert the subject for the instructor.
                     $instructor->subjects()->attach($subject, ['block' => $request->block]);
@@ -75,7 +75,7 @@ class SubjectController extends Controller
                     return back()->with('success', 'Successfully add new subject named ' . $request->name . ' with ' . count($request->students['ids']) .' students');
                   
                 } catch (Exception $e) {
-                    dd($e->getMessage());
+                    return back();
                     DB::rollback();
                 }
     }

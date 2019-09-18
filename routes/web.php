@@ -32,7 +32,14 @@ Route::group(['prefix' => 'admin'] , function () {
 
     Route::get('/instructor/list', 'Admin\InstructorController@instructors')
         ->name('instructor.lists');
+
     Route::resource('instructor', 'Admin\InstructorController');
+
+    Route::get('/subject/list', 'Admin\SubjectController@subjects')
+        ->name('subject.lists');
+    Route::resource('subject', 'Admin\SubjectController');
+    Route::resource('course', 'Admin\CourseController');
+    Route::resource('department', 'Admin\DepartmentController');
 });
 
 Route::group(['prefix' => 'student'] , function () {
