@@ -12,49 +12,77 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        Course::create([
-			'name'          => 'Bachelor of Science in Education',
-			'abbr'          => 'BSED',
-			'department_id' => 1
-        ]);
+        $courses = [
+            [
+                'name'          => 'Bachelor of Science in Education',
+                'abbr'          => 'BSED',
+                'department_id' => 1
+            ],
+            [
+                'name'          => 'Bachelor of Science in Education',
+                'abbr'          => 'BSED',
+                'department_id' => 1
+            ],
 
-        Course::create([
-			'name' => 'Bachelor of Science in Information Tech',
-			'abbr' => 'BSIT',
-			'department_id' => 2
-        ]);
+            [
+                'name'          => 'Bachelor of Elementary Education',
+                'abbr'          => 'BEED',
+                'department_id' => 1
+            ],
 
-        Course::create([
-			'name' => 'Bachelor of Science in Information System',
-			'abbr' => 'BSIS',
-			'department_id' => 2
-        ]);
+            [
+                'name' => 'Bachelor of Science in Information Tech',
+                'abbr' => 'BSIT',
+                'department_id' => 2
+            ],
 
-        Course::create([
-			'name' => 'Bachelor of Science in Computer Science',
-			'abbr' => 'BSCS',
-			'department_id' => 2
-        ]);
+            [
+                'name' => 'Bachelor of Science in Information System',
+                'abbr' => 'BSIS',
+                'department_id' => 2
+            ],
 
-        Course::create([
-			'name' => 'Hotel and Restaurant Management',
-			'abbr' => 'HRM',
-			'department_id' => 2
-        ]);
+            [
+                'name' => 'Bachelor of Science in Computer Science',
+                'abbr' => 'BSCS',
+                'department_id' => 2
+            ],
 
-        Course::create([
-			'name' => 'Associate Computer Technology',
-			'abbr' => 'ACT',
-			'department_id' => 2
-        ]);
+            [
+                'name' => 'Hotel and Restaurant Management',
+                'abbr' => 'HRM',
+                'department_id' => 2
+            ],
 
-        Course::create([
-			'name' => 'Bachelor of Science in Crimonology',
-			'abbr' => 'BSCrim',
-			'department_id' => 3,
-        ]);
+            [
+                'name' => 'Associate in Computer Technology',
+                'abbr' => 'ACT',
+                'department_id' => 2
+            ],
 
+            [
+                'name' => 'Bachelor of Science in Crimonology',
+                'abbr' => 'BSCrim',
+                'department_id' => 3,
+            ],
 
+            [
+                'name' => 'Bachelor of Science in Accountancy',
+                'abbr' => 'BSA',
+                'department_id' => 4,
+            ],
 
+            [
+                'name' => 'Bachelor of Science in Business Administration',
+                'abbr' => 'BSBA',
+                'department_id' => 4,
+            ],
+        ];
+
+        foreach ($courses as $course) {
+            Course::create($course);
+        }
+
+        
     }
 }

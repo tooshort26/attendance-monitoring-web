@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('password');
             $table->integer('course_id');
-            $table->integer('level');
+            // $table->integer('level');
             $table->enum('gender', ['male', 'female']);
             $table->string('profile')->default('http://res.cloudinary.com/dpcxcsdiw/image/upload/c_fit,h_150,w_150/qtw0flebtkxhcekaclwq.png');
             $table->date('birthdate');

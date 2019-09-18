@@ -16,7 +16,7 @@
 					<th>Name</th>
 					<th>Gender</th>
 					<th>Birthdate</th>
-					<th>Actions</th>
+					<th class="text-center">Actions</th>
 				</tr>
 			</thead>
 		</table>

@@ -28,6 +28,13 @@ class Instructor extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function subjects()
+    {
+        return $this->belongsToMany('App\Subject', 'instructor_subjects', 'instructor_id', 'subject_id')
+                    ->withPivot('block')
+                    ->withTimestamps();
+    }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);

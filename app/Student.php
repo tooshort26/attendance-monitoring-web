@@ -17,8 +17,9 @@ class Student extends Authenticatable
      *
      * @var array
      */
+    // 'level'
     protected $fillable = [
-        'id_number', 'name', 'password', 'gender', 'profile', 'birthdate', 'course_id', 'level'
+        'id_number', 'name', 'password', 'gender', 'profile', 'birthdate', 'course_id', 
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -66,6 +67,17 @@ class Student extends Authenticatable
         return ucfirst($student->gender);
     }
 
+    public static function laratablesCustomDepartment($student)
+    {
+        return $student->course->department->name;
+    }
+
+    public static function laratablesQueryConditions($query)
+    {
+        return $query->with(['course', 'course.department']);
+    }
+
+
     /**
      * Returns the action column html for datatables.
      *
@@ -75,5 +87,16 @@ class Student extends Authenticatable
     public static function laratablesCustomAction($student)
     {
         return view('admin.student.includes.index_action', compact('student'))->render();
+    }
+
+     /**
+     * Returns the action column html for datatables.
+     *
+     * @param \App\Student
+     * @return string
+     */
+    public static function laratablesCustomInstructorAction($student)
+    {
+        return view('instructor.subjects.includes.create_action', compact('student'))->render();
     }
 }

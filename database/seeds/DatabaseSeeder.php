@@ -11,10 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        factory('App\Student', 20)->create();
         $this->call([
             AdminSeeder::class,
             InstructorSeeder::class,
-            StudentSeeder::class,
+            // StudentSeeder::class,
             DepartmentSeeder::class,
             CourseSeeder::class,
         ]);

@@ -26,8 +26,8 @@
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="">View Subjects</a>
-          <a class="collapse-item" href="">Add Subject</a>
+          <a class="collapse-item" href="{{ route('instructor.subject.create') }}">Add Subject</a>
+          <a class="collapse-item" href="{{ route('instructor.subject.index') }}">View Subjects</a>
         </div>
       </div>
     </li>

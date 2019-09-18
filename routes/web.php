@@ -44,12 +44,17 @@ Route::group(['prefix' => 'student'] , function () {
 });
 
 Route::group(['prefix' => 'instructor'] , function () {
-	Route::get('/', 'InstructorController@index')->name('instructor.dashboard');
+	  Route::get('/', 'InstructorController@index')->name('instructor.dashboard');
   	Route::get('dashboard', 'InstructorController@index')->name('instructor.dashboard');
     
   	Route::get('login', 'Auth\InstructorLoginController@login')->name('instructor.auth.login');
   	Route::post('login', 'Auth\InstructorLoginController@loginInstructor')->name('instructor.auth.loginInstructor');
   	Route::post('logout', 'Auth\InstructorLoginController@logout')->name('instructor.auth.logout');
+
+    Route::get('/subjects', 'Instructor\SubjectController@index')->name('instructor.subject.index');
+    Route::get('/subject/create', 'Instructor\SubjectController@create')->name('instructor.subject.create');
+    Route::post('/subject/create', 'Instructor\SubjectController@store')->name('instructor.subject.store');
+    Route::get('/student/list', 'Instructor\SubjectController@students')->name('student.list');
 });
 
 
