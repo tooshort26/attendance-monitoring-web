@@ -42,6 +42,10 @@ class AddSubjectRequest extends FormRequest
         return [
             'students.names.*'   => 'names',
             'students.remarks.*' => 'grade',
+            'name'               => 'subject name',
+            'description'        => 'subject description',
+            'level'              => 'subject level',
+            
         ];
     }
 }

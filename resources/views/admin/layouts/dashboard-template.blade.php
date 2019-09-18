@@ -45,6 +45,20 @@
       </div>
     </li>
 
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject" aria-expanded="true" aria-controls="collapseSubject">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Subjects</span>
+      </a>
+      <div id="collapseSubject" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="{{ route('instructor.create') }}">Add Subjects</a>
+          <a class="collapse-item" href="{{ route('instructor.index') }}">View Subjects</a>
+        </div>
+      </div>
+    </li>
+    <hr class="sidebar-divider">
+
     <!-- Nav Item - Utilities Collapse Menu -->
     {{-- <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">

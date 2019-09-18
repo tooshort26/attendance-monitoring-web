@@ -11,7 +11,7 @@
         @elseif($errors->any())
             @include('templates.error')
         @else
-        <div class="card bg-info text-white shadow mb-2 mt-2">
+        <div class="card bg-info text-white shadow mb-2">
                 <div class="card-body font-weight-bold">
                   Click the <i class="fas fa-arrow-right"></i> icon to add the students in the list.
                 </div>
@@ -28,41 +28,52 @@
         <form action="{{ route('instructor.subject.store') }}" method="POST">
             @csrf
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label for="subjectId">Subject ID</label>
+                        <input class="form-control" type="number" name="subject_id" readonly id="subjectId" value="{{ old('subject_id') }}">
+                    </div>
+                </div>
+                <div class="col-lg-2">
                     <div class="form-group">
                         <label for="subjectName">Subject name</label>
-                        <input type="text" class="form-control" name="name" id="subjectName" placeholder="Enter Subject name..." >
+                        <select name="name" id="subjectName" class="form-control">
+                            <option selected disabled>Choose Subject</option>
+                            @foreach($subjects as $subject)
+                                <option value="{{ $subject->name }}" data-src="{{ $subject }}">{{ $subject->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="subjectDescription">Subject description</label>
-                        <input type="text" class="form-control" name="description" id="subjectDescription" placeholder="Enter Subject description..." >
+                        <input type="text" readonly class="form-control" name="description" id="subjectDescription" placeholder="Enter Subject description..." value="{{ old('description') }}">
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
-                        <label for="subjetcLevel">Subject level</label>
-                        <input type="number" class="form-control" name="level" id="subjetcLevel" placeholder="Enter Subject level..." >
+                        <label for="subjectLevel">Subject level</label>
+                        <input type="number" readonly class="form-control" name="level" id="subjectLevel" placeholder="Enter Subject level..." value="{{ old('level') }}">
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
                         <label for="subjectSemester">Subject semester</label>
-                        <input type="number" class="form-control" name="semester" id="subjectSemester" placeholder="Enter Semester..." >
+                        <input type="number" readonly class="form-control" name="semester" id="subjectSemester" placeholder="Enter Semester..." value="{{ old('semester') }}">
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
                         <label for="subjectBlock">Block</label>
-                        <input type="text" class="form-control" name="block" id="subjectBlock" placeholder="Enter Block..." >
+                        <input type="text" class="form-control" name="block" id="subjectBlock" placeholder="Enter Block..." value="{{ old('block') }}">
                     </div>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-lg-6">
-                    <table class="table " id="students-table">
+                    <table class="table table-bordered" id="students-table">
                         <thead>
                             <tr>
                                 <th>ID Number</th>
@@ -74,25 +85,30 @@
                         </thead>
                     </table>
                 </div>
-                <div class="col-lg-6" >
-                    <h6 class="m-0 pt-3 pl-3 font-weight-bold text-primary">Added Students</h6>
+                <div class="col-lg-6" style="border : 1px solid #e3e6f0;">
+                    <h6 class="m-0 pt-3 pl-3 font-weight-bold text-primary">Students</h6>
                     <hr>
-                    <div id="added-students" class="row">
+                    <div id="added-students">
                         @if( !empty(old('students.ids')) )
                             @foreach(old('students.ids') as $index => $id)
+                            <div id="student-{{$id}}-container" class="row">
                                 <input type="hidden" class="form-control" name="students[ids][]" value="{{ $id }}" />
                                 <div class="col-lg-6 mb-2">
                                     <input type="text" id="student-${student.id}" class="form-control" readonly name="students[names][]" value="{{ old("students.names")[$index] }}" />
                                 </div>
-                                <div class="col-lg-6">
-                                <input type="number" class="form-control" name="students[remarks][]" step="0.1"  placeholder="{{ old("students.remarks")[$index] }}" />
+                                <div class="col-lg-5">
+                                    <input type="number" class="form-control" name="students[remarks][]" step="0.1"  value="{{ old("students.remarks")[$index] }}" />
                                 </div>
+                                <div class="col-lg-1">
+                                    <button type="button" class="btn btn-sm font-weight-bold mt-1 btn-danger" onclick="removeStudent({{$id}})">X</button>
+                                </div>
+                            </div>
                             @endforeach
                         @endif
                     </div>
                 </div>
             </div>
-            <div class="float-right">
+            <div class="float-right mt-2">
                 <input type="submit" value="Add subject with students" class="btn btn-primary font-weight-bold">
             </div>
         </form>
@@ -120,25 +136,38 @@
 </script>
 <script>
     let studentIds = [];
-    const studentsContainer = document.querySelector('#added-students');
+    const studentsParentContainer = document.querySelector('#added-students');
 
-    const thisStudentAlreadyExists = (id) => studentIds.includes(id);
+    const isInTheList   = (id) => studentIds.includes(id);
     const pushIdsToList = (id) => studentIds.push(id);
+    const removeInList  = (id) => studentIds.filter(studentId => studentId !== id);
+    
+    const removeStudent = (id) => {
+        // Remove the student id in list.
+        studentIds = removeInList(id);
 
+        // Remove the element of student in DOM.
+        document.querySelector(`#student-${id}-container`).remove();
+    };
+        
 
     const addStudentToSubject = (e) => {
-
         let student = JSON.parse(JSON.stringify(e.getAttribute('data-src')));
         student = JSON.parse(student);
-        if ( !thisStudentAlreadyExists(student.id) ) {
-            // Push new item to the element
-            studentsContainer.innerHTML += `
-                <input type="hidden" class="form-control" name="students[ids][]" value="${student.id}" />
-                <div class="col-lg-6 mb-2">
-                    <input type="text" id="student-${student.id}" class="form-control" readonly name="students[names][]" value="${student.name}" />
-                </div>
-                <div class="col-lg-6">
-                <input type="number" class="form-control" name="students[remarks][]" step="0.1"  placeholder="Enter Grade here..." />
+        if ( !isInTheList(student.id) ) {
+            // Push new item to studentsParentContainer
+            studentsParentContainer.innerHTML += `                                                                                        
+                <div id="student-${student.id}-container" class="row">
+                    <input type="hidden" class="form-control" name="students[ids][]" value="${student.id}" />
+                    <div class="col-lg-6 mb-2">
+                        <input type="text" id="student-${student.id}" class="form-control" readonly name="students[names][]" value="${student.name}" />
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="number" class="form-control" name="students[remarks][]" step="0.1"  placeholder="Enter Grade here..." />
+                    </div>
+                    <div class="col-lg-1">
+                        <button type="button" class="btn btn-sm font-weight-bold mt-1 btn-danger" onclick="removeStudent(${student.id})">X</button>
+                    </div>
                 </div>
             `;
             pushIdsToList(student.id);
@@ -154,6 +183,20 @@
             }, 200);
         }
     };
+
+    // Subject sections.
+    const subjectNameField = document.querySelector('#subjectName');
+
+    subjectNameField.addEventListener('change', (e) => {
+        let subject = e.target.options[e.target.selectedIndex];
+        let dataSource = JSON.parse(subject.getAttribute('data-src'));
+   
+        document.querySelector('#subjectId').value          = dataSource.id;
+        document.querySelector('#subjectDescription').value = dataSource.description;
+        document.querySelector('#subjectLevel').value       = dataSource.level;
+        document.querySelector('#subjectSemester').value    = dataSource.semester;
+    });
+
 
 </script>
 @endpush

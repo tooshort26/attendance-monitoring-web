@@ -12,6 +12,8 @@ use App\Department;
 use DB;
 use Auth;
 use Freshbitsweb\Laratables\Laratables;
+use Illuminate\Database\QueryException;
+use Exception;
 
 class SubjectController extends Controller
 {
@@ -41,7 +43,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        return view('instructor.subjects.create');
+        $subjects = Subject::all();
+        return view('instructor.subjects.create', compact('subjects'));
     }
 
     /**
@@ -52,28 +55,29 @@ class SubjectController extends Controller
      */
     public function store(AddSubjectRequest $request)
     {
-        DB::transaction(function () use($request) {
+                DB::beginTransaction();
+                try {
+                     // Get the instructor.
+                    $instructor = Instructor::with('subjects')->find(Auth::user()->id);
+                
+                    $subject = Subject::with('students')->find($request->subject_id);
+                    
 
-            // Get the instructor.
-            $instructor = Instructor::find(Auth::user()->id);
+                    // Insert the subject for the instructor.
+                    $instructor->subjects()->attach($subject, ['block' => $request->block]);
 
-            // Create or find the subject.
-            $subject = Subject::firstOrCreate([
-                'name'        => $request->name,
-                'description' => $request->description,
-                'level'       => $request->level,
-                'semester'    => $request->semester,
-            ]);
+                    // Insert all students for this subject.
+                    foreach ($request->students['ids'] as $index => $id) {
+                        $subject->students()->attach($id, ['remarks' => $request->students['remarks'][$index] ]);
+                    }
 
-            // Insert the subject for the instructor.
-            $instructor->subjects()->attach($subject, ['block' => $request->block]);
-
-            // Insert all students for this subject.
-            foreach ($request->students['ids'] as $index => $id) {
-                $subject->students()->attach($id, ['remarks' => $request->students['remarks'][$index] ]);
-            }
-        });
-        return back()->with('success', 'Successfully add new subject named ' . $request->name . ' with ' . count($request->students['ids']) .' students');
+                    DB::commit();
+                    return back()->with('success', 'Successfully add new subject named ' . $request->name . ' with ' . count($request->students['ids']) .' students');
+                  
+                } catch (Exception $e) {
+                    dd($e->getMessage());
+                    DB::rollback();
+                }
     }
 
     /**

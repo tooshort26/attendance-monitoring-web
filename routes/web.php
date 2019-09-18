@@ -53,7 +53,8 @@ Route::group(['prefix' => 'instructor'] , function () {
 
     Route::get('/subjects', 'Instructor\SubjectController@index')->name('instructor.subject.index');
     Route::get('/subject/create', 'Instructor\SubjectController@create')->name('instructor.subject.create');
-    Route::post('/subject/create', 'Instructor\SubjectController@store')->name('instructor.subject.store');
+    Route::post('/subject/create', 'Instructor\SubjectController@store')->name('instructor.subject.store')->middleware('check.subject_entry');
+         
     Route::get('/student/list', 'Instructor\SubjectController@students')->name('student.list');
 });
 

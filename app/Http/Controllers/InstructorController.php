@@ -8,7 +8,7 @@ class InstructorController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:instructor',['only' => 'index','edit']);
+        $this->middleware('auth:instructor');
     }
     /**
      * Display a listing of the resource.
