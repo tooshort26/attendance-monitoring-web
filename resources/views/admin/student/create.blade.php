@@ -24,7 +24,7 @@
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentFullname">Fullname</label>
-								<input type="text" class="form-control" name="name" id="studentFullname" placeholder="Enter Fullname..." value="Christopher Vistal">
+								<input type="text" class="form-control" name="name" id="studentFullname" placeholder="Enter Fullname..." >
 							</div>
 						</div>
 						<div class="col-lg-3">
@@ -39,7 +39,7 @@
 						<div class="col-lg-3">
 							<div class="form-group">
 								<label for="studentLevel">Year Level</label>
-								<input type="number" class="form-control" name="level" id="studentLevel" value="1">
+								<input type="number" class="form-control" name="level" id="studentLevel" >
 							</div>
 						</div>
 						<div class="col-lg-6">
@@ -56,7 +56,7 @@
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentBirthDate">Birthdate</label>
-								<input type="date" class="form-control" name="birthdate" value="1997-01-06">
+								<input type="date" class="form-control" name="birthdate" >
 							</div>
 						</div>
 
@@ -74,19 +74,19 @@
 						<div class="col-lg-12">
 							<div class="form-group">
 								<label for="studentIdNumber">ID Number</label>
-								<input type="number" class="form-control" name="id_number" id="studentIdNumber" placeholder="Enter Student ID Number..." value="{{ rand(10000,100000) }}">
+								<input type="number" class="form-control" name="id_number" id="studentIdNumber" placeholder="Enter Student ID Number..." >
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentPassword">Password</label>
-								<input type="password" class="form-control" name="password" id="studentPassword" placeholder="Enter Your password..." value="1234">
+								<input type="password" class="form-control" name="password" id="studentPassword" placeholder="Enter Your password..." >
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentRetypePassword">Re-type password</label>
-								<input type="password" class="form-control" name="password_confirmation" id="studentRetypePassword" placeholder="Password Confirmation..." value="1234">
+								<input type="password" class="form-control" name="password_confirmation" id="studentRetypePassword" placeholder="Password Confirmation..." >
 							</div>
 						</div>
 					</div>
