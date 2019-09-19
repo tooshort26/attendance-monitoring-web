@@ -55,6 +55,8 @@ Route::group(['prefix' => 'student'] , function () {
   	Route::get('login', 'Auth\StudentLoginController@login')->name('student.auth.login');
   	Route::post('login', 'Auth\StudentLoginController@loginStudent')->name('student.auth.loginStudent');
   	Route::post('logout', 'Auth\StudentLoginController@logout')->name('student.auth.logout');
+
+    Route::resource('/subject', 'Student\SubjectsGradeController');
 });
 
 Route::group(['prefix' => 'instructor'] , function () {

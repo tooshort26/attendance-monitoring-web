@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class StudentLoginController extends Controller
 {
-  use AuthenticatesUsers;
+  // use AuthenticatesUsers;
   
 	public function __construct()
 	{
