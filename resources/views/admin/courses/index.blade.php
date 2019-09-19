@@ -200,7 +200,7 @@
 		let abbr = document.querySelector('#addCourseShortname').value;
 		let department_id = document.querySelector('#addCourseDepartment').value;
 		let data = {name , abbr , department_id};
-		requestByAjax('POST', `/admin/course/`, data, '#addCourseModal');
+		requestByAjax('POST', `/admin/course`, data, '#addCourseModal');
 	});
 
 	
