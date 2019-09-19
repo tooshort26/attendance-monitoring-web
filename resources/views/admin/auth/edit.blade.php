@@ -1,8 +1,8 @@
 @extends('admin.layouts.dashboard-template')
-@section('title','Update student information')
+@section('title','Update your information')
 @section('content')
 <div class="row">
-	<div class="col-lg-12">
+	<div class="col-lg-12 mb-2">
 		@if(\Session::has('success'))
 			@include('templates.success')
 		@else

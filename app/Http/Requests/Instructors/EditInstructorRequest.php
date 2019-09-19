@@ -33,7 +33,7 @@ class EditInstructorRequest extends FormRequest
             'profile'   => 'nullable',
         ];
 
-      if ( !is_null(request('password'))) {
+      if ( !is_null(request('password')) || !is_null(request()->password_confirmation) ) {
         $rules['password'] = 'required|confirmed|min:6|max:20';  
       }
 

@@ -31,7 +31,7 @@ class UpdateAccountRequest extends FormRequest
             'profile'   => 'nullable',
         ];
         
-        if (!is_null(request()->password)) {
+        if (!is_null(request()->password) || !is_null(request()->password_confirmation)) {
             $rules['password'] = 'required|confirmed';
         }
 

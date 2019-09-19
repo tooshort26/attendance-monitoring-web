@@ -22,41 +22,41 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="form-group">
-								<label for="studentIdNumber">ID Number</label>
-								<input type="number" class="form-control" name="id_number" id="studentIdNumber" placeholder="Enter Student ID Number...">
+								<label for="idNumber">ID Number</label>
+								<input type="number" class="form-control" name="id_number" value="{{ old('id_number') }}" id="idNumber" placeholder="Enter ID Number...">
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="studentPassword">Password</label>
-								<input type="password" class="form-control" name="password" id="studentPassword" placeholder="Enter Your password..." >
+								<label for="password">Password</label>
+								<input type="password" class="form-control" name="password" value="{{ old('password') }}" id="password" placeholder="Enter Your password..." >
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="studentRetypePassword">Re-type password</label>
-								<input type="password" class="form-control" name="password_confirmation" id="studentRetypePassword" placeholder="Password Confirmation..." >
+								<label for="retypePassword">Re-type password</label>
+								<input type="password" class="form-control" value="{{ old('password_confirmation') }}" name="password_confirmation" id="retypePassword" placeholder="Password Confirmation..." >
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="studentFullname">Fullname</label>
-								<input type="text" class="form-control" name="name" id="studentFullname" placeholder="Enter Fullname..." value="Christopher Vistal">
+								<label for="fullname">Fullname</label>
+								<input type="text" class="form-control" name="name" id="fullname" placeholder="Enter Fullname..." value="{{ old('name') }}">
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="studentGender" >Gender</label>
+								<label for="studentGender">Gender</label>
 								<select name="gender" class="form-control" id="studentGender">
-									<option value="male">Male</option>
-									<option value="female">Female</option>
+									<option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+									<option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
 								</select>
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentBirthDate">Birthdate</label>
-								<input type="date" class="form-control" name="birthdate" >
+								<input type="date" class="form-control" value="{{ old('birthdate') }}" name="birthdate" >
 							</div>
 						</div>
 						<div class="col-lg-6">

@@ -24,13 +24,13 @@
 				<div class="col-lg-6">
 					<div class="form-group">
 						<label for="studentIdNumber">ID Number</label>
-						<input type="number" class="form-control" name="id_number" id="studentIdNumber" value="{{ $student->id_number }}" placeholder="Enter Student ID Number...">
+						<input type="number" class="form-control" name="id_number" id="studentIdNumber" value="{{ old('id_number') ?? $student->id_number }}" placeholder="Enter Student ID Number...">
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="form-group">
 						<label for="studentFullname">Fullname</label>
-						<input type="text" class="text-capitalize form-control" name="name" id="studentFullname" value="{{ $student->name }}" placeholder="Enter Fullname...">
+						<input type="text" class="text-capitalize form-control" name="name" id="studentFullname" value="{{ old('name') ?? $student->name }}" placeholder="Enter Fullname...">
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -42,26 +42,21 @@
 						</select>
 					</div>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-6">
 					<div class="form-group">
 						<label for="studentCourse">Course</label>
 						<select name="course_id" class="form-control" id="studentCourse">
 							@foreach($courses as $course)
-							<option value="{{$course->id}}" {{$student->course_id === $course->id ? 'selected' : null }} >{{ $course->name }}</option>
+							<option value="{{$course->id}}" {{ old('course_id') == $course->id ? 'selected' : $student->course_id === $course->id ? 'selected' : null }} >{{ $course->name }}</option>
 							@endforeach
 						</select>
 					</div>
 				</div>
-				<div class="col-lg-3">
-					<div class="form-group">
-						<label for="studentLevel">Year Level</label>
-						<input type="number" class="form-control" name="level" value="{{ $student->level }}" id="studentLevel">
-					</div>
-				</div>
+			
 				<div class="col-lg-6">
 					<div class="form-group">
 						<label for="studentBirthdate">Birthdate</label>
-						<input name="birthdate" type="date" class="form-control" id="studentBirthdate" value="{{$student->birthdate}}">
+						<input name="birthdate" type="date" class="form-control" id="studentBirthdate" value="{{ old('birthdate')  ?? $student->birthdate}}">
 					</div>
 				</div>
 

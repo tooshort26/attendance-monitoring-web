@@ -29,11 +29,10 @@ class AddStudentRequest extends FormRequest
       $courses = Course::pluck('id')->toArray();
       return [
               'name'                   => 'required',
-              'gender'                 => ['required', Rule::in(['male', 'gender'])],
+              'gender'                 => ['required', Rule::in(['male', 'female'])],
               'course_id'              => ['required', Rule::in($courses)],
               'id_number'              => 'required|unique:students',
               'password'               => 'required|confirmed',
-              'level'                 => 'required|numeric',
               'birthdate'              => 'required|date'
         ];
 

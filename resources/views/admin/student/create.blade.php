@@ -24,22 +24,16 @@
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentFullname">Fullname</label>
-								<input type="text" class="form-control" name="name" id="studentFullname" placeholder="Enter Fullname..." >
+								<input type="text" class="form-control" name="name" id="studentFullname" placeholder="Enter Fullname..." value="{{ old('name') }}">
 							</div>
 						</div>
-						<div class="col-lg-3">
+						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentGender" >Gender</label>
 								<select name="gender" class="form-control" id="studentGender">
-									<option value="male">Male</option>
-									<option value="female">Female</option>
+									<option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+									<option value="female" {{ old('gender') =='female' ? 'selected' : '' }}>Female</option>
 								</select>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="form-group">
-								<label for="studentLevel">Year Level</label>
-								<input type="number" class="form-control" name="level" id="studentLevel" >
 							</div>
 						</div>
 						<div class="col-lg-6">
@@ -47,7 +41,7 @@
 								<label for="studentCourse">Course</label>
 								<select name="course_id" class="form-control" id="studentCourse">
 									@foreach($courses as $course)
-									<option value="{{$course->id}}">{{ $course->name }}</option>
+									<option value="{{$course->id}}" {{ old('course_id') == $course->id ? 'selected' : '' }}>{{ $course->name }}</option>
 									@endforeach
 								</select>
 							</div>
@@ -56,7 +50,7 @@
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentBirthDate">Birthdate</label>
-								<input type="date" class="form-control" name="birthdate" >
+								<input type="date" class="form-control" name="birthdate" value={{ old('birthdate') }}>
 							</div>
 						</div>
 
@@ -74,7 +68,7 @@
 						<div class="col-lg-12">
 							<div class="form-group">
 								<label for="studentIdNumber">ID Number</label>
-								<input type="number" class="form-control" name="id_number" id="studentIdNumber" placeholder="Enter Student ID Number..." >
+								<input type="number" class="form-control" name="id_number" value="{{ old('id_number') }}" id="studentIdNumber" placeholder="Enter Student ID Number..." >
 							</div>
 						</div>
 						<div class="col-lg-6">

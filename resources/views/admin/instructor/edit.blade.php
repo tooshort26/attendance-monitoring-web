@@ -24,41 +24,41 @@
 						<input type="hidden" name="id" value="{{$instructor->id}}">
 						<div class="col-lg-12">
 							<div class="form-group">
-								<label for="studentIdNumber">ID Number</label>
-								<input type="number" class="form-control" name="id_number" id="studentIdNumber" placeholder="Enter Student ID Number..." value="{{ $instructor->id_number }}">
+								<label for="idNumber">ID Number</label>
+								<input type="number" class="form-control" name="id_number" id="idNumber" placeholder="Enter ID Number..." value="{{ old('id_number') ?? $instructor->id_number }}">
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="studentPassword">New password (Optional)</label>
-								<input type="password" class="form-control" name="password" id="studentPassword" placeholder="Enter Your password..." value="">
+								<label for="password">New password (Optional)</label>
+								<input type="password" class="form-control" name="password" id="password" placeholder="Enter Your password..." value="">
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="studentRetypePassword">Re-type new password <small class="text-primary font-weight-bold">(Fill this if you fill the new password field)</small></label>
-								<input type="password" class="form-control" name="password_confirmation" id="studentRetypePassword" placeholder="Password Confirmation..." value="">
+								<label for="reTypePassword">Re-type new password <small class="text-primary font-weight-bold">(Fill this if you fill the new password field)</small></label>
+								<input type="password" class="form-control" name="password_confirmation" id="reTypePassword" placeholder="Password Confirmation..." value="">
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="studentFullname">Fullname</label>
-								<input type="text" class="form-control" name="name" id="studentFullname" placeholder="Enter Fullname..." value="{{ $instructor->name }}">
+								<label for="fullName">Fullname</label>
+								<input type="text" class="form-control" name="name" id="fullName" placeholder="Enter Fullname..." value="{{ old('name') ?? $instructor->name }}">
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentGender" >Gender</label>
 								<select name="gender" class="form-control" id="studentGender">
-									<option value="male" {{ $instructor->gender === 'male' ? 'selected' : ''}}>Male</option>
-									<option value="female" {{ $instructor->gender === 'female' ? 'selected' : ''}}>Female</option>
+									<option value="male" {{ (old('gender') == 'male') ? 'selected' : ($instructor->gender === 'male' ? 'selected' : '') }}>Male</option>
+									<option value="female" {{ (old('gender') == 'female') ? 'selected' : ($instructor->gender === 'female' ? 'selected' : '') }}>Female</option>
 								</select>
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentBirthDate">Birthdate</label>
-								<input type="date" class="form-control" name="birthdate" value="{{$instructor->birthdate}}">
+								<input type="date" class="form-control" name="birthdate" value="{{ old('birthdate') ?? $instructor->birthdate }}">
 							</div>
 						</div>
 						<div class="col-lg-6">
