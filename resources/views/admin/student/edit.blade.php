@@ -11,12 +11,6 @@
 	</div>
 
 </div>
-<div class="float-right">
-		<a href="{{ route('student.subject.create', [$student]) }}" class="mt-3 mb-3 font-weight-bold btn btn-primary">Add Subjects</a>
-		<a href="{{ route('student.subject.edit', [$student]) }}" class="mt-3 mb-3 font-weight-bold btn btn-info">Edit Subjects</a>
-</div>
-<div class="clearfix"></div>
-
 <form method="POST" action="{{ route('student.update', ['student' => $student]) }}" enctype="multipart/form-data">
 	@csrf
 	@method('PUT')

@@ -40,7 +40,7 @@
 						</div>
 					</div>
 					<div class="float-right">
-						<input type="submit" class="btn btn-primary mt-1 font-weight-bold" value="Update Subjects">
+						<input type="submit" class="btn btn-primary mt-1 font-weight-bold" value="Update Subject">
 					</div>
 				</form>
 			</div>

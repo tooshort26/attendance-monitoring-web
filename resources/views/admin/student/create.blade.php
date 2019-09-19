@@ -4,7 +4,7 @@
 <div class="row mb-2">
 	<div class="col-lg-12">
 		@if(\Session::has('success'))
-			@include('templates.student_create_success')
+			@include('templates.success')
 		@else
 			@include('templates.error')
 		@endif

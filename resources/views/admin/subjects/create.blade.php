@@ -38,7 +38,7 @@
 						</div>
 					</div>
 					<div class="float-right">
-						<input type="submit" class="btn btn-primary mt-1 font-weight-bold" value="Add Subjects">
+						<input type="submit" class="btn btn-primary mt-1 font-weight-bold" value="Add Subject">
 					</div>
 				</form>
 			</div>
