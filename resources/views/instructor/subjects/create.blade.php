@@ -40,7 +40,7 @@
                         <select name="name" id="subjectName" class="form-control">
                             <option selected disabled>Choose Subject</option>
                             @foreach($subjects as $subject)
-                                <option value="{{ $subject->name }}" data-src="{{ $subject }}">{{ $subject->name }}</option>
+                                <option value="{{ $subject->name }}" {{ old('name') == $subject->name ? 'selected' : '' }} data-src="{{ $subject }}">{{ $subject->name }}</option>
                             @endforeach
                         </select>
                     </div>

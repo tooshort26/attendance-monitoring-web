@@ -70,6 +70,9 @@ Route::group(['prefix' => 'instructor'] , function () {
     Route::post('/subject/create', 'Instructor\SubjectController@store')->name('instructor.subject.store')->middleware('check.subject_entry');
          
     Route::get('/student/list', 'Instructor\SubjectController@students')->name('student.list');
+
+    Route::get('/subject/{subject}/students', 'Instructor\SubjectStudentController@show')
+      ->name('subject.students.show');
 });
 
 

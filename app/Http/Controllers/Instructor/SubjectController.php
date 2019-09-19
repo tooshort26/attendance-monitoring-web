@@ -28,7 +28,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $instructor = Instructor::with('subjects')->find(Auth::user()->id);
+        return view('instructor.subjects.index', compact('instructor'));
     }
 
     public function students()
