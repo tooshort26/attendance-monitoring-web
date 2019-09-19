@@ -4,9 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Freshbitsweb\Laratables\Laratables;
+use App\Department;
+
 
 class DepartmentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,12 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.departments.index');
+    }
+
+    public function departments()
+    {
+        return Laratables::recordsOf(Department::class);
     }
 
     /**
@@ -35,7 +48,11 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request ,[
+            'name' => 'required|unique:departments,name',
+        ]);
+        $create = Department::create($request->all());
+        return response()->json(['success' => $create]);
     }
 
     /**
@@ -67,9 +84,13 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Department $department)
     {
-        //
+        $this->validate($request ,[
+            'name' => 'required|unique:departments,name,' . $department->id,
+        ]);
+        $update = $department->update($request->all());
+        return response()->json(['success' => $update]);
     }
 
     /**

@@ -39,6 +39,10 @@ Route::group(['prefix' => 'admin'] , function () {
         ->name('subject.lists');
     Route::resource('subject', 'Admin\SubjectController');
     Route::resource('course', 'Admin\CourseController');
+
+    Route::get('/department/list', 'Admin\DepartmentController@departments')
+        ->name('department.lists');
+        
     Route::resource('department', 'Admin\DepartmentController');
 });
 
