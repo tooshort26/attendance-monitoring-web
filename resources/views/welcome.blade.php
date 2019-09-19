@@ -164,9 +164,8 @@
 		</div>
 
 		<!-- Home Slider Nav -->
-
-		<div class="home_slider_nav home_slider_prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
-		<div class="home_slider_nav home_slider_next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+		<div class="home_slider_nav home_slider_prev bg-light"><i class="fa fa-angle-left text-dark" aria-hidden="true"></i></div>
+		<div class="home_slider_nav home_slider_next bg-light"><i class="fa fa-angle-right text-dark" aria-hidden="true"></i></div>
 	</div>
 
 	<!-- Features -->
