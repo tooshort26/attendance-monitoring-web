@@ -4,9 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Freshbitsweb\Laratables\Laratables;
+use App\Course;
+use App\Department;
+use App\Http\Requests\Admin\AddCourseRequest;
+use App\Http\Requests\Admin\UpdateCourseRequest;
 
 class CourseController extends Controller
 {
+    public function __construct()
+    {
+         $this->middleware('auth:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,13 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::all();
+        return view('admin.courses.index', compact('departments'));
+    }
+
+    public function courses()
+    {
+         return Laratables::recordsOf(Course::class);
     }
 
     /**
@@ -33,9 +48,10 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddCourseRequest $request)
     {
-        //
+        $create = Course::create($request->all());
+        return response()->json(['success' => $create]);
     }
 
     /**
@@ -67,9 +83,10 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCourseRequest $request, Course $course)
     {
-        //
+        $update = $course->update($request->all());
+        return response()->json(['success' => $update]);
     }
 
     /**
