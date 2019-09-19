@@ -46,7 +46,7 @@ class AdminLoginController extends Controller
                     ->withErrors(['message' => 'Please check your username or password.']);
     }
     
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.auth.login');

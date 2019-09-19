@@ -19,6 +19,7 @@ class InstructorLoginController extends Controller
     // protected $redirectTo = '/home';
        public function __construct()
        {
+           // $this->middleware('guest:instructor');
            $this->middleware('guest:instructor')->except('logout');
        }
     /**
@@ -45,7 +46,7 @@ class InstructorLoginController extends Controller
                     ->withErrors(['message' => 'Please check your username or password.']);
     }
     
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('instructor')->logout();
         return redirect()->route('instructor.auth.login');

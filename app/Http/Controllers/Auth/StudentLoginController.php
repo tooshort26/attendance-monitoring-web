@@ -13,7 +13,8 @@ class StudentLoginController extends Controller
   
 	public function __construct()
 	{
-		$this->middleware('guest:student')->except('logout');
+		// $this->middleware('guest:student');
+    $this->middleware('guest:student')->except('logout');
 	}
 
 	public function login()
@@ -33,7 +34,7 @@ class StudentLoginController extends Controller
                     ->withErrors(['message' => 'Please check your username or password.']);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('student')->logout();
         return redirect()->route('student.auth.login');

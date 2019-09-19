@@ -132,17 +132,17 @@ return [
         'admins' => [
             'provider' => 'admins',
             'table' => 'password_resets',
-            'expire' => 15,
+            'expire' => 60,
         ],
         'students' => [
             'provider' => 'students',
             'table' => 'password_resets',
-            'expire' => 15,
+            'expire' => 60,
         ],
         'instructors' => [
             'provider' => 'instructors',
             'table' => 'password_resets',
-            'expire' => 15,
+            'expire' => 60,
         ],
     ],
 
