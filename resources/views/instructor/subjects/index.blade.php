@@ -17,6 +17,7 @@
 					<th>Description</th>
 					<th class="text-center">Block</th>
 					<th class="text-center">Semester</th>
+					<th class="text-center">Credits</th>
 					<th class="text-center">Level</th>
 					<th class="text-center">No. of students</th>
 					<th class="text-center">Actions</th>
@@ -29,6 +30,7 @@
 					<td>{{ $subject->description }}</td>
 					<td class="text-center">{{ $subject->pivot->block }}</td>
 					<td class="text-center">{{ $subject->semester }}</td>
+					<td class="text-center">{{ $subject->credits }}</td>
 					<td class="text-center">{{ $subject->level }}</td>
 					<td class="text-center">{{ $subject->students->count() }}</td>
 					<td class="text-center">

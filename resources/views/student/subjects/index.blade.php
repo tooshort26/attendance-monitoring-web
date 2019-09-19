@@ -25,7 +25,8 @@
 				<tr>
 					<th>Name</th>
 					<th>Description</th>
-					<th>Remarks</th>
+					<th class="text-center">Credits</th>
+					<th class="text-center">Remarks</th>
 				</tr>
 			</thead>
 			@foreach($subject as $items)
@@ -33,7 +34,8 @@
 				<tr>
 					<td> {{ $items->name }}</td>
 					<td> {{ $items->description }}</td>
-					<td> {{ $items->pivot->remarks }}</td>
+					<td class="text-center"> {{ $items->credits }}</td>
+					<td class="text-center"> {{ $items->pivot->remarks }}</td>
 				</tr>
 			</tbody>
 			@endforeach

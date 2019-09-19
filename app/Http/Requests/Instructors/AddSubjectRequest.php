@@ -29,11 +29,12 @@ class AddSubjectRequest extends FormRequest
             'name'               => 'required',
             'description'        => 'required',
             'level'              => 'required|numeric',
+            'credits'            => 'required|numeric',
             'semester'           => [Rule::in($semester)],
             'block'              => 'required',
             'students.ids.*'     => 'required',
             'students.names.*'   => 'required',
-            'students.remarks.*' => 'required',
+            'students.remarks.*' => 'nullable',
         ];
     }
 

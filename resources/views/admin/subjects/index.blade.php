@@ -15,6 +15,7 @@
 					<th>Name</th>
 					<th>Description</th>
 					<th>Level</th>
+					<th>Credits</th>
 					<th>Semester</th>
 					<th class="text-center">Action</th>
 				</tr>
@@ -36,6 +37,7 @@
         { name: 'name' },
         { name: 'description' },
         { name: 'level' },
+        { name: 'credits' },
         { name: 'semester' },
         { name: 'action' },
     ],

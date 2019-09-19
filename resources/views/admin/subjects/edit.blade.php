@@ -30,11 +30,15 @@
 							<label for="description">Subject Description</label>
 							<input type="text" value="{{ $subject->description }}" class="form-control" id="description" name="description">
 						</div>
-						<div class="col-lg-6 form-group">
+						<div class="col-lg-4 form-group">
 							<label for="level">Subject level</label>
 							<input type="number" value="{{ $subject->level }}" class="form-control" id="level" name="level">
 						</div>
-						<div class="col-lg-6 form-group">
+						<div class="col-lg-4 form-group">
+							<label for="level">Subject Credits</label>
+							<input type="number" value="{{ $subject->credits }}" class="form-control" id="credits" name="credits">
+						</div>
+						<div class="col-lg-4 form-group">
 							<label for="semester">Subject Semester</label>
 							<input type="number" value="{{ $subject->semester }}" class="form-control" id="semester" name="semester">
 						</div>

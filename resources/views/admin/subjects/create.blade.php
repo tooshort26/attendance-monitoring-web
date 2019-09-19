@@ -28,11 +28,15 @@
 							<label for="description">Subject Description</label>
 							<input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}">
 						</div>
-						<div class="col-lg-6 form-group">
+						<div class="col-lg-4 form-group">
 							<label for="level">Subject level</label>
 							<input type="number" class="form-control" id="level" name="level" value="{{ old('level') }}">
 						</div>
-						<div class="col-lg-6 form-group">
+						<div class="col-lg-4 form-group">
+							<label for="semester">Subject Credits</label>
+							<input type="number" class="form-control" id="credits" name="credits" value="{{ old('credits') }}">
+						</div>
+						<div class="col-lg-4 form-group">
 							<label for="semester">Subject Semester</label>
 							<input type="number" class="form-control" id="semester" name="semester" value="{{ old('semester') }}">
 						</div>

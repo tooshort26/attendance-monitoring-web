@@ -27,6 +27,7 @@ class AddSubjectRequest extends FormRequest
         return [
             'name'        => 'unique:subjects|required',
             'level'       => 'required',
+            'credits'       => 'required|numeric',
             'description' => 'required',
             'semester'    => ['required', Rule::in([1,2,3])]
         ];

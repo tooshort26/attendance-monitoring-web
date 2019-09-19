@@ -27,6 +27,7 @@ class UpdateSubjectRequest extends FormRequest
         return [
             'semester'    => ['required', Rule::in([1, 2 , 3])],
             'level'       => 'required|numeric',
+            'credits'       => 'required|numeric',
             'name'        => 'required|unique:subjects,name,'.request('id'),
             'description' => 'required',
         ];

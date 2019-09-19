@@ -48,19 +48,25 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="subjectDescription">Subject description</label>
-                        <input type="text" readonly class="form-control" name="description" id="subjectDescription" placeholder="Enter Subject description..." value="{{ old('description') }}">
+                        <input type="text" readonly class="form-control" name="description" id="subjectDescription"  value="{{ old('description') }}">
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-1">
                     <div class="form-group">
                         <label for="subjectLevel">Subject level</label>
-                        <input type="number" readonly class="form-control" name="level" id="subjectLevel" placeholder="Enter Subject level..." value="{{ old('level') }}">
+                        <input type="number" readonly class="form-control" name="level" id="subjectLevel"  value="{{ old('level') }}">
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label for="subjectCredits">Subject Credits</label>
+                        <input type="number" readonly class="form-control" name="credits" id="subjectCredits"  value="{{ old('credits') }}">
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
                         <label for="subjectSemester">Subject semester</label>
-                        <input type="number" readonly class="form-control" name="semester" id="subjectSemester" placeholder="Enter Semester..." value="{{ old('semester') }}">
+                        <input type="number" readonly class="form-control" name="semester" id="subjectSemester" value="{{ old('semester') }}">
                     </div>
                 </div>
                 <div class="col-lg-2">
@@ -97,7 +103,7 @@
                                     <input type="text" id="student-${student.id}" class="form-control" readonly name="students[names][]" value="{{ old("students.names")[$index] }}" />
                                 </div>
                                 <div class="col-lg-5">
-                                    <input type="number" class="form-control" name="students[remarks][]" step="0.1"  value="{{ old("students.remarks")[$index] }}" />
+                                    <input type="text" class="form-control" name="students[remarks][]" value="{{ old("students.remarks")[$index] }}" />
                                 </div>
                                 <div class="col-lg-1">
                                     <button type="button" class="btn btn-sm font-weight-bold mt-1 btn-danger" onclick="removeStudent({{$id}})">X</button>
@@ -163,7 +169,7 @@
                         <input type="text" id="student-${student.id}" class="form-control" readonly name="students[names][]" value="${student.name}" />
                     </div>
                     <div class="col-lg-5">
-                        <input type="number" class="form-control" name="students[remarks][]" step="0.1"  placeholder="Enter Grade here..." />
+                        <input type="text" class="form-control" name="students[remarks][]"  placeholder="Enter Grade here..." />
                     </div>
                     <div class="col-lg-1">
                         <button type="button" class="btn btn-sm font-weight-bold mt-1 btn-danger" onclick="removeStudent(${student.id})">X</button>
@@ -195,6 +201,7 @@
         document.querySelector('#subjectDescription').value = dataSource.description;
         document.querySelector('#subjectLevel').value       = dataSource.level;
         document.querySelector('#subjectSemester').value    = dataSource.semester;
+        document.querySelector('#subjectCredits').value     = dataSource.credits;
     });
 
 

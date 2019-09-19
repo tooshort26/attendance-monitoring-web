@@ -56,29 +56,29 @@ class SubjectController extends Controller
      */
     public function store(AddSubjectRequest $request)
     {
-                DB::beginTransaction();
-                try {
-                     // Get the instructor.
-                    $instructor = Instructor::with('subjects')->find(Auth::user()->id);
-                
-                    $subject = Subject::with('students')->find($request->subject_id);
+        DB::beginTransaction();
+        try {
+             // Get the instructor.
+            $instructor = Instructor::with('subjects')->find(Auth::user()->id);
+        
+            $subject = Subject::with('students')->find($request->subject_id);
 
 
-                    // Insert the subject for the instructor.
-                    $instructor->subjects()->attach($subject, ['block' => $request->block]);
+            // Insert the subject for the instructor.
+            $instructor->subjects()->attach($subject, ['block' => $request->block]);
 
-                    // Insert all students for this subject.
-                    foreach ($request->students['ids'] as $index => $id) {
-                        $subject->students()->attach($id, ['remarks' => $request->students['remarks'][$index] ]);
-                    }
+            // Insert all students for this subject.
+            foreach ($request->students['ids'] as $index => $id) {
+                $subject->students()->attach($id, ['remarks' => $request->students['remarks'][$index] ]);
+            }
 
-                    DB::commit();
-                    return back()->with('success', 'Successfully add new subject named ' . $request->name . ' with ' . count($request->students['ids']) .' students');
-                  
-                } catch (Exception $e) {
-                    return back();
-                    DB::rollback();
-                }
+            DB::commit();
+            return back()->with('success', 'Successfully add new subject named ' . $request->name . ' with ' . count($request->students['ids']) .' students');
+          
+        } catch (Exception $e) {
+            return back();
+            DB::rollback();
+        }
     }
 
     /**
