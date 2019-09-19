@@ -14,7 +14,7 @@
 	<div class="col-lg-12">
 		<div class="card shadow mb-4 rounded-0">
 			<div class="card-header py-3 rounded-0">
-				<h6 class="m-0 font-weight-bold text-primary">Add subject</h6>
+				<h6 class="m-0 font-weight-bold text-primary">Edit subject</h6>
 			</div>
 			<div class="card-body" >
 				<form action="{{ route('subject.update', [$subject]) }}" method="POST">
@@ -40,7 +40,7 @@
 						</div>
 					</div>
 					<div class="float-right">
-						<input type="submit" class="btn btn-primary mt-1 font-weight-bold" value="Add Subjects">
+						<input type="submit" class="btn btn-primary mt-1 font-weight-bold" value="Update Subjects">
 					</div>
 				</form>
 			</div>
