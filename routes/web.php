@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin'] , function () {
     
     Route::get('/student/list', 'Admin\StudentController@students')
         ->name('student.lists');
+
     Route::resource('student', 'Admin\StudentController');
 
     Route::get('/student/{student}/subject/create', 'Admin\StudentSubjectController@create')
@@ -37,6 +38,7 @@ Route::group(['prefix' => 'admin'] , function () {
 
     Route::get('/subject/list', 'Admin\SubjectController@subjects')
         ->name('subject.lists');
+
     Route::resource('subject', 'Admin\SubjectController');
 
     Route::get('/course/list', 'Admin\CourseController@courses')
@@ -56,7 +58,8 @@ Route::group(['prefix' => 'student'] , function () {
   	Route::post('login', 'Auth\StudentLoginController@loginStudent')->name('student.auth.loginStudent');
   	Route::post('logout', 'Auth\StudentLoginController@logout')->name('student.auth.logout');
 
-    Route::resource('/subject', 'Student\SubjectsGradeController');
+    Route::get('/subject', 'Student\SubjectsGradeController@index')->name('student.subjects.index');
+    // Route::resource('subject', 'Student\SubjectsGradeController');
 });
 
 Route::group(['prefix' => 'instructor'] , function () {
