@@ -117,13 +117,13 @@
 				
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619185/ascb-csogi/home_slider_1.jpg') }})"></div>
+					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568822193/ascb-csogi/slider_3.jpg') }})"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
 								<div class="col text-center">
-									<div class="home_slider_title">The Premium System Education</div>
-									<div class="home_slider_subtitle">Future Of Education Technology</div>
+									{{-- <div class="home_slider_title">The Premium System Education</div>
+									<div class="home_slider_subtitle">Future Of Education Technology</div> --}}
 								</div>
 							</div>
 						</div>
@@ -132,13 +132,13 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619185/ascb-csogi/home_slider_1.jpg') }})"></div>
+					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568822193/ascb-csogi/slider_2.jpg') }})"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
 								<div class="col text-center">
-									<div class="home_slider_title">The Premium System Education</div>
-									<div class="home_slider_subtitle">Future Of Education Technology</div>
+									{{-- <div class="home_slider_title">The Premium System Education</div>
+									<div class="home_slider_subtitle">Future Of Education Technology</div> --}}
 								</div>
 							</div>
 						</div>
@@ -147,13 +147,13 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619185/ascb-csogi/home_slider_1.jpg') }})"></div>
+					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568822193/ascb-csogi/slider_1.jpg') }})"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
 								<div class="col text-center">
-									<div class="home_slider_title">The Premium System Education</div>
-									<div class="home_slider_subtitle">Future Of Education Technology</div>
+									{{-- <div class="home_slider_title">The Premium System Education</div>
+									<div class="home_slider_subtitle">Future Of Education Technology</div> --}}
 								</div>
 							</div>
 						</div>
