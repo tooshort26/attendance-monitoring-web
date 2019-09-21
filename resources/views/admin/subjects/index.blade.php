@@ -39,7 +39,7 @@
         { name: 'level' },
         { name: 'credits' },
         { name: 'semester' },
-        { name: 'action' },
+        { name: 'action' , searchable : false,},
     ],
 });
 </script>

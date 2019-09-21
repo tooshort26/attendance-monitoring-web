@@ -40,7 +40,7 @@
 	    ajax: '/admin/department/list',
 	    columns: [
 	        { name: 'name' },
-	        { name: 'action' },
+	        { name: 'action', searchable :false },
 	    ],
 	});
 
