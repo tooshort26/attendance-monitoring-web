@@ -4,8 +4,9 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        {{-- rotate-n-15 --}}
+        <div class="sidebar-brand-icon ">
+          <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50">
         </div>
         <div class="sidebar-brand-text mx-3">OGI - ASCB <sup></sup></div>
       </a>
