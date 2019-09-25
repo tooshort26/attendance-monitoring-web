@@ -16,7 +16,9 @@ class AdminLoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = '/home';
+
+    // protected $redirectTo = '/instructor/s';
+
        public function __construct()
        {
            $this->middleware('guest:admin')->except('logout');

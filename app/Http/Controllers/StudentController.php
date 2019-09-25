@@ -17,7 +17,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-      
+        return redirect()->route('student.subjects.index');
         return view('student.dashboard');
     }
   

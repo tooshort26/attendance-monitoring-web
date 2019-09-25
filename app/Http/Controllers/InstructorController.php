@@ -17,6 +17,7 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        return view('instructor.dashboard');
+        return redirect()->route('instructor.subject.index');
+        // return view('instructor.dashboard');
     }
 }

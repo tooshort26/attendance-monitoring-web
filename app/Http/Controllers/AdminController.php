@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Admin;
-use JD\Cloudder\Facades\Cloudder;
+use App\Course;
+use App\Department;
 use App\Http\Requests\Admin\UpdateAccountRequest;
+use App\Instructor;
+use App\Student;
+use Illuminate\Http\Request;
+use JD\Cloudder\Facades\Cloudder;
 
 class AdminController extends Controller
 {
@@ -21,7 +25,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $noOfStudents    = Student::count();
+        $noOfInstructors = Instructor::count();
+        $noOfCourse      = Course::count();
+        $noOfDepartments = Department::count();
+        return view('admin.dashboard', compact('noOfStudents', 'noOfInstructors', 'noOfCourse', 'noOfDepartments'));
     }
 
     public function edit()
