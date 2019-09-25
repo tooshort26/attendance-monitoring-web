@@ -4,7 +4,13 @@
 @prepend('page-css')
 <link rel="stylesheet" href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.css') }}">
 @endprepend
-
+<div class="row">
+	<div class="col-lg-4 ml-2">
+		<p class="font-weight-bold text-primary">Name : ({{ Auth::user()->id_number }}) {{ Auth::user()->name }}</p>
+		<p class="font-weight-bold text-primary">Course : {{ Auth::user()->course->abbr }}</p>
+	</div>
+</div>
+<hr>
 @foreach($subjects as $level => $year)
 <div class="card shadow mb-4 rounded-0">
 	@php
