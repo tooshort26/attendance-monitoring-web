@@ -118,7 +118,7 @@
 				
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568822193/ascb-csogi/slider_3.jpg') }})"></div>
+					<div class="home_slider_background" style="background-image:url(https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569829814/ascb-csogi/slider_3.webp)"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
@@ -133,7 +133,7 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568822193/ascb-csogi/slider_2.jpg') }})"></div>
+					<div class="home_slider_background" style="background-image:url(https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569829814/ascb-csogi/slider_2.webp)"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
@@ -148,7 +148,7 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568822193/ascb-csogi/slider_1.jpg') }})"></div>
+					<div class="home_slider_background" style="background-image:url(https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569829813/ascb-csogi/slider_1.webp)"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
@@ -186,7 +186,7 @@
 				<!-- Features Item -->
 				<div class="col-lg-4 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619177/ascb-csogi/icon_3.png') }}" alt=""></div>
+						<div class="feature_icon"><img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619177/ascb-csogi/icon_3.png" alt=""></div>
 						<h3 class="feature_title">Login</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
@@ -195,7 +195,7 @@
 				<!-- Features Item -->
 				<div class="col-lg-4 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619175/ascb-csogi/icon_2.png') }}" alt=""></div>
+						<div class="feature_icon"><img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619175/ascb-csogi/icon_2.png" alt=""></div>
 						<h3 class="feature_title">View</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
@@ -204,7 +204,7 @@
 						<!-- Features Item -->
 				<div class="col-lg-4 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619173/ascb-csogi/icon_1.png') }}" alt=""></div>
+						<div class="feature_icon"><img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619173/ascb-csogi/icon_1.png" alt=""></div>
 						<h3 class="feature_title">Print</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
@@ -216,7 +216,7 @@
 
 	<!-- Team -->
 	<div class="team">
-		<div class="team_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619180/ascb-csogi/team_background.jpg')}}" data-speed="0.8"></div>
+		<div class="team_background parallax-window" data-parallax="scroll" data-image-src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569829989/ascb-csogi/team_background.webp" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -308,7 +308,7 @@
 	<!-- Footer -->
 
 	<footer class="footer">
-		<div class="footer_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619212/ascb-csogi/footer_background.png') }})"></div>
+		<div class="footer_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569829989/ascb-csogi/footer_background.webp') }})"></div>
 		<div class="container">
 			<div class="row footer_row">
 				<div class="col">
