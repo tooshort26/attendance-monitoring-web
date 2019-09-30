@@ -54,8 +54,8 @@ Route::group(['prefix' => 'admin'] , function () {
 Route::group(['prefix' => 'student'] , function () {
 	Route::get('/', 'StudentController@index')->name('student.dashboard');
   	Route::get('dashboard', 'StudentController@index')->name('student.dashboard');
-    Route::get('edit', 'StudentController@edit')->name('student.edit');
-    Route::put('edit/{student}', 'StudentController@update')->name('student.update');
+    Route::get('edit', 'StudentController@edit')->name('student.account.edit');
+    Route::put('edit/{student}', 'StudentController@update')->name('student.account.update');
 
   	Route::get('login', 'Auth\StudentLoginController@login')->name('student.auth.login');
   	Route::post('login', 'Auth\StudentLoginController@loginStudent')->name('student.auth.loginStudent');
@@ -69,8 +69,8 @@ Route::group(['prefix' => 'instructor'] , function () {
 	  Route::get('/', 'InstructorController@index')->name('instructor.dashboard');
   	Route::get('dashboard', 'InstructorController@index')->name('instructor.dashboard');
 
-    Route::get('edit', 'InstructorController@edit')->name('instructor.edit');
-    Route::put('edit/{instructor}', 'InstructorController@update')->name('instructor.update');
+    Route::get('edit', 'InstructorController@edit')->name('instructor.account.edit');
+    Route::put('edit/{instructor}', 'InstructorController@update')->name('instructor.account.update');
     
   	Route::get('login', 'Auth\InstructorLoginController@login')->name('instructor.auth.login');
   	Route::post('login', 'Auth\InstructorLoginController@loginInstructor')->name('instructor.auth.loginInstructor');

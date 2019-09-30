@@ -11,7 +11,7 @@
 	</div>
 
 </div>
-<form method="POST" action="{{ route('instructor.update', [Auth::user()->id]) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('instructor.account.update', [Auth::user()->id]) }}" enctype="multipart/form-data">
 	@csrf
 	@method('PUT')
 	<div class="card shadow mb-4 rounded-0">
