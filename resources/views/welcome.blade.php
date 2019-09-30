@@ -391,6 +391,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha256-rD86dXv7/J2SvI9ebmNi5dSuQdvzzrrN2puPca/ILls=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 {{-- <script src="plugins/parallax-js-master/parallax.min.js"></script> --}}
-<script src="js/custom.js"></script>
+<script src="js/custom.min.js"></script>
 </body>
 </html>
