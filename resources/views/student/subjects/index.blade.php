@@ -2,7 +2,7 @@
 @section('title','List of your subjects')
 @section('content')
 @prepend('page-css')
-<link rel="stylesheet" href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.css">
 @endprepend
 <div class="row">
 	<div class="col-lg-4 ml-2">
@@ -73,8 +73,7 @@
 </div>
 @endforeach
 @push('page-scripts')
-<script src="{{ URL::asset("vendor/datatables/jquery.dataTables.min.js") }}"></script>
-<script src="{{ URL::asset("vendor/datatables/dataTables.bootstrap4.min.js") }}"></script>
-<script></script>
+<script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 @endpush
 @endsection

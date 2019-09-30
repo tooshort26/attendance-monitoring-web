@@ -13,7 +13,7 @@
   <!-- Nav Item - Dashboard -->
   <li class="nav-item">
     <a class="nav-link" href="{{route('admin.dashboard')}}">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <i class="fas fa-fw fa-tachometer-alt text-white"></i>
       <span>Dashboard</span></a>
     </li>
     <!-- Divider -->
@@ -21,7 +21,7 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-graduation-cap text-white"></i>
         <span>Student</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -34,7 +34,7 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInstructor" aria-expanded="true" aria-controls="collapseInstructor">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-chalkboard-teacher text-white"></i>
         <span>Instructors</span>
       </a>
       <div id="collapseInstructor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -47,7 +47,7 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject" aria-expanded="true" aria-controls="collapseSubject">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-book text-white"></i>
         <span>Subjects</span>
       </a>
       <div id="collapseSubject" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -60,7 +60,7 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDepartments" aria-expanded="true" aria-controls="collapseDepartments">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-building text-white"></i>
         <span>Departments</span>
       </a>
       <div id="collapseDepartments" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -189,7 +189,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2019</span>
+              <span>Copyright &copy; OGI-ASCB {{ date('Y') }} - {{ date('Y', strtotime('+1 year')) }} </span>
             </div>
           </div>
         </footer>

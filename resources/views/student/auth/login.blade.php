@@ -1,6 +1,14 @@
 @extends('admin.layouts.app')
 @section('title', 'Student Login')
 @section('content')
+@prepend('page-css')
+<style>
+    .bg-login-image {
+        background:url('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569824042/ascb-csogi/undraw_exams_g4ow.svg') center center; 
+        background-size: cover;
+    }
+</style>
+@endprepend
 <body class="bg-gradient-primary">
     <div class="container">
         <!-- Outer Row -->
@@ -24,7 +32,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="number" class="form-control form-control-user" name="id_number" id="idNumber" aria-describedby="idNumberHelper" placeholder="Enter ID Number..." value="{{old('id_number')}}">
+                                            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control form-control-user" name="id_number" id="idNumber" aria-describedby="idNumberHelper" placeholder="Enter ID Number..." value="{{old('id_number')}}">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" name="password" id="userPassword" placeholder="Password">

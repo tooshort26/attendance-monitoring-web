@@ -2,7 +2,7 @@
 @section('title','List of course')
 @section('content')
 @prepend('page-css')
-<link rel="stylesheet" href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.css">
 @endprepend
 <div class="card shadow mb-4 rounded-0">
 	<div class="card-header py-3 rounded-0">
@@ -122,8 +122,8 @@
   </div>
 </div>
 @push('page-scripts')
-<script src="{{ URL::asset("vendor/datatables/jquery.dataTables.min.js") }}"></script>
-<script src="{{ URL::asset("vendor/datatables/dataTables.bootstrap4.min.js") }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script>
 	let courseId = "";
 	let courseName       = document.querySelector('#courseName');
