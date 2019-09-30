@@ -55,6 +55,7 @@
                                         </a>
                                     </form>
                                     <hr>
+                                    <a href="/" class="btn btn-facebook btn-user btn-block"><i class="fa fa-home"></i> Home page</a>
                                 </div>
                             </div>
                         </div>
