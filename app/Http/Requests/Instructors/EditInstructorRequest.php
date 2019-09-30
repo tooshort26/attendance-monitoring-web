@@ -28,13 +28,12 @@ class EditInstructorRequest extends FormRequest
       $rules = [
             'name'      => 'required',
             'gender'    => ['required', Rule::in($gender)],
-            'id_number' => 'required|unique:instructors,id_number,'.request('id'),
             'birthdate' => 'required|date',
             'profile'   => 'nullable',
         ];
 
       if ( !is_null(request('password')) || !is_null(request()->password_confirmation) ) {
-        $rules['password'] = 'required|confirmed|min:6|max:20';  
+        $rules['password'] = 'required|confirmed|min:8|max:20';  
       }
 
         return $rules;

@@ -14,7 +14,6 @@ class AdminSeeder extends Seeder
     {
     	Admin::create([
 				'name' => 'John Doe',
-				'id_number' => '1501755',
 				'email' => 'admin@yahoo.com',
 				'password' => 1234,
     	]);

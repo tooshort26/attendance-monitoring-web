@@ -17,17 +17,11 @@
 	<input type="hidden" name="id" value="{{$student->id}}">
 	<div class="card shadow mb-4 rounded-0">
 		<div class="card-header py-3 rounded-0">
-			<h6 class="m-0 font-weight-bold text-primary">Student Information</h6>
+			<h6 class="m-0 font-weight-bold text-primary">Student Information & Credentials</h6>
 		</div>
 		<div class="card-body">
 			<div class="row">
-				<div class="col-lg-6">
-					<div class="form-group">
-						<label for="studentIdNumber">ID Number</label>
-						<input type="number" class="form-control" name="id_number" id="studentIdNumber" value="{{ old('id_number') ?? $student->id_number }}" placeholder="Enter Student ID Number...">
-					</div>
-				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					<div class="form-group">
 						<label for="studentFullname">Fullname</label>
 						<input type="text" class="text-capitalize form-control" name="name" id="studentFullname" value="{{ old('name') ?? $student->name }}" placeholder="Enter Fullname...">

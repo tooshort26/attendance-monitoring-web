@@ -58,7 +58,7 @@ class StudentController extends Controller
     public function store(AddStudentRequest $request)
     {
         $student = $this->studentRepo->store($request->except('password_confirmation'));
-        return back()->with('success', 'Successfully add the student.')->with('student_id', $student->id);
+        return back()->with('success', 'Successfully add the student with ID Number ' . $student->id_number . '.')->with('student_id', $student->id);
     }
 
     /**

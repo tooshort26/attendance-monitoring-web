@@ -2,12 +2,13 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Hash;
+use App\Student;
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class Student extends Authenticatable
 {
@@ -19,7 +20,7 @@ class Student extends Authenticatable
      */
     // 'level'
     protected $fillable = [
-        'id_number', 'name', 'password', 'gender', 'profile', 'birthdate', 'course_id', 
+        'name', 'password', 'gender', 'profile', 'birthdate', 'course_id', 
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -29,6 +30,17 @@ class Student extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function(Student $student) {
+            $studentCount = Student::count();
+            $student->id_number = date('Y') . ++$studentCount;
+            return true;
+        });
+    }
 
     public function course()
     {

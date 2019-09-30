@@ -54,9 +54,9 @@ class InstructorController extends Controller
      */
     public function store(AddInstructorRequest $request)
     {
-        $student = $this->instructorRepository
+        $instructor = $this->instructorRepository
                         ->store($request->except('password_confirmation'));
-        return back()->with('success', 'Successfully add the instructor.');
+        return back()->with('success', 'Successfully add the instructor with ID Number ' . $instructor->id_number . '.');
     }
 
     /**

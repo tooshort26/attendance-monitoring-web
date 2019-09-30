@@ -32,13 +32,12 @@ class EditStudentRequest extends FormRequest
             'name'      => 'required',
             'gender'    => ['required', Rule::in($gender)],
             'course_id' => ['required', Rule::in($courses)],
-            'id_number' => 'required|unique:students,id_number,'.request('id'),
             'birthdate' => 'required|date',
             'profile'   => 'nullable',
         ];
 
         if (!is_null(request()->password) || !is_null(request()->password_confirmation)) {
-            $rules['password'] = 'required|confirmed';
+            $rules['password'] = 'required|confirmed|min:8|max:20';
         }
 
         return $rules;

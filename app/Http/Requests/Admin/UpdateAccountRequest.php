@@ -26,13 +26,12 @@ class UpdateAccountRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'id_number' => 'required|unique:admins,id_number,'.Auth::user()->id,
             'name'      => 'required',
             'profile'   => 'nullable',
         ];
         
         if (!is_null(request()->password) || !is_null(request()->password_confirmation)) {
-            $rules['password'] = 'required|confirmed';
+            $rules['password'] = 'required|confirmed|min:8|max:20';
         }
 
         return $rules;

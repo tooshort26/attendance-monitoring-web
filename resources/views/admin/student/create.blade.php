@@ -14,10 +14,10 @@
 <form method="POST" action="{{ route('student.store') }}" id="#addStudentForm">
 	@csrf
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-12">
 			<div class="card shadow mb-4 rounded-0">
 				<div class="card-header py-3 rounded-0">
-					<h6 class="m-0 font-weight-bold text-primary">Personal Information</h6>
+					<h6 class="m-0 font-weight-bold text-primary">Personal Information & Credentials</h6>
 				</div>
 				<div class="card-body">
 					<div class="row">
@@ -54,35 +54,20 @@
 							</div>
 						</div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-6">
-			<div class="card shadow mb-4 rounded-0">
-				<div class="card-header py-3 rounded-0">
-					<h6 class="m-0 font-weight-bold text-primary">Account Information</h6>
-				</div>
-				<div class="card-body">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="form-group">
-								<label for="studentIdNumber">ID Number</label>
-								<input type="number" class="form-control" name="id_number" value="{{ old('id_number') }}" id="studentIdNumber" placeholder="Enter Student ID Number..." >
-							</div>
-						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentPassword">Password</label>
 								<input type="password" class="form-control" name="password" id="studentPassword" placeholder="Enter Your password..." >
 							</div>
 						</div>
+
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentRetypePassword">Re-type password</label>
 								<input type="password" class="form-control" name="password_confirmation" id="studentRetypePassword" placeholder="Password Confirmation..." >
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>

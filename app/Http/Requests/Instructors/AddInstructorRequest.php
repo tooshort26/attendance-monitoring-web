@@ -27,8 +27,7 @@ class AddInstructorRequest extends FormRequest
               return [
               'name'      => 'required',
               'gender'    => ['required', Rule::in(['male', 'female'])],
-              'id_number' => 'required|unique:instructors',
-              'password'  => 'required|confirmed',
+              'password'  => 'required|confirmed|min:8|max:20',
               'birthdate' => 'required|date',
               'profile'   => 'nullable',
         ];

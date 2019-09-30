@@ -22,24 +22,6 @@
 				<div class="card-body">
 					<div class="row">
 						<input type="hidden" name="id" value="{{$instructor->id}}">
-						<div class="col-lg-12">
-							<div class="form-group">
-								<label for="idNumber">ID Number</label>
-								<input type="number" class="form-control" name="id_number" id="idNumber" placeholder="Enter ID Number..." value="{{ old('id_number') ?? $instructor->id_number }}">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label for="password">New password (Optional)</label>
-								<input type="password" class="form-control" name="password" id="password" placeholder="Enter Your password..." value="">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label for="reTypePassword">Re-type new password <small class="text-primary font-weight-bold">(Fill this if you fill the new password field)</small></label>
-								<input type="password" class="form-control" name="password_confirmation" id="reTypePassword" placeholder="Password Confirmation..." value="">
-							</div>
-						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="fullName">Fullname</label>
@@ -63,11 +45,23 @@
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label>Profile Picture (Optional)</label>
+								<label>Profile Picture <span class="text-primary font-weight-bold">(Optional)</span></label>
 								<div class="custom-file">
 									<input type="file" class="custom-file-input" id="customFile" name="profile">
 									<label class="custom-file-label" for="customFile">New profile image</label>
 								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label for="password">New password <span class="text-primary font-weight-bold">(Optional)</span></label>
+								<input type="password" class="form-control" name="password" id="password" placeholder="Enter Your password..." value="">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label for="reTypePassword">Re-type new password <span class="text-primary font-weight-bold">(Fill this if you fill the new password field)</span></label>
+								<input type="password" class="form-control" name="password_confirmation" id="reTypePassword" placeholder="Password Confirmation..." value="">
 							</div>
 						</div>
 					</div>

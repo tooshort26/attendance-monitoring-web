@@ -20,24 +20,6 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<div class="col-lg-12">
-							<div class="form-group">
-								<label for="idNumber">ID Number</label>
-								<input type="number" class="form-control" name="id_number" value="{{ old('id_number') }}" id="idNumber" placeholder="Enter ID Number...">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label for="password">Password</label>
-								<input type="password" class="form-control" name="password" value="{{ old('password') }}" id="password" placeholder="Enter Your password..." >
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label for="retypePassword">Re-type password</label>
-								<input type="password" class="form-control" value="{{ old('password_confirmation') }}" name="password_confirmation" id="retypePassword" placeholder="Password Confirmation..." >
-							</div>
-						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="fullname">Fullname</label>
@@ -61,11 +43,23 @@
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label>Profile Picture</label>
+								<label>Profile Picture <span class="text-primary font-weight-bold">(Optional)</span></label>
 								<div class="custom-file">
 									<input type="file" class="custom-file-input" id="customFile" name="profile">
 									<label class="custom-file-label" for="customFile">Instructor Image</label>
 								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" class="form-control" name="password" value="{{ old('password') }}" id="password" placeholder="Enter Your password..." >
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label for="retypePassword">Re-type password</label>
+								<input type="password" class="form-control" value="{{ old('password_confirmation') }}" name="password_confirmation" id="retypePassword" placeholder="Password Confirmation..." >
 							</div>
 						</div>
 					</div>

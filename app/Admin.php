@@ -2,10 +2,11 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use App\Admin;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 
 class Admin extends Authenticatable
@@ -27,6 +28,16 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function(Admin $admin) {
+            $adminCount = Admin::count();
+            $admin->id_number = date('Y') . ++$adminCount;
+            return true;
+        });
+    }
 
     public function setPasswordAttribute($value)
     {
