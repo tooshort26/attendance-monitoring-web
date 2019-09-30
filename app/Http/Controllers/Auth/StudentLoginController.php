@@ -31,7 +31,7 @@ class StudentLoginController extends Controller
         return redirect()->intended(route('student.dashboard'));
       } 
       return back()->withInput($request->only('id_number', 'remember'))
-                    ->withErrors(['message' => 'Please check your username or password.']);
+                    ->withErrors(['message' => 'Please check your ID number or password.']);
     }
 
     public function logout(Request $request)

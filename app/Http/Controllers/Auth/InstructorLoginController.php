@@ -43,7 +43,7 @@ class InstructorLoginController extends Controller
       }
 
       return back()->withInput($request->only('id_number', 'remember'))
-                    ->withErrors(['message' => 'Please check your username or password.']);
+                    ->withErrors(['message' => 'Please check your ID number or password.']);
     }
     
     public function logout(Request $request)
