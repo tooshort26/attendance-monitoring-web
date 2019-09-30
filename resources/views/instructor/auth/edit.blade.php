@@ -1,4 +1,4 @@
-@extends('admin.layouts.dashboard-template')
+@extends('instructor.layouts.dashboard-template')
 @section('title','Update your information')
 @section('content')
 <div class="row">
@@ -11,7 +11,7 @@
 	</div>
 
 </div>
-<form method="POST" action="{{ route('admin.update', [Auth::user()->id]) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('instructor.update', [Auth::user()->id]) }}" enctype="multipart/form-data">
 	@csrf
 	@method('PUT')
 	<div class="card shadow mb-4 rounded-0">
@@ -22,22 +22,22 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="form-group">
-						<label for="adminFullname">Fullname</label>
-						<input type="text" class="form-control" name="name" id="adminFullname" value="{{ Auth::user()->name }}">
+						<label for="instructorFullname">Fullname</label>
+						<input type="text" class="form-control" name="name" id="instructorFullname" value="{{ Auth::user()->name }}">
 					</div>
 				</div>
 
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label for="adminNewPassword">New Password <span class="text-primary font-weight-bold">(Fill this if you fill the new password field)</label>
-						<input type="password" class="form-control" name="password" id="adminNewPassword" >
+						<label for="instructorNewPassword">New Password <span class="text-primary font-weight-bold">(Fill this if you fill the new password field)</label>
+						<input type="password" class="form-control" name="password" id="instructorNewPassword" >
 					</div>
 				</div>
 
 				<div class="col-lg-6">
 					<div class="form-group">
-						<label for="adminPasswordConfirmation">Re-type new password </label>
-						<input type="password" class="form-control" name="password_confirmation" id="adminPasswordConfirmation" >
+						<label for="instructorPasswordConfirmation">Re-type new password </label>
+						<input type="password" class="form-control" name="password_confirmation" id="instructorPasswordConfirmation" >
 					</div>
 				</div>
 
