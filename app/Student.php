@@ -50,7 +50,7 @@ class Student extends Authenticatable
     public function subjects()
     {
         return $this->belongsToMany('App\Subject', 'student_subjects', 'student_id', 'subject_id')
-                    ->withPivot('remarks')
+                    ->withPivot('instructor_id', 'remarks')
                     ->withTimestamps();
     }
 

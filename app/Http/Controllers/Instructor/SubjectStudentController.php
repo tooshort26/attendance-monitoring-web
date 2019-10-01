@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Instructor;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Subject;
 use App\Student;
+use App\Subject;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SubjectStudentController extends Controller
 {
@@ -54,7 +55,7 @@ class SubjectStudentController extends Controller
     {
         
         $students = Student::whereHas('subjects', function ($query) use($subject) {
-             $query->where('subject_id', $subject);
+             $query->where(['subject_id' => $subject, 'instructor_id' => Auth::user()->id]);
         })->with(['subjects' => function ($query) use($subject) {
              $query->where('id', $subject);
         }, 'course', 'course.department'])->get();

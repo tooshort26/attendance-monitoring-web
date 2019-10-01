@@ -28,7 +28,10 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $instructor = Instructor::with('subjects')->find(Auth::user()->id);
+        $instructor = Instructor::with(['subjects', 'subjects.students' => function ($query) 
+        {
+            $query->where('instructor_id', Auth::user()->id);
+        }])->find(Auth::user()->id);
         return view('instructor.subjects.index', compact('instructor'));
     }
 
@@ -69,7 +72,7 @@ class SubjectController extends Controller
 
             // Insert all students for this subject.
             foreach ($request->students['ids'] as $index => $id) {
-                $subject->students()->attach($id, ['remarks' => $request->students['remarks'][$index] ]);
+                $subject->students()->attach($id, ['instructor_id' => Auth::user()->id, 'remarks' => $request->students['remarks'][$index] ]);
             }
 
             DB::commit();

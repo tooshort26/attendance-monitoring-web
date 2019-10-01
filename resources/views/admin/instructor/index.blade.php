@@ -47,6 +47,7 @@
 		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		    }
 	});
+	
 	function inActiveInstructor(instructorId)
 	{
 		let confirmation = confirm('Are you sure you want to mark this instructor as in-active?');
