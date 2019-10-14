@@ -2,16 +2,34 @@
 
 namespace App\Http\Controllers\Student;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Student;
-use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
-class SubjectsGradeController extends Controller
+class SubjectGradePrintController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth:student');
+    }
+
+    public function print(Request $request)
+    {
+        $student = Student::with(['subjects' => function($query) {
+            $query->whereBetween('level', [request('from_year'), request('to_year')])
+                  ->whereIn('semester', request('semesters'))
+                  ->orderBy('level', 'ASC');
+        }])->find(Auth::user()->id);
+
+        $subjects = $student->subjects->groupBy(['level', 'semester'])->map(function ($year) {
+            return $year->sortKeys();
+        });
+        
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('student.subjects.print.grade', compact('subjects'));
+        return $pdf->stream();
     }
     /**
      * Display a listing of the resource.
@@ -20,15 +38,7 @@ class SubjectsGradeController extends Controller
      */
     public function index()
     {
-        $student = Student::with(['subjects' => function ($query) {
-            $query->orderBy('level', 'ASC');
-        }])->find(Auth::user()->id);
-
-        $subjects = $student->subjects->groupBy(['level', 'semester'])->map(function ($year) {
-            return $year->sortKeys();
-        });
-
-        return view('student.subjects.index', compact('student', 'subjects'));
+        //
     }
 
     /**

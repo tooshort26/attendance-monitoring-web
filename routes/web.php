@@ -63,6 +63,8 @@ Route::group(['prefix' => 'student'] , function () {
   	Route::post('login', 'Auth\StudentLoginController@loginStudent')->name('student.auth.loginStudent');
   	Route::post('logout', 'Auth\StudentLoginController@logout')->name('student.auth.logout');
 
+    Route::post('grade/print', 'Student\SubjectGradePrintController@print')->name('student.subjects.print');
+    
     Route::get('/subject', 'Student\SubjectsGradeController@index')->name('student.subjects.index');
     // Route::resource('subject', 'Student\SubjectsGradeController');
 });
