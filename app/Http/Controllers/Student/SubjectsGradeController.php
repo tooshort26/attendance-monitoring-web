@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Student;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Student;
 use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class SubjectsGradeController extends Controller
 {
@@ -28,7 +29,9 @@ class SubjectsGradeController extends Controller
             return $year->sortKeys();
         });
 
-        return view('student.subjects.index', compact('student', 'subjects'));
+        $studentLevel = max(array_column(Arr::flatten(end($subjects)), 'level'));
+
+        return view('student.subjects.index', compact('student', 'subjects', 'studentLevel'));
     }
 
     /**
