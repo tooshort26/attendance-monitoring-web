@@ -26,9 +26,10 @@ class UpdateAccountRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'firstname'  => 'required',
-            'lastname'   => 'required',
-            'contact_no' => 'required|unique:instructors,contact_no,' . Auth::user()->id,
+            'name' => 'required',
+            // 'firstname'  => 'required',
+            // 'lastname'   => 'required',
+            // 'contact_no' => 'required|unique:instructors,contact_no,' . Auth::user()->id,
             'profile'    => 'nullable',
         ];
         
