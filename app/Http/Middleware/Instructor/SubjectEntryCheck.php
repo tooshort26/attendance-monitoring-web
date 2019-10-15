@@ -24,7 +24,7 @@ class SubjectEntryCheck
 
         // Checking for Intstructor subject to avoid duplicate subject with same attributes.
         $instructor = Instructor::whereHas('subjects', function ($query) use($request) {
-            $query->where(['subject_id' => $request->subject_id, 'block' => $request->block]);
+            $query->where(['subject_id' => $request->subject_id]);
         })->find(Auth::user()->id);
 
         // Checking for student subjects.
@@ -39,7 +39,7 @@ class SubjectEntryCheck
         if (!is_null($instructor)) {
           return back()->withInput($request->all())->withErrors(['message' => 'You already add this subject please check your subjects.']);  
         } else if(is_null($request->students)) {
-            return back()->withInput($request->only('name', 'description', 'level', 'semester', 'block', 'subject_id'))
+            return back()->withInput($request->only('name', 'description', 'level', 'semester', 'school_year', 'subject_id'))
                                  ->withErrors(['message' => 'Please include your students to this subject.']);  
         } else if(count(array_filter($studentsAlreadyHaveThisSubject)) >= 1) {
             $studentNames = array_column($studentsAlreadyHaveThisSubject, 'name');

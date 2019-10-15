@@ -41,9 +41,7 @@ class Instructor extends Authenticatable
 
     public function subjects()
     {
-        return $this->belongsToMany('App\Subject', 'instructor_subjects', 'instructor_id', 'subject_id')
-                    ->withPivot('block')
-                    ->withTimestamps();
+        return $this->belongsToMany('App\Subject', 'instructor_subjects', 'instructor_id', 'subject_id')->withTimestamps();
     }
 
     public function setPasswordAttribute($value)

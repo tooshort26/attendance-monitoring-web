@@ -68,7 +68,7 @@ class SubjectController extends Controller
 
 
             // Insert the subject for the instructor.
-            $instructor->subjects()->attach($subject, ['block' => $request->block]);
+            $instructor->subjects()->attach($subject);
 
             // Insert all students for this subject.
             foreach ($request->students['ids'] as $index => $id) {

@@ -16,8 +16,7 @@ class CreateInstructorSubjects extends Migration
         Schema::create('instructor_subjects', function (Blueprint $table) {
             $table->integer('instructor_id');
             $table->integer('subject_id');
-            $table->string('block');
-            $table->primary(['instructor_id', 'subject_id', 'block']);
+            $table->primary(['instructor_id', 'subject_id']);
             $table->timestamps();
         });
     }

@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
-                        <label for="subjectName">Subject name</label>
+                        <label for="subjectName">Course No</label>
                         <select name="name" id="subjectName" class="form-control">
                             <option selected disabled>Choose Subject</option>
                             @foreach($subjects as $subject)
@@ -47,32 +47,32 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="subjectDescription">Subject description</label>
+                        <label for="subjectDescription">Description</label>
                         <input type="text" readonly class="form-control" name="description" id="subjectDescription"  value="{{ old('description') }}">
                     </div>
                 </div>
                 <div class="col-lg-1">
                     <div class="form-group">
-                        <label for="subjectLevel">Subject level</label>
+                        <label for="subjectLevel">Level</label>
                         <input type="number" readonly class="form-control" name="level" id="subjectLevel"  value="{{ old('level') }}">
                     </div>
                 </div>
                 <div class="col-lg-1">
                     <div class="form-group">
-                        <label for="subjectCredits">Subject Credits</label>
+                        <label for="subjectCredits">Units</label>
                         <input type="number" readonly class="form-control" name="credits" id="subjectCredits"  value="{{ old('credits') }}">
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
-                        <label for="subjectSemester">Subject semester</label>
+                        <label for="subjectSemester">Semester</label>
                         <input type="number" readonly class="form-control" name="semester" id="subjectSemester" value="{{ old('semester') }}">
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
-                        <label for="subjectBlock">Block</label>
-                        <input type="text" class="form-control" name="block" id="subjectBlock" placeholder="Enter Block..." value="{{ old('block') }}">
+                        <label for="subjectSchoolYear">School Year</label>
+                        <input type="text" readonly class="form-control" name="school_year" id="subjectSchoolYear" placeholder="Enter School Year..." value="{{ old('school_year') }}">
                     </div>
                 </div>
             </div>
@@ -202,6 +202,7 @@
         document.querySelector('#subjectLevel').value       = dataSource.level;
         document.querySelector('#subjectSemester').value    = dataSource.semester;
         document.querySelector('#subjectCredits').value     = dataSource.credits;
+        document.querySelector('#subjectSchoolYear').value     = dataSource.school_year;
     });
 
 
