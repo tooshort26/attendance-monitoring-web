@@ -289,7 +289,7 @@
 					<div class="team_item">
 						<div class="team_image"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619188/ascb-csogi/team_3.jpg') }}" alt=""></div>
 						<div class="team_body">
-							<div class="team_title"><a href="#">Margun Garay</a></div>
+							<div class="team_title"><a href="#">Marjun Garay</a></div>
 							<div class="team_subtitle">Quantum mechanics</div>
 							<div class="social_list">
 								<ul>
