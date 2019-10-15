@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,8 +28,10 @@ class SubjectGradePrintController extends Controller
             return $year->sortKeys();
         });
         
+        $studentLevel = max(array_column(Arr::flatten(end($subjects)), 'level'));
+
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('student.subjects.print.grade', compact('subjects'));
+        $pdf->loadView('student.subjects.print.grade', compact('subjects', 'studentLevel'));
         return $pdf->stream();
     }
     /**

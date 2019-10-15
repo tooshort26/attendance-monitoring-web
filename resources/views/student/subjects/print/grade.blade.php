@@ -37,11 +37,11 @@
   <main>
     @php $index = 0; @endphp
     @foreach($subjects as $level => $year)
+    @foreach($year as $semester => $subject)
     @php
       $semesters = ['First' , 'Second', 'Third'];
-      $total_credits  = 0; $total_subjects = 0; $total_rating = 0;
+      $total_credits  = 0; $total_subjects = 0; $total_rating = 0;  $total_weighted = 0;
     @endphp
-    @foreach($year as $semester => $subject)
       <div class="row">
         <div class="column" style="width : 20%;">
          <img class="img-header" src="https://res.cloudinary.com/dpcxcsdiw/image/upload/w_60,h_60/v1569386717/ogi-sys/andres-soriano-logo.png">
@@ -61,7 +61,7 @@
         </center>
       </h3>
         @if($index === 0)
-          <h4>Name : ({{ Auth::user()->id_number }}) {{ Auth::user()->name }} <br>Course : {{ Auth::user()->course->abbr }}</h4>
+          <h4>Name : ({{ Auth::user()->id_number }}) {{ Auth::user()->name }} <br>Course : {{ Auth::user()->course->abbr }} - {{ $studentLevel }}</h4>
         @endif
      
               <table border="1" width="100%" style="border-collapse: collapse;">
@@ -84,18 +84,19 @@
                     @php $total_credits += $items->credits @endphp
                     @php $total_subjects++ @endphp
                     @php $total_rating += $items->pivot->remarks @endphp
+                    @php $total_weighted += $items->pivot->remarks * $items->credits @endphp
                     <td class="text-center"> {{ number_format($items->credits, 1) }}</td>
                     <td class="text-center"> {{ ($items->pivot->remarks > 3.0 ) ? 'FAILED' : 'PASSED' }}</td>
-                    <td></td>
+                    <td class="text-center">{{ number_format($items->pivot->remarks * $items->credits, 1) }}</td>
                   </tr>
                   @endforeach
                   <tr>
                     <td></td>
                     <td class="text-right font-weight-bold">TOTAL > > >&nbsp;</td>
                     <td class="text-center"></td>
-                    <td class="text-center"> {{ number_format($total_credits, 1) }}</td>
+                    <td class="text-center font-weight-bold"> {{ number_format($total_credits, 1) }}</td>
                     <td class="text-center font-weight-bold"></td>
-                    <td class="text-center font-weight-bold">WT</td>
+                    <td class="text-center font-weight-bold">{{ number_format($total_weighted, 1)}}</td>
                   </tr>
                   <tr>
                     <td></td>

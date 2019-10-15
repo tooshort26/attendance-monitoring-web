@@ -60,7 +60,9 @@ class SubjectStudentController extends Controller
              $query->where('id', $subject);
         }, 'course', 'course.department'])->get();
 
-        return view('instructor.subjectstudents.show', compact('students'));
+        $subject = Subject::find($subject);
+
+        return view('instructor.subjectstudents.show', compact('students', 'subject'));
     }
 
     /**
@@ -75,15 +77,17 @@ class SubjectStudentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the grade of the student in subject.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Subject $subject)
     {
-        //
+        $student = Student::find($request->student_id);
+        $status = $subject->students()->updateExistingPivot($student,['remarks' => $request->pivot['remarks']], false);
+        return response()->json(['success' => (bool) $status], 200);
     }
 
     /**

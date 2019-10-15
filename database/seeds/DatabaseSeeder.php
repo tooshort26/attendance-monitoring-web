@@ -12,9 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\Student', 5)->create();
+        factory('App\Student', 30)->create();
         // factory('App\Subject', 8)->create();
-        factory('App\Subject', 20)->create();
+        // factory('App\Subject', 20)->create();
         factory('App\Instructor', 5)->create();
         $this->call([
             AdminSeeder::class,
@@ -22,11 +22,11 @@ class DatabaseSeeder extends Seeder
             StudentSeeder::class,
             DepartmentSeeder::class,
             CourseSeeder::class,
-            // SubjectSeeder::class,
+            SubjectSeeder::class,
         ]);
         
-        Subject::all()->each(function ($subject) {
+        /*Subject::all()->each(function ($subject) {
             $subject->students()->attach(1, ['instructor_id' => 1, 'remarks' => 1]);
-        });
+        });*/
     }
 }

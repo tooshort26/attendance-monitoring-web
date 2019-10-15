@@ -15,7 +15,7 @@
 					<th>ID Number</th>
 					<th>Name</th>
 					<th>Gender</th>
-					<th>Birthdate</th>
+					{{-- <th>Birthdate</th> --}}
 					<th>Course</th>
 					<th>Actions</th>
 				</tr>
@@ -37,8 +37,8 @@
         { name: 'id_number' },
         { name: 'name' },
         { name: 'gender' },
-        { name: 'birthdate' },
-        { name: 'course.name', orderable: false },
+        // { name: 'birthdate' },
+        { name: 'course.abbr', orderable: false },
          { name: 'action', orderable: false, searchable: false }
     ],
 });

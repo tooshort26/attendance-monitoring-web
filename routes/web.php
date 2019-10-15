@@ -88,7 +88,10 @@ Route::group(['prefix' => 'instructor'] , function () {
     Route::get('/student/list', 'Instructor\SubjectController@students')->name('student.list');
 
     Route::get('/subject/{subject}/students', 'Instructor\SubjectStudentController@show')
-      ->name('subject.students.show');
+         ->name('subject.students.show');
+
+    Route::put('/subject/{subject}/students', 'Instructor\SubjectStudentController@update')
+          ->name('subject.students.update');
 });
 
 

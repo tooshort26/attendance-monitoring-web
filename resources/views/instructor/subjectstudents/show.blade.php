@@ -1,8 +1,8 @@
 @extends('instructor.layouts.dashboard-template')
-@section('title','List of your student')
+@section('title','List of your student in ' . $subject->name . ' - ' . $subject->description)
 @section('content')
 @prepend('page-css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.css"
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.css"/>
 @endprepend
 <div class="card shadow mb-4 rounded-0">
 	<div class="card-header py-3 rounded-0">
@@ -17,6 +17,7 @@
 					<th>Name</th>
 					<th class="text-center">Course</th>
 					<th class="text-center">Department</th>
+					<th class="text-center">Rating</th>
 					<th class="text-center">Remarks</th>
 				</tr>
 			</thead>
@@ -27,7 +28,8 @@
 					<td>{{ $student->name }}</td>
 					<td class="text-center">{{ $student->course->abbr }}</td>
 					<td class="text-center">{{ $student->course->department->name }}</td>
-					<td class="text-center">{{ $student->subjects[0]->pivot->remarks }}</td>
+					<td class="text-center studentGradeField" contenteditable="true" data-student-id="{{ $student->id }}" data-student-subject="{{ $student->subjects[0] }}">{{ number_format($student->subjects[0]->pivot->remarks, 1) }}</td>
+					<td class="text-center font-weight-bold text-{{ ($student->subjects[0]->pivot->remarks > 3.0 ) ? 'danger' : 'primary' }}"> {{ ($student->subjects[0]->pivot->remarks > 3.0 ) ? 'FAILED' : 'PASSED' }}</td>
 				</tr>
 				@endforeach
 			</tbody>
@@ -39,7 +41,53 @@
 @push('page-scripts')
 <script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.js"></script>
- $('#student-subjects-table').DataTable();
+<script>
+	let studentGradeOldValue = '';
+
+	$.ajaxSetup({
+	    headers: {
+		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    }
+	});
+
+ 	$('#student-subjects-table').DataTable();
+
+ 	$('.studentGradeField').focus(function (e) {
+ 		studentGradeOldValue = e.target.innerText.trim();
+ 	});
+
+ 	// Disable the new line
+ 	$('.studentGradeField').keypress(function (e) {
+ 		if (e.keyCode == 13) {
+ 			e.preventDefault();
+ 		}
+ 	});
+
+ 	$('.studentGradeField').blur(function (e) {
+ 		let studentGradeNewValue = e.target.innerText.trim();
+ 		if (studentGradeNewValue !== studentGradeOldValue) {
+ 			let studentId = $(this).attr('data-student-id');
+			let studentSubject = JSON.parse($(this).attr('data-student-subject'));
+			studentSubject['student_id'] = studentId;
+			studentSubject['pivot']['remarks'] = studentGradeNewValue;
+ 			let confirmation = confirm(`Are you sure to edit this grade?`);
+ 			if (confirmation) {
+				$.ajax({
+	 				url : `/instructor/subject/${studentSubject.id}/students`,
+	 				method  : 'PUT',
+	 				data : studentSubject,
+	 				success : function (response) {
+	 					if (response.success) {
+	 						alert('Student grade succesfully update please wait a couple of second to apply changes..');
+	 						window.location.reload();
+	 					}
+	 				} 
+	 			});
+ 			} else {
+ 				$(this).html(studentGradeOldValue);
+ 			}
+ 		}
+ 	});
 </script>
 @endpush
 @endsection

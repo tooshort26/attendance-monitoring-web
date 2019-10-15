@@ -25,7 +25,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Add subject form</h6>
     </div>
     <div class="card-body">
-        <form action="{{ route('instructor.subject.store') }}" method="POST">
+        <form action="{{ route('instructor.subject.store') }}" method="POST" autocomplete="off">
             @csrf
             <div class="row">
                 <div class="col-lg-1">

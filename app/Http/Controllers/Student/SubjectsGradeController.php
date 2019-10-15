@@ -12,7 +12,7 @@ class SubjectsGradeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:student');
+        $this->middleware(['auth:student']);
     }
     /**
      * Display a listing of the resource.
