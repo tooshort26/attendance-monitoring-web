@@ -1,5 +1,5 @@
 @extends('admin.layouts.dashboard-template')
-@section('title','New Student')
+@section('title','Add Student')
 @section('content')
 <div class="row mb-2">
 	<div class="col-lg-12">
