@@ -20,12 +20,34 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="fullname">Fullname</label>
-								<input type="text" class="form-control" name="name" id="fullname" placeholder="Enter Fullname..." value="{{ old('name') }}">
+								<label for="firstname">Firstname</label>
+								<input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter Firstname..." value="{{ old('firstname') }}">
 							</div>
 						</div>
+
+						<div class="col-lg-3">
+							<div class="form-group">
+								<label for="lastname">Lastname</label>
+								<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter Lastname..." value="{{ old('lastname') }}">
+							</div>
+						</div>
+
+						<div class="col-lg-3">
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input type="email" class="form-control" name="email" id="email" placeholder="Enter Email..." value="{{ old('email') }}">
+							</div>
+						</div>
+
+						<div class="col-lg-3">
+							<div class="form-group">
+								<label for="contact">Contact No</label>
+								<input type="text" class="form-control" name="contact_no" id="contact" placeholder="Enter Contact No..." value="{{ old('contact_no') }}">
+							</div>
+						</div>
+
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label for="studentGender">Gender</label>
@@ -48,6 +70,15 @@
 									<input type="file" class="custom-file-input" id="customFile" name="profile">
 									<label class="custom-file-label" for="customFile">Instructor Image</label>
 								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label for="instructorStatus">Status</label>
+								<select name="status" class="form-control" id="instructorStatus">
+									<option value="full-time" {{ old('status') == 'full-time' ? 'selected' : '' }}>Full time</option>
+									<option value="part-time" {{ old('status') == 'part-time' ? 'selected' : '' }}>Part time</option>
+								</select>
 							</div>
 						</div>
 						<div class="col-lg-6">

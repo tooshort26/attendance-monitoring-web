@@ -21,24 +21,28 @@
 					@csrf
 					<div class="row">
 						<div class="col-lg-12 form-group">
-							<label for="name">Subject name</label>
+							<label for="name">Course No.</label>
 							<input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
 						</div>
 						<div class="col-lg-12 form-group">
-							<label for="description">Subject Description</label>
+							<label for="description">Description</label>
 							<input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}">
 						</div>
-						<div class="col-lg-4 form-group">
+						<div class="col-lg-3 form-group">
 							<label for="level">Subject level</label>
 							<input type="number" class="form-control" id="level" name="level" value="{{ old('level') }}">
 						</div>
-						<div class="col-lg-4 form-group">
-							<label for="semester">Subject Credits</label>
+						<div class="col-lg-3 form-group">
+							<label for="semester">Units</label>
 							<input type="number" class="form-control" id="credits" name="credits" value="{{ old('credits') }}">
 						</div>
-						<div class="col-lg-4 form-group">
-							<label for="semester">Subject Semester</label>
+						<div class="col-lg-3 form-group">
+							<label for="semester">Semester</label>
 							<input type="number" class="form-control" id="semester" name="semester" value="{{ old('semester') }}">
+						</div>
+						<div class="col-lg-3 form-group">
+							<label for="school_year">School Year</label>
+							<input type="text" class="form-control" id="school_year" name="school_year" value="{{ old('school_year') }}">
 						</div>
 					</div>
 					<div class="float-right">

@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         factory('App\Student', 30)->create();
         // factory('App\Subject', 8)->create();
         // factory('App\Subject', 20)->create();
-        factory('App\Instructor', 5)->create();
+        // factory('App\Instructor', 5)->create();
         $this->call([
             AdminSeeder::class,
             InstructorSeeder::class,

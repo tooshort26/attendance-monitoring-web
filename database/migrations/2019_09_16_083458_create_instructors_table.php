@@ -16,11 +16,15 @@ class CreateInstructorsTable extends Migration
         Schema::create('instructors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('id_number')->unique();
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('lastname');
             $table->string('password');
             $table->enum('gender', ['male', 'female']);
             $table->string('profile')->default('http://res.cloudinary.com/dpcxcsdiw/image/upload/c_fit,h_150,w_150/qtw0flebtkxhcekaclwq.png');
             $table->date('birthdate');
+            $table->string('email');
+            $table->string('contact_no');
+            $table->enum('status', ['full-time', 'part-time'])->default('full-time');
             $table->enum('active', ['yes', 'no'])->default('yes');
             $table->rememberToken();
             $table->timestamps();

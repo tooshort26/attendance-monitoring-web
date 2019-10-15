@@ -13,10 +13,14 @@ class InstructorSeeder extends Seeder
     public function run()
     {
         Instructor::create([
-        	'name'           => 'Mr. John Doe',
-			'gender'         => 'male',
-			'birthdate'      =>  '2019-09-13 17:06:0',
-			'password'       => 1234,
+            'firstname'       => 'Firstname',
+            'lastname'       => 'Lastname',
+            'gender'     => 'male',
+            'birthdate'  =>  '2019-09-13 17:06:0',
+            'password'   => 1234,
+            'email'      => 'christophervistal25@gmail.com',
+            'status'     => 'full-time',
+            'contact_no' => '09193693499',
         ]);
     }
 }

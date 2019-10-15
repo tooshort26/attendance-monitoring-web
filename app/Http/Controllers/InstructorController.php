@@ -31,6 +31,7 @@ class InstructorController extends Controller
 
     public function update(UpdateAccountRequest $request, Instructor $instructor)
     {
+        
         if ($request->hasFile('profile')) {
             $image_name = request()->file('profile')->getRealPath();
             Cloudder::upload($image_name, null);
@@ -38,7 +39,9 @@ class InstructorController extends Controller
             $instructor->profile = $image_url;
         }
         
-        $instructor->name = $request->name;
+        $instructor->firstname  = $request->firstname;
+        $instructor->lastname   = $request->lastname;
+        $instructor->contact_no = $request->contact_no;
 
         if (!is_null($request->password)) {
             $instructor->password = $request->password;

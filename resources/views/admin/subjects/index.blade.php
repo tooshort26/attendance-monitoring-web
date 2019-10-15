@@ -12,11 +12,12 @@
 		<table class="table table-bordered table-hover" id="students-table">
 			<thead>
 				<tr>
-					<th>Name</th>
+					<th>Course No</th>
 					<th>Description</th>
 					<th>Level</th>
-					<th>Credits</th>
+					<th>Units</th>
 					<th>Semester</th>
+					<th>School year</th>
 					<th class="text-center">Action</th>
 				</tr>
 			</thead>
@@ -39,6 +40,7 @@
         { name: 'level' },
         { name: 'credits' },
         { name: 'semester' },
+        { name: 'school_year' },
         { name: 'action' , searchable : false,},
     ],
 });

@@ -18,6 +18,7 @@ class SubjectSeeder extends Seeder
 			'level'       => 1,
 			'credits'     => 3,
 			'semester'    => 1,
+			'school_year' => '2019-2020',
 		]);
 
 		Subject::create([
@@ -26,6 +27,7 @@ class SubjectSeeder extends Seeder
 			'level'       => 1,
 			'credits'     => 3,
 			'semester'    => 2,
+			'school_year' => '2019-2020',
 		]);
 
 		Subject::create([
@@ -34,6 +36,7 @@ class SubjectSeeder extends Seeder
 			'level'       => 1,
 			'credits'     => 3,
 			'semester'    => 3,
+			'school_year' => '2019-2020',
 		]);
     }
 }

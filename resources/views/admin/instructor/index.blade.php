@@ -13,9 +13,12 @@
 			<thead>
 				<tr>
 					<th>ID Number</th>
-					<th>Name</th>
-					<th>Gender</th>
-					<th>Birthdate</th>
+					<th>Firstname</th>
+					<th>Lastname</th>
+					<th>Email</th>
+					<th>Contact No</th>
+					<th>Status</th>
+					<th>Added on</th>
 					<th class="text-center">Actions</th>
 				</tr>
 			</thead>
@@ -34,9 +37,12 @@
     ajax: '/admin/instructor/list',
     columns: [
         { name: 'id_number' },
-        { name: 'name' },
-        { name: 'gender' },
-        { name: 'birthdate' },
+        { name: 'firstname' },
+        { name: 'lastname' },
+        { name: 'email' },
+        { name: 'contact_no' },
+        { name: 'status' },
+        { name: 'created_at' },
         { name: 'action', orderable: false, searchable: false }
     ],
 });

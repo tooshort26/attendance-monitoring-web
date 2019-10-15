@@ -29,6 +29,7 @@ class UpdateSubjectRequest extends FormRequest
             'level'       => 'required|numeric',
             'credits'       => 'required|numeric',
             'name'        => 'required|unique:subjects,name,'.request('id'),
+            'school_year' => 'required',
             'description' => 'required',
         ];
 

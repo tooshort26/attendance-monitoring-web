@@ -18,7 +18,7 @@ class Instructor extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id_number', 'name', 'email', 'password', 'gender', 'profile', 'birthdate', 'active'
+        'id_number', 'firstname','lastname', 'email', 'password', 'gender', 'profile', 'birthdate', 'active','status','contact_no'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -61,14 +61,29 @@ class Instructor extends Authenticatable
         return Carbon::parse($value)->format('Y-m-d');
     }
 
-    public static function laratablesName($instructor)
+    public static function laratablesFirstname($instructor)
     {
-        return ucwords($instructor->name);
+        return ucwords($instructor->firstname);
+    }
+
+    public static function laratablesLastname($instructor)
+    {
+        return ucwords($instructor->lastname);
+    }
+
+    public static function laratablesStatus($instructor)
+    {
+        return ucwords($instructor->status);
     }
 
     public static function laratablesGender($instructor)
     {
         return ucfirst($instructor->gender);
+    }
+
+    public static function laratablesCreatedAt($instructor)
+    {
+        return $instructor->created_at->format('m/d/Y');
     }
 
     /**

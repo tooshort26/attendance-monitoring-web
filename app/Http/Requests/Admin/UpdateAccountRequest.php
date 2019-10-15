@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Auth;
+use Illuminate\Foundation\Http\FormRequest;
 
 
 class UpdateAccountRequest extends FormRequest
@@ -26,8 +26,10 @@ class UpdateAccountRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name'      => 'required',
-            'profile'   => 'nullable',
+            'firstname'  => 'required',
+            'lastname'   => 'required',
+            'contact_no' => 'required|unique:instructors,contact_no,' . Auth::user()->id,
+            'profile'    => 'nullable',
         ];
         
         if (!is_null(request()->password) || !is_null(request()->password_confirmation)) {

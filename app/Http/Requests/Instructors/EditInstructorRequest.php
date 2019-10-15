@@ -25,12 +25,18 @@ class EditInstructorRequest extends FormRequest
     public function rules()
     {
       $gender = ['male', 'female'];
+      $status = ['full-time', 'part-time'];
       $rules = [
-            'name'      => 'required',
+            'firstname'  => 'required',
+            'lastname'   => 'required',
+            'email'      => 'required|unique:instructors,email,' . request('id'),
+            'contact_no' => 'required|unique:instructors,contact_no,' . request('id'),
             'gender'    => ['required', Rule::in($gender)],
+            'status'    => ['required', Rule::in($status)],
             'birthdate' => 'required|date',
             'profile'   => 'nullable',
         ];
+
 
       if ( !is_null(request('password')) || !is_null(request()->password_confirmation) ) {
         $rules['password'] = 'required|confirmed|min:8|max:20';  
