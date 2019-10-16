@@ -6,7 +6,7 @@
 @endprepend
 <div class="card bg-primary text-white shadow">
 	<div class="card-body">
-	  <b>Edit student grade by just clicking the field then press enter after you input new value.</b>
+	  <b>Edit student grade by just clicking the rating field of student then press enter after you input new value.</b>
 	</div>
 </div>
 <br>
