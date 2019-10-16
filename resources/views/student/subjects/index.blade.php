@@ -122,7 +122,7 @@
 					</div>
 
 					<div class="col-lg-12">
-						<label for="semesters">Semester : <small class="text-primary font-weight-bold">Press CTRL to multiple select</small></label>
+						<label for="semesters">Semester : <small class="text-primary font-weight-bold">Press CTRL for multiple select</small></label>
 					    <select multiple required name="semesters[]" class="form-control" id="semesters">
 					      <option value="1">1</option>
 					      <option value="2">2</option>
