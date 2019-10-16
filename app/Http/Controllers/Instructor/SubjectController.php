@@ -79,6 +79,7 @@ class SubjectController extends Controller
             return back()->with('success', 'Successfully add new subject named ' . $request->name . ' with ' . count($request->students['ids']) .' students');
           
         } catch (Exception $e) {
+            dd($e->getMessage());
             return back();
             DB::rollback();
         }
