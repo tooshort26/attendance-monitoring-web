@@ -6,7 +6,7 @@
     <div class="sidebar-brand-icon ">
           <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50">
     </div>
-    <div class="sidebar-brand-text mx-3">OGI ASCB<sup></sup></div>
+    <div class="sidebar-brand-text mx-3">OGI ASCB CSOGIS<sup></sup></div>
   </a>
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
