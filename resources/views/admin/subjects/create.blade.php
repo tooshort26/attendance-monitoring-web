@@ -29,7 +29,7 @@
 							<input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}">
 						</div>
 						<div class="col-lg-3 form-group">
-							<label for="level">Subject level</label>
+							<label for="level">level</label>
 							<input type="number" class="form-control" id="level" name="level" value="{{ old('level') }}">
 						</div>
 						<div class="col-lg-3 form-group">
