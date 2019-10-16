@@ -29,8 +29,11 @@ class SubjectsGradeController extends Controller
             return $year->sortKeys();
         });
 
-        // $studentLevel = max(array_column(Arr::flatten(end($subjects)), 'level') ? []);
-        $studentLevel = "";
+        if (count($subjects) >= 1) {
+            $studentLevel = max(array_column(Arr::flatten(end($subjects)), 'level'));
+        } else {
+           $studentLevel = "";
+        }
 
         return view('student.subjects.index', compact('student', 'subjects', 'studentLevel'));
     }

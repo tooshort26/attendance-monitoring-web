@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col-lg-4 ml-2">
 		<p class="font-weight-bold text-primary"><span class="text-dark">Name : </span>({{ Auth::user()->id_number }}) {{ Auth::user()->name }}</p>
-		<p class="font-weight-bold text-primary"><span class="text-dark">Course : </span>{{ Auth::user()->course->abbr }} - {{ $studentLevel }}</p>
+		<p class="font-weight-bold text-primary"><span class="text-dark">Course : </span>{{ Auth::user()->course->abbr }} {{ $studentLevel }}</p>
 	</div>
 </div>
 <hr>
