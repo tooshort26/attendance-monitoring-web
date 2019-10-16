@@ -34,7 +34,7 @@ class AddSubjectRequest extends FormRequest
             'school_year'        => 'required',
             'students.ids.*'     => 'required',
             'students.names.*'   => 'required',
-            'students.remarks.*' => 'nullable',
+            'students.remarks.*' => 'nullable|numeric|min:1|max:5|regex:/^[1-5](.+)?$/',
         ];
     }
 

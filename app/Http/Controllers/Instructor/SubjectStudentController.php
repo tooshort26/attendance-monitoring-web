@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Instructor;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Instructors\EditStudentRating;
 use App\Student;
 use App\Subject;
 use Illuminate\Http\Request;
@@ -83,7 +84,7 @@ class SubjectStudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subject $subject)
+    public function update(EditStudentRating $request, Subject $subject)
     {
         $student = Student::find($request->student_id);
         $status = $subject->students()->updateExistingPivot($student,['remarks' => $request->pivot['remarks']], false);

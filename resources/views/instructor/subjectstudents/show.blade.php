@@ -35,7 +35,8 @@
 					<td>{{ $student->name }}</td>
 					<td class="text-center">{{ $student->course->abbr }}</td>
 					<td class="text-center">{{ $student->course->department->name }}</td>
-					<td class="text-center studentGradeField" contenteditable="true" data-student-id="{{ $student->id }}" data-student-subject="{{ $student->subjects[0] }}">{{ number_format($student->subjects[0]->pivot->remarks, 1) }}</td>
+					<td class="text-center studentGradeField" contenteditable="true" data-student-id="{{ $student->id }}" data-student-subject="{{ $student->subjects[0] }}">
+					{{ number_format($student->subjects[0]->pivot->remarks, 1) }}</td>
 					<td class="text-center font-weight-bold text-{{ ($student->subjects[0]->pivot->remarks > 3.0 ) ? 'danger' : 'primary' }}"> {{ ($student->subjects[0]->pivot->remarks > 3.0 ) ? 'FAILED' : 'PASSED' }}</td>
 				</tr>
 				@endforeach
@@ -84,7 +85,17 @@
 		 						alert('Student grade succesfully update please wait a couple of second to apply changes..');
 		 						window.location.reload();
 		 					}
-		 				} 
+		 				},
+		 				error : function (response) {
+		 					if (response.status === 422) {
+		 						let errors = response.responseJSON.errors;
+		 						let messages = "";
+		 						errors['pivot.remarks'].forEach((error) => {
+		 							messages += error + "\n";
+		 						});
+		 						alert(messages);
+		 					}
+		 				}
 		 			});
 	 			} else {
 	 				$(this).html(studentGradeOldValue);
