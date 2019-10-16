@@ -14,7 +14,7 @@
 				<tr>
 					<th>Course No</th>
 					<th>Description</th>
-					<th>Level</th>
+					<th>Year level</th>
 					<th>Units</th>
 					<th>Semester</th>
 					<th>School year</th>

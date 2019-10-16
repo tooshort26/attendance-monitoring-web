@@ -18,7 +18,7 @@
 					<th>Description</th>
 					<th class="text-center">Semester</th>
 					<th class="text-center">Credits</th>
-					<th class="text-center">Level</th>
+					<th class="text-center">Year level</th>
 					<th class="text-center">No. of students</th>
 					<th class="text-center">Actions</th>
 				</tr>

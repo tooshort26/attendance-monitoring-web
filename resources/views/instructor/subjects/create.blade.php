@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-lg-1">
                     <div class="form-group">
-                        <label for="subjectLevel">Level</label>
+                        <label for="subjectLevel">Year level</label>
                         <input type="number" readonly class="form-control" name="level" id="subjectLevel"  value="{{ old('level') }}">
                     </div>
                 </div>
