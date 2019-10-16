@@ -4,7 +4,7 @@
 @prepend('page-css')
 <style>
     .bg-login-image {
-        background:url('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569824198/ascb-csogi/undraw_professor_8lrt.svg') center center; 
+        background:url('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1571236946/ascb-csogi/undraw_teaching_f1cm.svg') center center; 
         background-size: cover;
     }
 </style>
