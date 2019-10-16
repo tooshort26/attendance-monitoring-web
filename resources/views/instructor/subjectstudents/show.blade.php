@@ -4,6 +4,13 @@
 @prepend('page-css')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.css"/>
 @endprepend
+<div class="card bg-primary text-white shadow">
+	<div class="card-body">
+	  <b>Edit student grade by just clicking the field then press enter after you input new value.</b>
+	</div>
+</div>
+<br>
+
 <div class="card shadow mb-4 rounded-0">
 	<div class="card-header py-3 rounded-0">
 		<h6 class="m-0 font-weight-bold text-primary">Students</h6>
@@ -60,34 +67,32 @@
  	$('.studentGradeField').keypress(function (e) {
  		if (e.keyCode == 13) {
  			e.preventDefault();
+ 			let studentGradeNewValue = e.target.innerText.trim();
+	 		if (studentGradeNewValue !== studentGradeOldValue) {
+	 			let studentId = $(this).attr('data-student-id');
+				let studentSubject = JSON.parse($(this).attr('data-student-subject'));
+				studentSubject['student_id'] = studentId;
+				studentSubject['pivot']['remarks'] = studentGradeNewValue;
+	 			let confirmation = confirm(`Are you sure to edit this grade?`);
+	 			if (confirmation) {
+					$.ajax({
+		 				url : `/instructor/subject/${studentSubject.id}/students`,
+		 				method  : 'PUT',
+		 				data : studentSubject,
+		 				success : function (response) {
+		 					if (response.success) {
+		 						alert('Student grade succesfully update please wait a couple of second to apply changes..');
+		 						window.location.reload();
+		 					}
+		 				} 
+		 			});
+	 			} else {
+	 				$(this).html(studentGradeOldValue);
+	 			}
+	 		}
  		}
  	});
-
- 	$('.studentGradeField').blur(function (e) {
- 		let studentGradeNewValue = e.target.innerText.trim();
- 		if (studentGradeNewValue !== studentGradeOldValue) {
- 			let studentId = $(this).attr('data-student-id');
-			let studentSubject = JSON.parse($(this).attr('data-student-subject'));
-			studentSubject['student_id'] = studentId;
-			studentSubject['pivot']['remarks'] = studentGradeNewValue;
- 			let confirmation = confirm(`Are you sure to edit this grade?`);
- 			if (confirmation) {
-				$.ajax({
-	 				url : `/instructor/subject/${studentSubject.id}/students`,
-	 				method  : 'PUT',
-	 				data : studentSubject,
-	 				success : function (response) {
-	 					if (response.success) {
-	 						alert('Student grade succesfully update please wait a couple of second to apply changes..');
-	 						window.location.reload();
-	 					}
-	 				} 
-	 			});
- 			} else {
- 				$(this).html(studentGradeOldValue);
- 			}
- 		}
- 	});
+ 
 </script>
 @endpush
 @endsection
