@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Admin\UpdateAccountRequest;
 use App\Instructor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use JD\Cloudder\Facades\Cloudder;
 
 class InstructorController extends Controller
@@ -29,9 +30,14 @@ class InstructorController extends Controller
         return view('instructor.auth.edit');
     }
 
-    public function update(UpdateAccountRequest $request, Instructor $instructor)
+    public function update(Request $request, Instructor $instructor)
     {
-        
+        $this->validate($request, [
+            'firstname'  => 'required',
+            'lastname'   => 'required',
+            'contact_no' => 'required|unique:instructors,contact_no,' . Auth::user()->id,
+            'profile'    => 'nullable',
+        ]);
         if ($request->hasFile('profile')) {
             $image_name = request()->file('profile')->getRealPath();
             Cloudder::upload($image_name, null);
