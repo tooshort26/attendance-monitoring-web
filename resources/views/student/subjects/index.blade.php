@@ -11,11 +11,11 @@
 	</div>
 </div>
 <hr>
-{{-- <div class="text-right">
+<div class="text-right">
 	<div class="fixed-bottom mb-4 mr-5">
 		<button title="Print Grades" data-toggle="modal" data-target="#printGradeModal" class="btn btn-primary shadow"><i class="fas fa-print"></i> Print</button>
 	</div>
-</div> --}}
+</div>
 @foreach($subjects as $level => $year)
 <div class="card shadow mb-4 rounded-0">
 	@php
