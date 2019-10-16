@@ -28,7 +28,11 @@ class SubjectGradePrintController extends Controller
             return $year->sortKeys();
         });
         
-        $studentLevel = max(array_column(Arr::flatten(end($subjects)), 'level'));
+        if (count($subjects) >= 1) {
+            $studentLevel = max(array_column(Arr::flatten(end($subjects)), 'level'));
+        } else {
+           $studentLevel = "";
+        }
 
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadView('student.subjects.print.grade', compact('subjects', 'studentLevel'));
