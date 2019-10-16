@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Department;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -24,14 +25,23 @@ class UpdateSubjectRequest extends FormRequest
      */
     public function rules()
     {
+        $departments = Department::pluck('id');
         return [
-            'semester'    => ['required', Rule::in([1, 2 , 3])],
-            'level'       => 'required|numeric',
+            'semester'      => ['required', Rule::in([1, 2 , 3])],
+            'level'         => 'required|numeric',
             'credits'       => 'required|numeric',
-            'name'        => 'required|unique:subjects,name,'.request('id'),
-            'school_year' => 'required',
-            'description' => 'required',
+            'name'          => 'required|unique:subjects,name,'.request('id'),
+            'school_year'   => 'required',
+            'description'   => 'required',
+            'department_id' => ['required', 'numeric', Rule::in($departments)],
         ];
 
+    }
+
+     public function attributes()
+    {
+        return [
+            'department_id' => 'department'
+        ];
     }
 }

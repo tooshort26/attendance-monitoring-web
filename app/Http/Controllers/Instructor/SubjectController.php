@@ -47,7 +47,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        $subjects = Subject::all();
+        $subjects = Subject::with('department')->get();
         return view('instructor.subjects.create', compact('subjects'));
     }
 

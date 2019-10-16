@@ -26,10 +26,21 @@
 							<label for="name">Course No.</label>
 							<input type="text" class="form-control" value="{{ old('name') ?? $subject->name }}" id="name" name="name">
 						</div>
-						<div class="col-lg-12 form-group">
+						<div class="col-lg-6 form-group">
 							<label for="description">Description</label>
 							<input type="text" value="{{ old('description') ?? $subject->description }}" class="form-control" id="description" name="description">
 						</div>
+
+						<div class="col-lg-6 form-group">
+							<label for="department">Department</label>
+							<select name="department_id" class="form-control" id="department" required>
+								<option value="" selected disabled hidden>Select Department</option>
+								@foreach($departments as $department)
+								<option {{ (old('department_id') == $department->id) ? 'selected' : $subject->department_id == $department->id ? 'selected' : '' }} value="{{ $department->id }}">{{ $department->name }}</option>
+								@endforeach
+							</select>
+						</div>
+
 						<div class="col-lg-3 form-group">
 							<label for="level">Level</label>
 							<input type="number" value="{{ old('level') ?? $subject->level }}" class="form-control" id="level" name="level">

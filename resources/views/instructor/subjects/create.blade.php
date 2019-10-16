@@ -28,17 +28,13 @@
         <form action="{{ route('instructor.subject.store') }}" method="POST" autocomplete="off">
             @csrf
             <div class="row">
-                <div class="col-lg-1">
-                    <div class="form-group">
-                        <label for="subjectId">Subject ID</label>
-                        <input class="form-control" type="number" name="subject_id" readonly id="subjectId" value="{{ old('subject_id') }}">
-                    </div>
-                </div>
+                {{-- <label for="subjectId">Subject ID</label> --}}
+                <input class="form-control" hidden type="number" name="subject_id"  id="subjectId" value="{{ old('subject_id') }}">
                 <div class="col-lg-2">
                     <div class="form-group">
                         <label for="subjectName">Course No</label>
-                        <select name="name" id="subjectName" class="form-control">
-                            <option selected disabled>Choose Subject</option>
+                        <select name="name" id="subjectName" class="form-control" required>
+                            <option value="" hidden selected disabled>Choose Subject</option>
                             @foreach($subjects as $subject)
                                 <option value="{{ $subject->name }}" {{ old('name') == $subject->name ? 'selected' : '' }} data-src="{{ $subject }}">{{ $subject->name }}</option>
                             @endforeach
@@ -73,6 +69,12 @@
                     <div class="form-group">
                         <label for="subjectSchoolYear">School Year</label>
                         <input type="text" readonly class="form-control" name="school_year" id="subjectSchoolYear" placeholder="Enter School Year..." value="{{ old('school_year') }}">
+                    </div>
+                </div>
+                 <div class="col-lg-1">
+                    <div class="form-group">
+                        <label for="subjectDepartment">Department</label>
+                        <input type="text"  readonly class="form-control" id="subjectDepartment">
                     </div>
                 </div>
             </div>
@@ -202,7 +204,8 @@
         document.querySelector('#subjectLevel').value       = dataSource.level;
         document.querySelector('#subjectSemester').value    = dataSource.semester;
         document.querySelector('#subjectCredits').value     = dataSource.credits;
-        document.querySelector('#subjectSchoolYear').value     = dataSource.school_year;
+        document.querySelector('#subjectSchoolYear').value  = dataSource.school_year;
+        document.querySelector('#subjectDepartment').value  = dataSource.department.name;
     });
 
 

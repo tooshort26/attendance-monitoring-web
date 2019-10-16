@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Department;
 use App\Http\Controllers\Controller;
-use App\Subject;
 use App\Http\Requests\Admin\AddSubjectRequest;
 use App\Http\Requests\Admin\UpdateSubjectRequest;
+use App\Subject;
 use Freshbitsweb\Laratables\Laratables;
+use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
@@ -37,7 +38,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        return view('admin.subjects.create');
+        $departments = Department::get(['id', 'name']);
+        return view('admin.subjects.create', compact('departments'));
     }
 
     /**
@@ -71,7 +73,8 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        return view('admin.subjects.edit', compact('subject'));
+        $departments = Department::get(['id', 'name']);
+        return view('admin.subjects.edit', compact('subject', 'departments'));
     }
 
     /**

@@ -21,6 +21,7 @@ class CreateSubjectsTable extends Migration
             $table->integer('level');
             $table->enum('semester', [1, 2, 3]);
             $table->string('school_year');
+            $table->integer('department_id');
             $table->timestamps();
         });
     }

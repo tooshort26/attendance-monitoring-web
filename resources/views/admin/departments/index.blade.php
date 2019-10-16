@@ -26,6 +26,7 @@
 <script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script>
+	let session = sessionStorage;
 	$.ajaxSetup({
 	    headers: {
 		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -90,6 +91,12 @@
 		} else {
 			alert('Please enter department name to process your request.');
 		}
+	};
+
+	const viewSubjects = (e) => {
+		let department = JSON.parse(e.getAttribute('data-src'));
+		session.setItem('departmentName', department.name);
+		window.location.href = '/admin/subject';
 	};
 </script>
 @endpush

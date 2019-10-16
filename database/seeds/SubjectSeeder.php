@@ -13,12 +13,13 @@ class SubjectSeeder extends Seeder
     public function run()
     {
 		Subject::create([
-			'name'        => 'SS1 1',
-			'description' => 'Sample Subject 1',
-			'level'       => 1,
-			'credits'     => 3,
-			'semester'    => 1,
-			'school_year' => '2019-2020',
+			'name'          => 'SS1 1',
+			'description'   => 'Sample Subject 1',
+			'level'         => 1,
+			'credits'       => 3,
+			'semester'      => 1,
+			'school_year'   => '2019-2020',
+			'department_id' => 1,
 		]);
 
 		Subject::create([
@@ -28,6 +29,7 @@ class SubjectSeeder extends Seeder
 			'credits'     => 3,
 			'semester'    => 2,
 			'school_year' => '2019-2020',
+			'department_id' => 1,
 		]);
 
 		Subject::create([
@@ -37,6 +39,7 @@ class SubjectSeeder extends Seeder
 			'credits'     => 3,
 			'semester'    => 3,
 			'school_year' => '2019-2020',
+			'department_id' => 3,
 		]);
     }
 }

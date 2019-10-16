@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    protected $fillable = ['name', 'description', 'level', 'credits', 'semester', 'school_year'];
+    protected $fillable = ['name', 'description', 'level', 'credits', 'semester', 'school_year', 'department_id'];
 
     public function students()
     {
@@ -20,6 +20,17 @@ class Subject extends Model
         return $this->belongsToMany('App\Instructor', 'instructor_subjects', 'subject_id', 'instructor_id')
                     ->withPivot('block')
                     ->withTimestamps();
+    }
+
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
+    }
+
+
+    public static function laratablesQueryConditions($query)
+    {
+        return $query->with(['department']);
     }
 
     /**
