@@ -18,7 +18,7 @@ class Instructor extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id_number', 'firstname','lastname', 'email', 'password', 'gender', 'profile', 'birthdate', 'active','status','contact_no'
+        'id_number', 'firstname','lastname', 'email', 'password', 'gender', 'profile', 'birthdate', 'active','status', 'civil_status', 'contact_no'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -72,6 +72,11 @@ class Instructor extends Authenticatable
     public static function laratablesStatus($instructor)
     {
         return ucwords($instructor->status);
+    }
+
+    public static function laratablesCivilStatus($instructor)
+    {
+        return ucwords($instructor->civil_status);
     }
 
     public static function laratablesGender($instructor)

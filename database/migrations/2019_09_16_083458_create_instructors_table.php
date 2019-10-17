@@ -25,6 +25,7 @@ class CreateInstructorsTable extends Migration
             $table->string('email');
             $table->string('contact_no');
             $table->enum('status', ['full-time', 'part-time'])->default('full-time');
+            $table->enum('civil_status', ['married', 'single', 'widow'])->default('single');
             $table->enum('active', ['yes', 'no'])->default('yes');
             $table->rememberToken();
             $table->timestamps();

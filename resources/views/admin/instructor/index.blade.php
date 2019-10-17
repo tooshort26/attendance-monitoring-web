@@ -18,6 +18,7 @@
 					<th>Email</th>
 					<th>Contact No</th>
 					<th>Status</th>
+					<th>Civil Status</th>
 					<th>Added on</th>
 					<th class="text-center">Actions</th>
 				</tr>
@@ -42,6 +43,7 @@
         { name: 'email' },
         { name: 'contact_no' },
         { name: 'status' },
+        { name: 'civil_status' },
         { name: 'created_at' },
         { name: 'action', orderable: false, searchable: false }
     ],

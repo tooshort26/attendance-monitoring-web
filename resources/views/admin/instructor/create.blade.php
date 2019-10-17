@@ -72,12 +72,22 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-3">
 							<div class="form-group">
 								<label for="instructorStatus">Status</label>
 								<select name="status" class="form-control" id="instructorStatus">
 									<option value="full-time" {{ old('status') == 'full-time' ? 'selected' : '' }}>Full time</option>
 									<option value="part-time" {{ old('status') == 'part-time' ? 'selected' : '' }}>Part time</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-lg-3">
+							<div class="form-group">
+								<label for="instructorCivilStatus">Civil Status</label>
+								<select name="civil_status" class="form-control" id="instructorCivilStatus">
+									<option value="single" {{ old('civil_status') == 'Single' ? 'selected' : '' }}>Single</option>
+									<option value="married" {{ old('civil_status') == 'Married' ? 'selected' : '' }}>Married</option>
+									<option value="widow" {{ old('civil_status') == 'Widow' ? 'selected' : '' }}>Widow</option>
 								</select>
 							</div>
 						</div>

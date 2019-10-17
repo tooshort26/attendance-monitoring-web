@@ -33,6 +33,7 @@ class EditInstructorRequest extends FormRequest
             'contact_no' => 'required|unique:instructors,contact_no,' . request('id'),
             'gender'    => ['required', Rule::in($gender)],
             'status'    => ['required', Rule::in($status)],
+            'civil_status' => ['required', Rule::in(['widow', 'married', 'single'])],
             'birthdate' => 'required|date',
             'profile'   => 'nullable',
         ];
