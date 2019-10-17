@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Instructors;
 
+use App\Department;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -24,7 +25,8 @@ class AddInstructorRequest extends FormRequest
      */
     public function rules()
     {
-              return [
+        $departments = Department::pluck('id');
+        return [
               'firstname'    => 'required',
               'lastname'     => 'required',
               'email'        => 'required|unique:instructors',
@@ -32,6 +34,7 @@ class AddInstructorRequest extends FormRequest
               'gender'       => ['required', Rule::in(['male', 'female'])],
               'status'       => ['required', Rule::in(['full-time', 'part-time'])],
               'civil_status' => ['required', Rule::in(['widow', 'married', 'single'])],
+              'department_id' => ['required', Rule::in($departments)],
               'password'     => 'required|confirmed|min:8|max:20',
               'birthdate'    => 'required|date',
               'profile'      => 'nullable',
@@ -42,7 +45,8 @@ class AddInstructorRequest extends FormRequest
     public function attributes()
     {
         return [
-            'id_number' => 'employee number',
+            'id_number'     => 'employee number',
+            'department_id' => 'department'
         ];
     }
 

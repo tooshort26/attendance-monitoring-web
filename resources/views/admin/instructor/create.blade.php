@@ -48,7 +48,7 @@
 							</div>
 						</div>
 
-						<div class="col-lg-6">
+						<div class="col-lg-3">
 							<div class="form-group">
 								<label for="studentGender">Gender</label>
 								<select name="gender" class="form-control" id="studentGender">
@@ -57,10 +57,20 @@
 								</select>
 							</div>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-3">
 							<div class="form-group">
 								<label for="studentBirthDate">Birthdate</label>
 								<input type="date" class="form-control" value="{{ old('birthdate') }}" name="birthdate" >
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label for="instructorDepartment">Department</label>
+								<select name="department_id" class="form-control" id="instructorDepartment">
+									@foreach($departments as $department)
+									<option value="{{ $department->id }}" {{ old('department_id') == $department->id ? 'selected' : '' }}>{{ $department->name }}</option>
+									@endforeach
+								</select>
 							</div>
 						</div>
 						<div class="col-lg-6">

@@ -18,6 +18,11 @@ class Department extends Model
          return $this->hasMany('App\Subject');
     }
 
+    public function instructors()
+    {
+         return $this->hasMany('App\Instructor');
+    }
+
      /**
      * Returns the action column html for datatables.
      *

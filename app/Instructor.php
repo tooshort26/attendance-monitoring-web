@@ -18,7 +18,7 @@ class Instructor extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id_number', 'firstname','lastname', 'email', 'password', 'gender', 'profile', 'birthdate', 'active','status', 'civil_status', 'contact_no'
+        'id_number', 'firstname','lastname', 'email', 'password', 'gender', 'profile', 'birthdate', 'active','status', 'civil_status', 'department_id', 'contact_no'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -44,6 +44,11 @@ class Instructor extends Authenticatable
         return $this->belongsToMany('App\Subject', 'instructor_subjects', 'instructor_id', 'subject_id')->withTimestamps();
     }
 
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
+    }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
@@ -57,6 +62,11 @@ class Instructor extends Authenticatable
     public function getBirthdateAttribute($value)
     {
         return Carbon::parse($value)->format('Y-m-d');
+    }
+
+    public static function laratablesQueryConditions($query)
+    {
+        return $query->with(['department']);
     }
 
     public static function laratablesFirstname($instructor)

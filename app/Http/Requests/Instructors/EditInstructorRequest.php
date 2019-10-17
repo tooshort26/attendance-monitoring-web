@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Instructors;
 
+use App\Department;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -26,6 +27,7 @@ class EditInstructorRequest extends FormRequest
     {
       $gender = ['male', 'female'];
       $status = ['full-time', 'part-time'];
+      $departments = Department::pluck('id');
       $rules = [
             'firstname'  => 'required',
             'lastname'   => 'required',
@@ -34,6 +36,7 @@ class EditInstructorRequest extends FormRequest
             'gender'    => ['required', Rule::in($gender)],
             'status'    => ['required', Rule::in($status)],
             'civil_status' => ['required', Rule::in(['widow', 'married', 'single'])],
+            'department_id' => ['required', Rule::in($departments)],
             'birthdate' => 'required|date',
             'profile'   => 'nullable',
         ];
@@ -51,6 +54,7 @@ class EditInstructorRequest extends FormRequest
     {
         return [
             'id_number' => 'employee number',
+            'department_id' => 'department',
         ];
     }
 

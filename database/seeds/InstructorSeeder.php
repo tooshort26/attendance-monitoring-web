@@ -21,6 +21,7 @@ class InstructorSeeder extends Seeder
             'email'      => 'christophervistal25@gmail.com',
             'status'     => 'full-time',
             'contact_no' => '09193693499',
+            'department_id' => 1,
         ]);
     }
 }

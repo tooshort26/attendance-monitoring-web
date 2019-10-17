@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Department;
 use App\Http\Controllers\Controller;
-use App\Repositories\InstructorRepository;
 use App\Http\Requests\Instructors\AddInstructorRequest;
 use App\Http\Requests\Instructors\EditInstructorRequest;
-use Freshbitsweb\Laratables\Laratables;
 use App\Instructor;
+use App\Repositories\InstructorRepository;
+use Freshbitsweb\Laratables\Laratables;
+use Illuminate\Http\Request;
 
 class InstructorController extends Controller
 {
@@ -43,7 +44,8 @@ class InstructorController extends Controller
      */
     public function create()
     {
-        return view('admin.instructor.create');
+        $departments = Department::get(['id', 'name']);
+        return view('admin.instructor.create', compact('departments'));
     }
 
     /**
@@ -78,7 +80,8 @@ class InstructorController extends Controller
      */
     public function edit(Instructor $instructor)
     {
-        return view('admin.instructor.edit', compact('instructor'));
+         $departments = Department::get(['id', 'name']);
+        return view('admin.instructor.edit', compact('instructor', 'departments'));
     }
 
     /**
