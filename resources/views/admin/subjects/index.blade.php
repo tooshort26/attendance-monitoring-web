@@ -46,7 +46,7 @@
 
 
 
-	$('#subjects-table').DataTable({
+	let table = $('#subjects-table').DataTable({
 	    orderCellsTop: true,
 	    serverSide: true,
 	    processing: true,
@@ -62,7 +62,16 @@
 	        { name: 'department.name' },
 	        { name: 'action' , searchable : false,},
 	    ],
-});
+	});
+
+	/*
+	$('.dataTable').on('click', 'tbody tr', function(e) {
+	})
+
+	$('.dataTable').on('mouseover', 'tbody tr', function() {
+  		$(this).css('cursor', 'pointer');
+	})*/
+
 </script>
 @endpush
 @endsection

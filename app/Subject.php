@@ -41,7 +41,11 @@ class Subject extends Model
      */
     public static function laratablesCustomAction($subject)
     {
-        return view('admin.subjects.includes.index_action', 
-            compact('subject'))->render();
+        return view('admin.subjects.includes.index_action', compact('subject'))->render();
+    }
+
+    public static function laratablesName($subject)
+    {
+        return view('admin.subjects.includes.clickable_name', compact('subject'))->render();
     }
 }

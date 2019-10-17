@@ -51,6 +51,8 @@ Route::group(['prefix' => 'admin'] , function () {
     Route::resource('department', 'Admin\DepartmentController');
 
     Route::resource('instructorsubjects', 'Admin\InstructorSubjectController');
+
+    Route::get('/subject/{subject}/students', 'Admin\SubjectStudentsController@show');
 });
 
 Route::group(['prefix' => 'student'] , function () {
