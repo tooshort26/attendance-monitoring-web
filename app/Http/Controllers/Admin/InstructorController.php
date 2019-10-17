@@ -33,7 +33,7 @@ class InstructorController extends Controller
     public function instructors()
     {
         return Laratables::recordsOf(Instructor::class, function ($query) {
-            return $query->where('active', 'yes');
+            return $query->where('active', 'yes')->with('department');
         });
     }
 
@@ -69,7 +69,7 @@ class InstructorController extends Controller
      */
     public function show($id)
     {
-        //
+        return Instructor::with('department')->find($id);
     }
 
     /**

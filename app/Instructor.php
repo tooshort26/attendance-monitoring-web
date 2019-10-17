@@ -64,6 +64,11 @@ class Instructor extends Authenticatable
         return Carbon::parse($value)->format('Y-m-d');
     }
 
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format('m/d/Y');
+    }
+
     public static function laratablesQueryConditions($query)
     {
         return $query->with(['department']);
@@ -94,11 +99,6 @@ class Instructor extends Authenticatable
         return ucfirst($instructor->gender);
     }
 
-    public static function laratablesCreatedAt($instructor)
-    {
-        return $instructor->created_at->format('m/d/Y');
-    }
-
     /**
      * Returns the action column html for datatables.
      *
@@ -108,6 +108,11 @@ class Instructor extends Authenticatable
     public static function laratablesCustomAction($instructor)
     {
         return view('admin.instructor.includes.index_action', compact('instructor'))->render();
+    }
+
+    public static function laratablesIdNumber($instructor)
+    {
+        return view('admin.instructor.includes.profile', compact('instructor'))->render();
     }
 
 }
