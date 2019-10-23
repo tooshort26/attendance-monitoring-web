@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RedirectIfAuthenticated
 {
@@ -39,7 +40,7 @@ class RedirectIfAuthenticated
             }
             break;
         }
-
+        Session::forget('url.intented');
         return $next($request);
     }
 }

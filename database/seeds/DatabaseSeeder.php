@@ -12,14 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // factory('App\Student', 30)->create();
+        factory('App\Student', 39)->create();
         // factory('App\Subject', 8)->create();
         // factory('App\Subject', 20)->create();
         // factory('App\Instructor', 5)->create();
         $this->call([
             AdminSeeder::class,
             InstructorSeeder::class,
-            StudentSeeder::class,
+            // StudentSeeder::class,
             DepartmentSeeder::class,
             CourseSeeder::class,
             SubjectSeeder::class,

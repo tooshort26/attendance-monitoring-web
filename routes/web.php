@@ -86,11 +86,18 @@ Route::group(['prefix' => 'instructor'] , function () {
     Route::get('/subjects', 'Instructor\SubjectController@index')->name('instructor.subject.index');
     Route::get('/subject/create', 'Instructor\SubjectController@create')->name('instructor.subject.create');
     Route::post('/subject/create', 'Instructor\SubjectController@store')->name('instructor.subject.store')->middleware('check.subject_entry');
-         
-    Route::get('/student/list', 'Instructor\SubjectController@students')->name('student.list');
 
-    Route::get('/subject/{subject}/students', 'Instructor\SubjectStudentController@show')
-         ->name('subject.students.show');
+    // Add some route name.
+    Route::get('/subject/{subject}/edit', 'Instructor\SubjectController@edit');
+    Route::put('/subject/{subject}/edit', 'Instructor\SubjectController@update');
+
+    Route::get('/student/list', 'Instructor\SubjectController@students')->name('student.list');
+    Route::get('/student/edit/list/{subject}', 'Instructor\SubjectController@studentForEditSubject');
+
+    Route::get('/subject/{subject}/add/student', 'Instructor\SubjectController@addNewStudent');
+    Route::put('/subject/{subject}/add/student', 'Instructor\SubjectController@submitAddNewStudent')->name('subject.submit.new.student');
+    
+    Route::get('/subject/{subject}/students', 'Instructor\SubjectStudentController@show')->name('subject.students.show');
 
     Route::put('/subject/{subject}/students', 'Instructor\SubjectStudentController@update')
           ->name('subject.students.update');

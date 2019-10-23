@@ -1,5 +1,5 @@
 @extends('instructor.layouts.dashboard-template')
-@section('title','Add Subject')
+@section('title','Edit subject '. $subject->name .'-'.$subject->description.' add new student')
 @section('content')
 @prepend('page-css')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.css">
@@ -10,75 +10,17 @@
             @include('templates.success')
         @elseif($errors->any())
             @include('templates.error')
-        @else
-        <div class="card bg-info text-white shadow mb-2">
-                <div class="card-body font-weight-bold">
-                  Click the <i class="fas fa-arrow-right"></i> icon to add the students in the list.
-                </div>
-            </div>
         @endif
     </div>
 </div>
-
 <div class="card shadow mb-4 rounded-0">
     <div class="card-header py-3 rounded-0">
-        <h6 class="m-0 font-weight-bold text-primary">Add subject form</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Edit subject add new student form</h6>
     </div>
     <div class="card-body">
-        <form action="{{ route('instructor.subject.store') }}" method="POST" autocomplete="off">
+        <form action="{{ route('subject.submit.new.student', [$subject->id]) }}" method="POST" autocomplete="off">
             @csrf
-            <div class="row">
-                {{-- <label for="subjectId">Subject ID</label> --}}
-                <input class="form-control" hidden type="number" name="subject_id"  id="subjectId" value="{{ old('subject_id') }}">
-                <div class="col-lg-2">
-                    <div class="form-group">
-                        <label for="subjectName">Course No</label>
-                        <select name="name" id="subjectName" class="form-control" required>
-                            <option value="" hidden selected disabled>Choose Subject</option>
-                            @foreach($subjects as $subject)
-                                <option value="{{ $subject->name }}" {{ old('name') == $subject->name ? 'selected' : '' }} data-src="{{ $subject }}">{{ $subject->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="form-group">
-                        <label for="subjectDescription">Description</label>
-                        <input type="text" readonly class="form-control" name="description" id="subjectDescription"  value="{{ old('description') }}">
-                    </div>
-                </div>
-                <div class="col-lg-1">
-                    <div class="form-group">
-                        <label for="subjectLevel">Year level</label>
-                        <input type="number" readonly class="form-control" name="level" id="subjectLevel"  value="{{ old('level') }}">
-                    </div>
-                </div>
-                <div class="col-lg-1">
-                    <div class="form-group">
-                        <label for="subjectCredits">Units</label>
-                        <input type="number" readonly class="form-control" name="credits" id="subjectCredits"  value="{{ old('credits') }}">
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="form-group">
-                        <label for="subjectSemester">Semester</label>
-                        <input type="number" readonly class="form-control" name="semester" id="subjectSemester" value="{{ old('semester') }}">
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="form-group">
-                        <label for="subjectSchoolYear">School Year</label>
-                        <input type="text" readonly class="form-control" name="school_year" id="subjectSchoolYear" placeholder="Enter School Year..." value="{{ old('school_year') }}">
-                    </div>
-                </div>
-                 <div class="col-lg-1">
-                    <div class="form-group">
-                        <label for="subjectDepartment">Department</label>
-                        <input type="text"  readonly class="form-control" id="subjectDepartment">
-                    </div>
-                </div>
-            </div>
-            <hr>
+            @method('PUT')
             <div class="row">
                 <div class="col-lg-6">
                     <table class="table table-bordered" id="students-table">
@@ -117,8 +59,7 @@
                 </div>
             </div>
             <div class="float-right mt-2">
-                <input type="button" value="Add student by CSV" id="addStudentByCsv" class="btn btn-success font-weight-bold">
-                <input type="submit" value="Add subject with students" class="btn btn-primary font-weight-bold">
+                <input type="submit" value="Add subject with students" class="btn btn-success font-weight-bold">
             </div>
         </form>
         
@@ -128,12 +69,13 @@
 <script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script>
-    $('#students-table').DataTable({
+    $(document).ready(function () {
+         let studentRecord = $('#students-table').DataTable({
             orderCellsTop: true,
             serverSide: true,
             processing: true,
             responsive: true,
-            ajax : `/instructor/student/list`,
+            ajax : `/instructor/student/edit/list/{{$subject->id}}`,
             columns: [
                 { name: 'id_number', },
                 { name: 'name', },
@@ -141,6 +83,7 @@
                 { name: 'department', orderable: false , searchable : false },
                 { name : 'instructoraction' , searchable : false, }
             ],
+        });
     });
 </script>
 <script>
@@ -193,32 +136,7 @@
         }
     };
 
-    // Subject sections.
-    const subjectNameField = document.querySelector('#subjectName');
-
-    subjectNameField.addEventListener('change', (e) => {
-        let subject = e.target.options[e.target.selectedIndex];
-        let dataSource = JSON.parse(subject.getAttribute('data-src'));
-   
-        document.querySelector('#subjectId').value          = dataSource.id;
-        document.querySelector('#subjectDescription').value = dataSource.description;
-        document.querySelector('#subjectLevel').value       = dataSource.level;
-        document.querySelector('#subjectSemester').value    = dataSource.semester;
-        document.querySelector('#subjectCredits').value     = dataSource.credits;
-        document.querySelector('#subjectSchoolYear').value  = dataSource.school_year;
-        document.querySelector('#subjectDepartment').value  = dataSource.department.name;
-    });
-
-    document.querySelector('#addStudentByCsv').addEventListener('click', (e) => {
-        if (subjectNameField.value.length !== 0) {
-            let subject = JSON.parse(subjectNameField.options[subjectNameField.selectedIndex].getAttribute('data-src'));
-            window.location.href = `/instructor/subject/${subject.id}/edit`;
-        } else {
-            alert('Please select a subject first.');
-        }
-    });
-
-
+  
 </script>
 @endpush
 @endsection

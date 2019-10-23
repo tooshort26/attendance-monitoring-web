@@ -42,6 +42,12 @@ class Student extends Authenticatable
         });
     }
 
+    public function getId(int $id_number) 
+    {
+        $this->primaryKey = 'id_number';
+        return $this->find($id_number, ['id']);
+    }
+
     public function course()
     {
         return $this->belongsTo('App\Course');
