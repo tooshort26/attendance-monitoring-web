@@ -147,7 +147,7 @@ class SubjectController extends Controller
                  return back()->withErrors(['message' => "You already have this subject if you want to add some changes please proceed to edit subject section."]);
             }
 
-            $destination =  public_path('documents/') . time() .'_' .  $request->file('csv')->getClientOriginalName();
+            $destination =  public_path() . time() .'_' .  $request->file('csv')->getClientOriginalName();
 
             move_uploaded_file($request->file('csv'), $destination);
 
