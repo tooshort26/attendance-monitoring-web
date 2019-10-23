@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminLoginController extends Controller
 {
@@ -30,7 +31,8 @@ class AdminLoginController extends Controller
      */
     public function login()
     {
-        session()->put('url.intended',url()->previous());
+        Session::forget('url.intented');
+        // session()->put('url.intended',url()->previous());
         return view('admin.auth.login');
     }
 

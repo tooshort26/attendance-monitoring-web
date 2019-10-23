@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class InstructorLoginController extends Controller
 {
@@ -29,7 +30,8 @@ class InstructorLoginController extends Controller
      */
     public function login()
     {
-        session()->put('url.intended',url()->previous());
+        // session()->put('url.intended',url()->previous());
+        Session::forget('url.intented');
         return view('instructor.auth.login');
     }
 

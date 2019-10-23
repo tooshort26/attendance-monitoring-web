@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Instructor;
 
 use App\Department;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditSubjectAddNewStudentRequest;
 use App\Http\Requests\Instructors\AddSubjectRequest;
 use App\Instructor;
 use App\Student;
@@ -177,7 +178,6 @@ class SubjectController extends Controller
             File::delete($destination);
             return back()->with('success', 'Succesfully add new students to ' . $subject->name . ' - ' . $subject->description);
         } catch (Exception $e) {
-            dd($e->getMessage());
             return back();
             DB::rollback();
         }
@@ -190,7 +190,7 @@ class SubjectController extends Controller
         return view('instructor.subjects.add_student', compact('subject', 'subjects'));
     }
 
-    public function submitAddNewStudent(Request $request, $subject)
+    public function submitAddNewStudent(EditSubjectAddNewStudentRequest $request, $subject)
     {
         DB::beginTransaction();
         try {
@@ -210,6 +210,7 @@ class SubjectController extends Controller
             return back()->with('success', 'Successfully add new subject named ' . $request->name . ' with ' . count($request->students['ids']) .' students');
           
         } catch (Exception $e) {
+            dd($e->getMessage());
             return back();
             DB::rollback();
         }

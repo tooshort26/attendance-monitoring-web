@@ -20,5 +20,14 @@ class StudentSeeder extends Seeder
             'password'     => 1234,
             'course_id'    => 1,
         ]);
+
+        Student::create([
+            'name'         => 'John Doe2',
+            // 'level'        => 1,
+            'gender'       => 'male',
+            'birthdate'    => '2019-09-13 17:06:0',
+            'password'     => 1234,
+            'course_id'    => 1,
+        ]);
     }
 }
