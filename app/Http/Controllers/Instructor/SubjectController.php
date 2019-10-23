@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Instructor;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\Instructors\AddSubjectRequest;
+use App\Department;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Instructors\AddSubjectRequest;
+use App\Instructor;
 use App\Student;
 use App\Subject;
-use App\Instructor;
-use App\Department;
-use DB;
 use Auth;
+use DB;
+use Exception;
 use Freshbitsweb\Laratables\Laratables;
 use Illuminate\Database\QueryException;
-use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SubjectController extends Controller
 {
@@ -173,6 +174,7 @@ class SubjectController extends Controller
             }
 
             DB::commit();
+            File::delete($destination);
             return back()->with('success', 'Succesfully add new students to ' . $subject->name . ' - ' . $subject->description);
         } catch (Exception $e) {
             dd($e->getMessage());
