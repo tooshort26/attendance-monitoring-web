@@ -30,6 +30,7 @@ class AdminLoginController extends Controller
      */
     public function login()
     {
+        session()->put('url.intended',url()->previous());
         return view('admin.auth.login');
     }
 

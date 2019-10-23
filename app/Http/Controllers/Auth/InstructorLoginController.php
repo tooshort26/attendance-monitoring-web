@@ -29,6 +29,7 @@ class InstructorLoginController extends Controller
      */
     public function login()
     {
+        session()->put('url.intended',url()->previous());
         return view('instructor.auth.login');
     }
 

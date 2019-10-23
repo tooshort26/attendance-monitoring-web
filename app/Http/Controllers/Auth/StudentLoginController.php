@@ -19,7 +19,8 @@ class StudentLoginController extends Controller
 
 	public function login()
 	{
-		return view('student.auth.login');
+      session()->put('url.intended',url()->previous());
+  		return view('student.auth.login');
 	}
 
     public function loginStudent(Request $request)
