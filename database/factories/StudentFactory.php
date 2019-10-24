@@ -8,7 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(Student::class, function (Faker $faker) {
     return [
 		'name'           => $faker->name,
-		'id_number'      => substr(date('Y'), 0 , 2) . rand(1000,9999),
 		// 'id_number'   => '1501756',
 		// 'level'          => 1,
 		'gender'         => 'male',

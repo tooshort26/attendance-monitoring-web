@@ -31,6 +31,8 @@ Route::group(['prefix' => 'admin'] , function () {
     Route::get('/student/{student}/subject/edit', 'Admin\StudentSubjectController@edit')
         ->name('student.subject.edit');
 
+    Route::post('/student/grade/print', 'Admin\StudentGradePrintController@print')->name('admin.student.subjects.print');
+
     Route::get('/instructor/list', 'Admin\InstructorController@instructors')
         ->name('instructor.lists');
 

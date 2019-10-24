@@ -36,10 +36,11 @@
   </header>
   <main>
     @php $index = 0; @endphp
-    @foreach($subjects as $level => $year)
+@foreach($subjects as $level => $year)
     @foreach($year as $semester => $subject)
     @php
       $semesters = ['First' , 'Second', 'Third'];
+      $years = ['1st' , '2nd', '3rd', '4th', '5th'];
       $total_credits  = 0; $total_subjects = 0; $total_rating = 0;  $total_weighted = 0;
     @endphp
       <div class="row">
@@ -55,13 +56,14 @@
           GRADE EVALUATION <br> 
             <span>
               @php $semester-- @endphp
+              {{ $level }} Year - 
               {{ $semesters[$semester] }} Semester
               {{ date('Y', strtotime($subject->first()->pivot->created_at)) }} - {{ date('Y', strtotime($subject->first()->pivot->created_at . ' +1 year')) }}
             </span>
         </center>
       </h3>
         @if($index === 0)
-          <h4>Name : ({{ Auth::user()->id_number }}) {{ Auth::user()->name }} <br>Course : {{ Auth::user()->course->abbr }} - {{ $studentLevel }}</h4>
+          <h4>Name : ({{ $student->id_number }}) {{ $student->name }} <br>Course : {{ $student->course->abbr }} - {{ $studentLevel }}</h4>
         @endif
      
               <table border="1" width="100%" style="border-collapse: collapse;">

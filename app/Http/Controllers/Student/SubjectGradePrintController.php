@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SubjectGradePrintController extends Controller
 {
@@ -18,24 +19,29 @@ class SubjectGradePrintController extends Controller
 
     public function print(Request $request)
     {
-        $student = Student::with(['subjects' => function($query) {
+        
+
+        $student = Student::with(['course','course.department','subjects' => function($query) {
             $query->whereBetween('level', [request('from_year'), request('to_year')])
                   ->whereIn('semester', request('semesters'))
                   ->orderBy('level', 'ASC');
         }])->find(Auth::user()->id);
 
+
         $subjects = $student->subjects->groupBy(['level', 'semester'])->map(function ($year) {
             return $year->sortKeys();
         });
+
         
         if (count($subjects) >= 1) {
-            $studentLevel = max(array_column(Arr::flatten(end($subjects)), 'level'));
+            $student = Student::with('subjects')->find(Auth::user()->id);
+            $studentLevel = max($student->subjects->pluck('level')->toArray());
         } else {
            $studentLevel = "";
         }
 
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('student.subjects.print.grade', compact('subjects', 'studentLevel'));
+        $pdf->loadView('student.subjects.print.grade', compact('student','subjects', 'studentLevel'));
         return $pdf->stream();
     }
     /**

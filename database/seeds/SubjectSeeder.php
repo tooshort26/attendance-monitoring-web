@@ -12,16 +12,35 @@ class SubjectSeeder extends Seeder
      */
     public function run()
     {
+    	/*$index = 1;
+    	foreach (range(1, 3) as $semester) {
+    		foreach (range(1, 4) as $value) {
+	    		foreach (range(1, 8) as $v) {
+	    			Subject::create([
+						'name'          => 'SS1 ' . $index,
+						'description'   => 'Sample Subject ' . $index,
+						'level'         => $value,
+						'credits'       => 3,
+						'semester'      => $semester,
+						'school_year'   => '2019-2020',
+						'department_id' => $value,
+					]);
+					$index++;
+	    		}
+	    	}
+    	}*/
+    	
+    	
 		Subject::create([
-			'name'          => 'SS1 1',
-			'description'   => 'Sample Subject 1',
-			'level'         => 1,
-			'credits'       => 3,
-			'semester'      => 1,
-			'school_year'   => '2019-2020',
+			'name'        => 'SS1 1',
+			'description' => 'Sample Subject 1',
+			'level'       => 1,
+			'credits'     => 3,
+			'semester'    => 1,
+			'school_year' => '2019-2020',
 			'department_id' => 1,
 		]);
-
+		
 		Subject::create([
 			'name'        => 'SS1 2',
 			'description' => 'Sample Subject 2',
