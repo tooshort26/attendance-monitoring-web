@@ -48,12 +48,13 @@ class SubjectController extends Controller
 
     public function studentForEditSubject($subject)
     {
-        $instructor = Instructor::with(['subjects', 'subjects.students' => function ($query) use ($subject)
-        {
-            $query->where('instructor_id', Auth::user()->id)->where('subject_id', $subject);
+        $instructor = Instructor::with(['subjects' => function ($query) use ($subject) {
+            $query->where('subject_id', $subject)->where('instructor_id', Auth::user()->id);
+        }, 'subjects.students' => function ($query) use ($subject) {
+            $query->where('subject_id', $subject);
         }])->find(Auth::user()->id);
 
-        $studentsIdNumber = $instructor->subjects[0]->students->pluck('id_number')->toArray();
+        $studentsIdNumber = $instructor->subjects->first()->students->pluck('id_number')->toArray();
 
         return Laratables::recordsOf(Student::class, function($query) use($studentsIdNumber)
         {
