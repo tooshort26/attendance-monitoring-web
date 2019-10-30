@@ -47,6 +47,7 @@ class InstructorController extends Controller
         }
         
         $instructor->firstname  = $request->firstname;
+        $instructor->middlename = $request->middlename;
         $instructor->lastname   = $request->lastname;
         $instructor->contact_no = $request->contact_no;
 
