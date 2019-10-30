@@ -54,14 +54,22 @@
           			</div>
           			<br>
           			<div class="row">
-          				<div class="col-lg-6">
+          				<div class="col-lg-4">
           					<div class="form-group">
           						First name : 
 	          					<input type="text" class="form-control" readonly id="instructorFirstname">
 	          				</div>
           				</div>
 
-          				<div class="col-lg-6">
+          				<div class="col-lg-4">
+          					<div class="form-group">
+          						Middle name : 
+	          					<input type="text" class="form-control" readonly id="instructorMiddlename">
+	          				</div>
+          				</div>
+
+
+          				<div class="col-lg-4">
           					<div class="form-group">
           						Last name : 
 	          					<input type="text" class="form-control" readonly id="instructorLastname">
@@ -200,6 +208,7 @@
 				$('#instructorProfileImage').attr('src', instructor.profile);
 				$('#instructorIdNumber').html(`(ID Number : ${instructor.id_number})`);
 				$('#instructorFirstname').val(instructor.firstname.capitalize());
+				$('#instructorMiddlename').val(instructor.middlename.capitalize());
 				$('#instructorLastname').val(instructor.lastname.capitalize());
 				$('#instructorGender').val(instructor.gender.capitalize());
 				$('#instructorBirthdate').val(instructor.birthdate);
