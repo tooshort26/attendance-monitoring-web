@@ -6,7 +6,7 @@
     <div class="sidebar-brand-icon ">
           <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50">
     </div>
-    <div class="sidebar-brand-text mx-3">ASCB CSOGIS<sup></sup></div>
+    <div class="sidebar-brand-text mx-3">ASCB CSOGI<sup></sup></div>
   </a>
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
@@ -189,7 +189,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; OGI-ASCB {{ date('Y') }} - {{ date('Y', strtotime('+1 year')) }} </span>
+              <span>Copyright &copy; ASCB-CSOGI {{ date('Y') }} - {{ date('Y', strtotime('+1 year')) }} </span>
             </div>
           </div>
         </footer>

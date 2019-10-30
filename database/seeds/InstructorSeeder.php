@@ -14,6 +14,7 @@ class InstructorSeeder extends Seeder
     {
         Instructor::create([
             'firstname'     => 'Firstname',
+            'middlename'    => 'Middlename',
             'lastname'      => 'Lastname',
             'gender'        => 'male',
             'birthdate'     =>  '2019-09-13 17:06:0',

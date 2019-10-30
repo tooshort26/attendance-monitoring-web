@@ -20,21 +20,28 @@
 		</div>
 		<div class="card-body">
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-3">
 					<div class="form-group">
 						<label for="instructorFirstname">Firstname</label>
 						<input type="text" class="form-control" name="firstname" id="instructorFirstname" value="{{ Auth::user()->firstname }}">
 					</div>
 				</div>
 
-				<div class="col-lg-4">
+				<div class="col-lg-3">
+					<div class="form-group">
+						<label for="instructorMiddlename">Middlename</label>
+						<input type="text" class="form-control" name="middlename" id="instructorMiddlename" value="{{ Auth::user()->middlename }}">
+					</div>
+				</div>
+
+				<div class="col-lg-3">
 					<div class="form-group">
 						<label for="instructorLastname">Lastname</label>
 						<input type="text" class="form-control" name="lastname" id="instructorLastname" value="{{ Auth::user()->lastname }}">
 					</div>
 				</div>
 
-				<div class="col-lg-4">
+				<div class="col-lg-3">
 					<div class="form-group">
 						<label for="instructorContactNo">Contact No.</label>
 						<input type="text" class="form-control" name="contact_no" id="instructorContactNo" value="{{ Auth::user()->contact_no }}">

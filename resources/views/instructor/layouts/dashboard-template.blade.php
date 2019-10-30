@@ -6,7 +6,7 @@
     <div class="sidebar-brand-icon ">
           <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50">
     </div>
-    <div class="sidebar-brand-text mx-3">ASCB CSOGIS<sup></sup></div>
+    <div class="sidebar-brand-text mx-3">ASCB CSOGI<sup></sup></div>
   </a>
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
@@ -105,7 +105,7 @@
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small text-capitalize">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }} </span>
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small text-capitalize">{{ Auth::user()->firstname }} {{ substr(Auth::user()->middlename, 0, 1) }}. {{ Auth::user()->lastname }} </span>
                   <img class="img-profile rounded-circle" src="{{ Auth::user()->profile }}"/>
                 </a>
                 <!-- Dropdown - User Information -->
@@ -138,7 +138,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; OGI-ASCB {{ date('Y') }} - {{ date('Y', strtotime('+1 year')) }} </span>
+              <span>Copyright &copy; ASCB CSOGI {{ date('Y') }} - {{ date('Y', strtotime('+1 year')) }} </span>
             </div>
           </div>
         </footer>

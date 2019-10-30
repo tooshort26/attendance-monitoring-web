@@ -28,6 +28,7 @@ class AddInstructorRequest extends FormRequest
         $departments = Department::pluck('id');
         return [
               'firstname'    => 'required',
+              'middlename'   => 'required',
               'lastname'     => 'required',
               'email'        => 'required|unique:instructors',
               'contact_no'   => 'required|unique:instructors',

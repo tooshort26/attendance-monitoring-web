@@ -8,7 +8,7 @@
         <div class="sidebar-brand-icon ">
           <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50">
         </div>
-        <div class="sidebar-brand-text mx-3">ASCB CSOGIS<sup></sup></div>
+        <div class="sidebar-brand-text mx-3">ASCB CSOGI<sup></sup></div>
       </a>
 
       <!-- Divider -->
@@ -118,11 +118,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{ route('student.account.edit') }}">
+                {{-- <a class="dropdown-item" href="{{ route('student.account.edit') }}">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Account Setting
-                </a>
-                <div class="dropdown-divider"></div>
+                </a> --}}
+                {{-- <div class="dropdown-divider"></div> --}}
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
@@ -151,7 +151,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; OGI-ASCB {{ date('Y') }} - {{ date('Y', strtotime('+1 year')) }} </span>
+            <span>Copyright &copy; ASCB CSOGI {{ date('Y') }} - {{ date('Y', strtotime('+1 year')) }} </span>
           </div>
         </div>
       </footer>

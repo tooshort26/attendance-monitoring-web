@@ -25,11 +25,13 @@ class EditInstructorRequest extends FormRequest
      */
     public function rules()
     {
+      
       $gender = ['male', 'female'];
       $status = ['full-time', 'part-time'];
       $departments = Department::pluck('id');
       $rules = [
             'firstname'  => 'required',
+            'middlename' => 'required',
             'lastname'   => 'required',
             'email'      => 'required|unique:instructors,email,' . request('id'),
             'contact_no' => 'required|unique:instructors,contact_no,' . request('id'),

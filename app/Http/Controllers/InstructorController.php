@@ -34,6 +34,7 @@ class InstructorController extends Controller
     {
         $this->validate($request, [
             'firstname'  => 'required',
+            'middlename' => 'required',
             'lastname'   => 'required',
             'contact_no' => 'required|unique:instructors,contact_no,' . Auth::user()->id,
             'profile'    => 'nullable',

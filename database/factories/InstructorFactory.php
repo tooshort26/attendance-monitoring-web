@@ -9,6 +9,7 @@ use Faker\Generator as Faker;
 $factory->define(Instructor::class, function (Faker $faker) {
     return [
 		'firstname'      => $faker->name,
+		'middlename'     => $faker->name,
 		'lastname'       => $faker->name,
 		'gender'         => 'male',
 		'birthdate'      =>  '2019-09-13 17:06:0',

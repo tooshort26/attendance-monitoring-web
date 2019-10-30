@@ -14,6 +14,7 @@
 				<tr>
 					<th>ID Number</th>
 					<th>Firstname</th>
+					<th>Middlename</th>
 					<th>Lastname</th>
 					<th>Email</th>
 					<th>Contact No</th>
@@ -146,6 +147,7 @@
     columns: [
         { name: 'id_number' },
         { name: 'firstname' },
+        { name: 'middlename' },
         { name: 'lastname' },
         { name: 'email' },
         { name: 'contact_no' },

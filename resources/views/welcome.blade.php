@@ -37,8 +37,8 @@
 										<div>001-1234-88888</div>
 									</li>
 									<li>
-										<i class="fa fa-envelope-o" aria-hidden="true"></i>
-										<div>school-email@yahoo.com</div>
+										{{-- <i class="fa fa-envelope-o" aria-hidden="true"></i> --}}
+										{{-- <div>school-email@yahoo.com</div> --}}
 									</li>
 								</ul>
 							</div>
@@ -235,7 +235,7 @@
 					<div class="team_item">
 						<div class="team_image"><img src="{{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1568619228/ascb-csogi/team_1.jpg') }}" alt=""></div>
 						<div class="team_body">
-							<div class="team_title"><a href="#">Lailyn Pastrana Mandabon</a></div>
+							<div class="team_title"><a href="#">Lailyn P. Mandabon</a></div>
 							<div class="team_subtitle">Marketing & Management</div>
 							<div class="social_list">
 								<ul>
@@ -311,7 +311,7 @@
 		<div class="footer_background" style="background-image:url({{ asset('https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569829989/ascb-csogi/footer_background.webp') }})"></div>
 		<div class="container">
 			<div class="row footer_row">
-				<div class="col">
+				{{-- <div class="col">
 					<div class="footer_content">
 						<div class="row">
 
@@ -356,22 +356,23 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 
 			<div class="row copyright_row">
 				<div class="col">
-					<div class="copyright d-flex flex-lg-row flex-column align-items-center justify-content-start">
-						<div class="cr_text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+					{{-- <div class="copyright d-flex flex-lg-row flex-column align-items-center justify-content-start"> --}}
+						<div class="cr_text">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+{{-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-						<div class="ml-lg-auto cr_links">
+						{{-- <div class="ml-lg-auto cr_links">
 							<ul class="cr_list">
 								<li><a href="#">Copyright notification</a></li>
 								<li><a href="#">Terms of Use</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 							</ul>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			</div>

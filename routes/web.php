@@ -60,8 +60,8 @@ Route::group(['prefix' => 'admin'] , function () {
 Route::group(['prefix' => 'student'] , function () {
 	Route::get('/', 'StudentController@index')->name('student.dashboard');
   	Route::get('dashboard', 'StudentController@index')->name('student.dashboard');
-    Route::get('edit', 'StudentController@edit')->name('student.account.edit');
-    Route::put('edit/{student}', 'StudentController@update')->name('student.account.update');
+    // Route::get('edit', 'StudentController@edit')->name('student.account.edit');
+    // Route::put('edit/{student}', 'StudentController@update')->name('student.account.update');
 
   	Route::get('login', 'Auth\StudentLoginController@login')->name('student.auth.login');
   	Route::post('login', 'Auth\StudentLoginController@loginStudent')->name('student.auth.loginStudent');

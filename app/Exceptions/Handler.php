@@ -77,6 +77,7 @@ class Handler extends ExceptionHandler
             break;
         }
         Session::forget('url.intented');
-        return redirect()->guest(route($login));
+        return redirect()->route($login);
+        // return redirect()->guest(route($login));
     }
 }

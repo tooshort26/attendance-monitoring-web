@@ -18,7 +18,7 @@ class Instructor extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id_number', 'firstname','lastname', 'email', 'password', 'gender', 'profile', 'birthdate', 'active','status', 'civil_status', 'department_id', 'contact_no'
+        'id_number', 'firstname','middlename', 'lastname', 'email', 'password', 'gender', 'profile', 'birthdate', 'active','status', 'civil_status', 'department_id', 'contact_no'
     ];
     /**
      * The attributes that should be hidden for arrays.

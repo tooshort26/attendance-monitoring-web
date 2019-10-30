@@ -42,7 +42,7 @@
 						</div>
 
 						<div class="col-lg-3 form-group">
-							<label for="level">Level</label>
+							<label for="level">Year Level</label>
 							<input type="number" value="{{ old('level') ?? $subject->level }}" class="form-control" id="level" name="level">
 						</div>
 						<div class="col-lg-3 form-group">

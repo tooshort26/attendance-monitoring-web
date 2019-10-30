@@ -20,14 +20,21 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<div class="col-lg-3">
+						<div class="col-lg-2">
 							<div class="form-group">
 								<label for="firstname">Firstname</label>
 								<input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter Firstname..." value="{{ old('firstname') }}">
 							</div>
 						</div>
 
-						<div class="col-lg-3">
+						<div class="col-lg-2">
+							<div class="form-group">
+								<label for="middlename">Middlename</label>
+								<input type="text" class="form-control" name="middlename" id="middlename" placeholder="Enter Middlename..." value="{{ old('middlename') }}">
+							</div>
+						</div>
+
+						<div class="col-lg-2">
 							<div class="form-group">
 								<label for="lastname">Lastname</label>
 								<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter Lastname..." value="{{ old('lastname') }}">

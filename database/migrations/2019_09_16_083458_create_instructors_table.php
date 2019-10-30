@@ -17,6 +17,7 @@ class CreateInstructorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('id_number')->unique();
             $table->string('firstname');
+            $table->string('middlename');
             $table->string('lastname');
             $table->string('password');
             $table->enum('gender', ['male', 'female']);
