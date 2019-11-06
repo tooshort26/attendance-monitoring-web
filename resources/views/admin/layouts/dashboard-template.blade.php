@@ -22,12 +22,12 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-graduation-cap text-white"></i>
-        <span>Student</span>
+        <span>Students</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="">List of Students</a>
-          <a class="collapse-item" href="">Add new student</a>
+          <a class="collapse-item" href="{{ route('student.index') }}">List of Students</a>
+          <a class="collapse-item" href="{{ route('student.create') }}">Add new student</a>
         </div>
       </div>
     </li>
@@ -35,16 +35,15 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInstructor" aria-expanded="true" aria-controls="collapseInstructor">
         <i class="fas fa-chalkboard-teacher text-white"></i>
-        <span>Instructors</span>
+        <span>Activity</span>
       </a>
       <div id="collapseInstructor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="">Add Instructor</a>
-          <a class="collapse-item" href="">View Instructors</a>
+          <a class="collapse-item" href="{{ route('activity.create') }}">Create Activity</a>
+          <a class="collapse-item" href="{{ route('activity.index') }}">View Activity</a>
         </div>
       </div>
     </li>
-
    
     <hr class="sidebar-divider">
 
@@ -153,9 +152,9 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h5 class="h5 mb-4 text-gray-800">@yield('title')</h5>
-            <hr>
-            @yield('content')
+            {{-- <h5 class="h5 mb-4 text-gray-800">@yield('title')</h5> --}}
+            {{-- <hr> --}}
+             @yield('content')
           </div>
           <!-- /.container-fluid -->
         </div>
@@ -164,7 +163,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; ASCB-CSOGI {{ date('Y') }} - {{ date('Y', strtotime('+1 year')) }} </span>
+              <span>Copyright &copy; {{ date('Y') }} - {{ date('Y', strtotime('+1 year')) }} </span>
             </div>
           </div>
         </footer>

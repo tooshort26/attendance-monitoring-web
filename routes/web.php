@@ -17,10 +17,11 @@ Route::group(['prefix' => 'admin'] , function () {
   	Route::post('login', 'Auth\AdminLoginController@loginAdmin')->name('admin.auth.loginAdmin');
   	Route::post('logout', 'Auth\AdminLoginController@logout')->name('admin.auth.logout');
     
-  
+    Route::resource('student', 'Admin\StudentController');
+    Route::resource('activity', 'Admin\ActivityController');
 });
 
-Route::group(['prefix' => 'instructor'] , function () {
+/*Route::group(['prefix' => 'instructor'] , function () {
 	  Route::get('/', 'InstructorController@index')->name('instructor.dashboard');
   	Route::get('dashboard', 'InstructorController@index')->name('instructor.dashboard');
 
@@ -31,5 +32,5 @@ Route::group(['prefix' => 'instructor'] , function () {
   	Route::post('login', 'Auth\InstructorLoginController@loginInstructor')->name('instructor.auth.loginInstructor');
   	Route::post('logout', 'Auth\InstructorLoginController@logout')->name('instructor.auth.logout');
 });
-
+*/
 
