@@ -4,9 +4,9 @@
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
     <div class="sidebar-brand-icon ">
-          <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50">
+          {{-- <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50"> --}}
     </div>
-    <div class="sidebar-brand-text mx-3">ASCB CSOGI<sup></sup></div>
+    <div class="sidebar-brand-text mx-3"><sup></sup></div>
   </a>
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
@@ -26,8 +26,8 @@
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="{{ route('student.index') }}">List of Students</a>
-          <a class="collapse-item" href="{{ route('student.create') }}">Add new student</a>
+          <a class="collapse-item" href="">List of Students</a>
+          <a class="collapse-item" href="">Add new student</a>
         </div>
       </div>
     </li>
@@ -39,37 +39,12 @@
       </a>
       <div id="collapseInstructor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="{{ route('instructor.create') }}">Add Instructor</a>
-          <a class="collapse-item" href="{{ route('instructor.index') }}">View Instructors</a>
+          <a class="collapse-item" href="">Add Instructor</a>
+          <a class="collapse-item" href="">View Instructors</a>
         </div>
       </div>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject" aria-expanded="true" aria-controls="collapseSubject">
-        <i class="fas fa-book text-white"></i>
-        <span>Subjects</span>
-      </a>
-      <div id="collapseSubject" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="{{ route('subject.create') }}">Add Subjects</a>
-          <a class="collapse-item" href="{{ route('subject.index') }}">View Subjects</a>
-        </div>
-      </div>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDepartments" aria-expanded="true" aria-controls="collapseDepartments">
-        <i class="fas fa-building text-white"></i>
-        <span>Departments</span>
-      </a>
-      <div id="collapseDepartments" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="{{ route('department.index') }}">View Departments</a>
-          <a class="collapse-item" href="{{ route('course.index') }}">View Courses</a>
-        </div>
-      </div>
-    </li>
    
     <hr class="sidebar-divider">
 

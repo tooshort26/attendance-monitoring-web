@@ -25,11 +25,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $noOfStudents    = Student::count();
-        $noOfInstructors = Instructor::count();
-        $noOfCourse      = Course::count();
-        $noOfDepartments = Department::count();
-        return view('admin.dashboard', compact('noOfStudents', 'noOfInstructors', 'noOfCourse', 'noOfDepartments'));
+        return view('admin.dashboard');
     }
 
     public function edit()

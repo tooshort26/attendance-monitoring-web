@@ -52,12 +52,7 @@
                                         <a href="/admin/login" class="btn btn-google btn-user btn-block">
                                             <i class="fa fa-lock"></i> Administrator Login
                                         </a>
-                                        <a href="/student/login" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fa fa-lock"></i> Student Login
-                                        </a>
                                     </form>
-                                    <hr>
-                                    <a href="/" class="btn btn-facebook btn-user btn-block"><i class="fa fa-home"></i> Home page</a>
                                 </div>
                             </div>
                         </div>

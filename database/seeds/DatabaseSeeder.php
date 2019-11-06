@@ -14,24 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // factory('App\Student', 3)->create();
-        // factory('App\Subject', 8)->create();
-        // factory('App\Subject', 20)->create();
-        // factory('App\Instructor', 5)->create();
         $this->call([
             AdminSeeder::class,
-            InstructorSeeder::class,
-            StudentSeeder::class,
-            DepartmentSeeder::class,
-            CourseSeeder::class,
-            SubjectSeeder::class,
         ]);
-
-        // Student::all()->each(function ($student) {
-        //     Subject::all()->each(function ($subject) use($student) {
-        //             $subject->students()->attach($student->id, ['instructor_id' => $instructor->id, 'remarks' => 1]);
-        //     });
-        // });
-        
     }
 }

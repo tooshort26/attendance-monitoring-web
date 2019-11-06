@@ -4,9 +4,9 @@
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/instructor">
     <div class="sidebar-brand-icon ">
-          <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50">
+          {{-- <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50"> --}}
     </div>
-    <div class="sidebar-brand-text mx-3">ASCB CSOGI<sup></sup></div>
+    <div class="sidebar-brand-text mx-3"><sup></sup></div>
   </a>
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
@@ -20,8 +20,6 @@
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="{{ route('instructor.subject.create') }}">Add Subject</a>
-          <a class="collapse-item" href="{{ route('instructor.subject.index') }}">View Subjects</a>
         </div>
       </div>
     </li>
