@@ -81,44 +81,9 @@
 </div>
 
 @push('page-scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha256-tSRROoGfGWTveRpDHFiWVz+UXt+xKNe90wwGn25lpw8=" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@feathersjs/client@^4.3.0/dist/feathers.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 <script>
   
-    // Socket.io setup
-       const socket = io('http://192.168.1.11:3030');
-
-       // Init feathers app
-       const app = feathers();
-
-       // Register socket.io to talk to server
-       app.configure(feathers.socketio(socket));
-
-
-       function initStudents(students) {
-	    	document.querySelector('#students-count').innerHTML = students.length;
-       }
-
-
-       async function init() {
-		  const students    = await app.service('students').find();
-		  
-          initStudents(students);
-
-	        app.service('students').on('created', () => {
-	          	let element = document.getElementById('students-count');
-	        	let currentStudentCount = parseInt(element.innerText);
-	        	element.innerHTML = currentStudentCount + 1;
-	        });
-
-
-	        socket.on('student-publish', function (data) {
-	        	console.log(data);
-	        });
-       }
-
-       init();
+   
 </script>
 @endpush
 @endsection

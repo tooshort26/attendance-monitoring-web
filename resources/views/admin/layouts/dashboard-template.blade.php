@@ -4,9 +4,10 @@
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
     <div class="sidebar-brand-icon ">
+       <i class="fas fa-laugh-wink"></i>
           {{-- <img src="https://res.cloudinary.com/dpcxcsdiw/image/upload/v1569386717/ogi-sys/andres-soriano-logo.png" width="50"> --}}
     </div>
-    <div class="sidebar-brand-text mx-3"><sup></sup></div>
+    <div class="sidebar-brand-text mx-3">CAM {{-- <sup>2</sup> --}}</div>
   </a>
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
@@ -19,7 +20,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-graduation-cap text-white"></i>
         <span>Students</span>
@@ -30,12 +31,12 @@
           <a class="collapse-item" href="{{ route('student.create') }}">Add new student</a>
         </div>
       </div>
-    </li>
+    </li> --}}
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInstructor" aria-expanded="true" aria-controls="collapseInstructor">
         <i class="fas fa-chalkboard-teacher text-white"></i>
-        <span>Activity</span>
+        <span>Activities</span>
       </a>
       <div id="collapseInstructor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
@@ -131,7 +132,7 @@
               <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small text-capitalize">{{ Auth::user()->name }} </span>
-                  <img class="img-profile rounded-circle" src="{{ Auth::user()->profile }}" />
+                  <img class="img-profile rounded-circle" src="{{ url('/uploaded_images') .'/'.  Auth::user()->profile}}" />
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

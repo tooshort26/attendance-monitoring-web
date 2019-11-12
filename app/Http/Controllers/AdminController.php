@@ -9,7 +9,7 @@ use App\Http\Requests\Admin\UpdateAccountRequest;
 use App\Instructor;
 use App\Student;
 use Illuminate\Http\Request;
-use JD\Cloudder\Facades\Cloudder;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
@@ -36,10 +36,10 @@ class AdminController extends Controller
     public function update(UpdateAccountRequest $request, Admin $admin)
     {
         if ($request->hasFile('profile')) {
-            $image_name = request()->file('profile')->getRealPath();
-            Cloudder::upload($image_name, null);
-            $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => 150, "height"=> 150]);
-            $admin->profile = $image_url;
+            File::deleteDirectory(public_path('/uploaded_images'));
+            $imageName = time() .'.'. $request->profile->getClientOriginalExtension();
+            $request->profile->move(public_path('/uploaded_images'), $imageName);
+            $admin->profile = $imageName;
         }
         
         $admin->name = $request->name;

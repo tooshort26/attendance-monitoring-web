@@ -1,8 +1,5 @@
 <?php
 
-use App\Instructor;
-use App\Student;
-use App\Subject;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminSeeder::class,
-            InstructorSeeder::class,
         ]);
     }
 }

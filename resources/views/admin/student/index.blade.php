@@ -33,7 +33,7 @@
   <script>
     let table = $('#students').DataTable( {
           ajax: {
-              url : 'http://192.168.1.11:3030/students',
+              url : 'http://localhost:3030/students',
               cache: true,
               dataSrc : '',
           },
@@ -46,7 +46,7 @@
           ]
       });
         // Socket.io setup
-       const socket = io('http://192.168.1.11:3030');
+       const socket = io('localhost:3030');
 
        // Init feathers app
        const app = feathers();

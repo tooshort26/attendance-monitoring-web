@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/vendor/fontawesome-free/css/all.min.css">
         <!-- Custom styles for this template-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.0.3/css/sb-admin-2.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         <style>
             .bg-login-image {
                 background:url({{URL::asset('img/undraw_login_jdch.svg')}}) center center; 

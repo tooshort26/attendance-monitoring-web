@@ -52,7 +52,7 @@
 <script>
   
     // Socket.io setup
-       const socket = io('http://192.168.1.11:3030');
+       const socket = io('localhost:3030');
 
        // Init feathers app
        const app = feathers();

@@ -18,7 +18,9 @@ Route::group(['prefix' => 'admin'] , function () {
   	Route::post('logout', 'Auth\AdminLoginController@logout')->name('admin.auth.logout');
     
     Route::resource('student', 'Admin\StudentController');
+    Route::get('/activity/{id}/attendance', 'Admin\ActivityController@attendance');
     Route::resource('activity', 'Admin\ActivityController');
+
 });
 
 /*Route::group(['prefix' => 'instructor'] , function () {

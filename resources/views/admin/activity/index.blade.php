@@ -1,7 +1,7 @@
 @extends('admin.layouts.dashboard-template')
 @prepend('page-css')
 <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css" integrity="sha256-HF310xdxXK7TJqGFC69nzYYGbuxJO6MErjHdlhD2ZBU=" crossorigin="anonymous" /> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 @endprepend
 @section('title','List of activities')
 @section('content')
@@ -15,6 +15,8 @@
         <tr>
           <th>Name</th>
           <th>Description</th>
+          <th>Start Date & Time</th>
+          <th>End Date & Time</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -57,11 +59,29 @@
                 <div class="col">
                   <input type="text" class="form-control" id="editActivityName"  placeholder="Activity name">
                 </div>
+                <div class="col">
+                  <input type="text" class="form-control" id="editActivityDescription" placeholder="Activity Description">
+                </div>
               </div>
               <br>
               <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" id="editActivityDescription" placeholder="Activity Description">
+                  <label>Start Date & Time</label>
+                    <div class="input-group date" id="startDateTimePicker" data-target-input="nearest">
+                      <input type="text" id="editActivityStartDate" class="form-control datetimepicker-input" data-target="#startDateTimePicker"/>
+                      <div class="input-group-append" data-target="#startDateTimePicker" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                  <label>End Date & Time</label>
+                    <div class="input-group date" id="endDateTimePicker" data-target-input="nearest">
+                      <input type="text" id="editActivityEndDate" class="form-control datetimepicker-input" data-target="#endDateTimePicker"/>
+                      <div class="input-group-append" data-target="#endDateTimePicker" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                    </div>
                 </div>
               </div>
           </div>
@@ -74,18 +94,20 @@
     </div>
 
 @push('page-scripts')
-  <!-- Page level plugins -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
   <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-  <script src="https://unpkg.com/@feathersjs/client@^4.3.0/dist/feathers.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
   <script src="https://unpkg.com/@zxing/library@0.15.2/umd/index.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha256-tSRROoGfGWTveRpDHFiWVz+UXt+xKNe90wwGn25lpw8=" crossorigin="anonymous"></script>
   <script>
-    let index = 0;
+    // Initialize Datetime picker
+    $('#startDateTimePicker, #endDateTimePicker').datetimepicker({
+            daysOfWeekDisabled: [0, 6]
+    });
+
     let table = $('#activities').DataTable( {
           ajax: {
-              url : 'http://192.168.1.11:3030/activities',
+              url : 'http://localhost:3030/activities',
               cache: true,
               dataSrc : '',
           },
@@ -93,22 +115,40 @@
               { data : 'name' },
               { data : 'description' },
               {
+                 render : function ( data, type, full, meta) {
+                     return `<div class='text-center'>${moment(new Date(full.start)).format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>`;
+                 }
+             },
+              {
+                 render : function ( data, type, full, meta) {
+                     return `<div class='text-center'>${moment(new Date(full.end)).format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>`;
+                 }
+             },
+              {
                  sortable : false,
                  render : function ( data, type, full, meta) {
                   var data = JSON.stringify(full);
                      return `
-                          <div class="text-center">
-                            <button class='btn btn-sm font-weight-bold btn-success' onclick="editActivityModal(this)" data-src=${data}>Edit</button>
-                            <button class='btn btn-sm font-weight-bold btn-primary' onclick="displayQrCode(this)" data-src=${data}>View QR Code</button>
-                            <button class='btn btn-sm font-weight-bold btn-info'>Print QR Code</button>
+                      <div class="text-center">
+                          <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="activityActionDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Actions
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="activityActionDropDown">
+                              <button class="dropdown-item" onclick="displayQrCode(this)" data-src='${data}'><i class="fas fa-qrcode"></i> QR Code</button>
+                                <button class="dropdown-item" onclick="editActivityModal(this)" data-src='${data}'><i class="fas fa-edit"></i> Edit Activity</button>
+                                <a href='/admin/activity/${full.id}/attendance' class="dropdown-item"><i class="fas fa-clock"></i> Attendance</a>
+                                <button class="dropdown-item"><i class="fas fa-print"></i> Print QR Code</button>
+                            </div>
                           </div>
+                      </div>
                       `;
                  }
              },
           ]
       });
         // Socket.io setup
-       const socket = io('http://192.168.1.11:3030');
+       const socket = io('localhost:3030');
 
        // Init feathers app
        const app = feathers();
@@ -170,17 +210,21 @@
         document.querySelector('#btn-update-activity').addEventListener('click', updateActivity);
 
         async function updateActivity() {
-          let editActivityId        = document.querySelector('#editActivityId');
+          let editActivityId          = document.querySelector('#editActivityId');
           let editActivityName        = document.querySelector('#editActivityName');
           let editActivityDescription = document.querySelector('#editActivityDescription');
+          let editActivityStartDate   = document.querySelector('#editActivityStartDate');
+          let editActivityEndDate     = document.querySelector('#editActivityEndDate');
 
           app.service('activities').update(editActivityId.value, {
               name         : editActivityName.value,
               description  : editActivityDescription.value,
+              start        : editActivityStartDate.value,
+              end          : editActivityEndDate.value,
           });
 
-          $('#btn-update-activity').notify(`${editActivityName.value} successfully update.`, 'success', { position:'left' });
-       }
+          toastr.success(`Successfully update ${editActivityName.value}`, 'Message', {timeOut: 6000});
+        }
 
 
        function editActivityModal(e) {
@@ -189,6 +233,8 @@
           $('#editActivityName').val(activity.name);
           $('#editActivityDescription').val(activity.description);
           $('#editActivityModalTitle').html(`Edit ${activity.name}`);
+          $('#editActivityStartDate').val(activity.start);
+          $('#editActivityEndDate').val(activity.end);
           $('#editActivityModal').modal('toggle');
        }
 

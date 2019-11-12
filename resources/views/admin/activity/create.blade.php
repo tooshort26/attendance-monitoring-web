@@ -1,6 +1,6 @@
 @extends('admin.layouts.dashboard-template')
 @prepend('page-css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css" integrity="sha256-HF310xdxXK7TJqGFC69nzYYGbuxJO6MErjHdlhD2ZBU=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 @endprepend
 @section('title','Add new activity')
 @section('content')
@@ -19,6 +19,32 @@
                 <label>Description</label>
                 <input type="text" id="activityDescription"  required class="form-control" placeholder="Activity Description">
               </div>
+              <div class="col">
+                <label>Start Date & Time</label>
+                  <div class="input-group date" id="startDateTimePicker" data-target-input="nearest">
+                    <input type="text" id="activityStartDate" class="form-control datetimepicker-input" data-target="#startDateTimePicker"/>
+                    <div class="input-group-append" data-target="#startDateTimePicker" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+              </div>
+              <div class="col">
+                <label>End Date & Time</label>
+                  <div class="input-group date" id="endDateTimePicker" data-target-input="nearest">
+                    <input type="text" id="activityEndDate" class="form-control datetimepicker-input" data-target="#endDateTimePicker"/>
+                    <div class="input-group-append" data-target="#endDateTimePicker" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                  </div>
+              </div>
+            {{--   <div class="col">
+                <label>Start Date</label>
+                <input type="text" id="activityStartDate"  required class="form-control">
+              </div>
+              <div class="col">
+                <label>End Date</label>
+                <input type="text" id="activityEndDate"  required class="form-control">
+              </div> --}}
             </div>
             <div class="row">
               <div class="col">
@@ -34,15 +60,17 @@
 </div>
 <canvas id="canvas" width="300" height="300" style="display:none;"></canvas>
 @push('page-scripts')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="https://unpkg.com/@zxing/library@0.15.2/umd/index.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha256-tSRROoGfGWTveRpDHFiWVz+UXt+xKNe90wwGn25lpw8=" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@feathersjs/client@^4.3.0/dist/feathers.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-
-
 <script>
+       // Initialize Datetime picker
+        $('#startDateTimePicker, #endDateTimePicker').datetimepicker({
+            daysOfWeekDisabled: [0, 6]
+        });
+
         // Socket.io setup
-       const socket = io('http://192.168.1.11:3030');
+       const socket = io('localhost:3030');
 
        // Init feathers app
        const app = feathers();
@@ -54,9 +82,10 @@
        const addActivityForm     = document.querySelector('#addActivityForm');
        const activityName        = document.querySelector('#activityName');
        const activityDescription = document.querySelector('#activityDescription');
+       const activityStartDate   = document.querySelector('#activityStartDate');
+       const activityEndDate     = document.querySelector('#activityEndDate');
        const qrCodeContainer     = document.querySelector('#result');
        let qrCode = "";
-
 
        addActivityForm.addEventListener('submit', addActivity);
        document.querySelector('#qrGenerate').addEventListener('click', generateBarcode);
@@ -95,17 +124,21 @@
 
        async function addActivity(e) {
            e.preventDefault();
-
+          
            app.service('activities').create({
               name         : activityName.value,
               description  : activityDescription.value,
+              start        : activityStartDate.value,
+              end          : activityEndDate.value
           });
+
+   
+
+          toastr.success(`Successfully add ${activityName.value}`, 'Message', {timeOut: 6000});
 
           activityName.value = '';
           activityDescription.value = '';
           qrCodeContainer.innerHTML = '';
-
-          $('#add-new-activity').notify('Succesfully add.', 'success', { position:'left' });
        }
 </script>
 @endpush

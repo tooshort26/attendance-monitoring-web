@@ -54,6 +54,14 @@ class ActivityController extends Controller
     }
 
     /**
+     * Attendance id $id
+     */
+    public function attendance($id)
+    {
+        return view('admin.activity.attendance.show', compact('id'));        
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
